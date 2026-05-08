@@ -1,4 +1,6 @@
-# GitHub, Codex, and ChatGPT Source of Truth Setup
+# project-os
+
+GitHub, Codex, and ChatGPT source-of-truth setup.
 
 This repository is the operating hub for John's beginner-friendly setup where each project uses GitHub as the shared source of truth.
 
