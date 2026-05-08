@@ -2,61 +2,80 @@
 
 ## Objective
 
-After PR #3 is reviewed and merged, onboard `C:\Users\JohnKim\Documents\New project` as the first real project source-of-truth repo named `planner-workload-analyzer`.
+Finish connecting `C:\Users\JohnKim\Documents\New project` to GitHub as `BohyungKim/planner-workload-analyzer`.
 
 ## Scope
 
-- Inspect `C:\Users\JohnKim\Documents\New project`.
-- Confirm git branch, commit state, and remote state.
-- Confirm `.env` and local-only files are ignored and not tracked.
-- Add project-level source-of-truth files:
-  - `AGENTS.md`
-  - `state/current_state.md`
-  - `state/current_state.json`
-  - `reports/latest_execution_report.md`
-  - `tasks/next_codex_task.md`
-  - `decisions/decision_log.md`
-- Update README only for repo onboarding clarity if needed.
-- Run tests.
-- Commit on a feature branch.
+- Wait until John creates the empty private GitHub repo:
+  - `https://github.com/BohyungKim/planner-workload-analyzer`
+- In `C:\Users\JohnKim\Documents\New project`, add the GitHub remote as `origin`.
+- Push local `main` to `origin`.
+- Open a PR if applicable.
+- Re-run tests and secret checks before push if any files changed.
+- Update app state/report/task files after push.
+- Update `project-os` registry/status files after the app repo is connected.
+- Open a separate `project-os` registry update PR.
 
 ## Out Of Scope
 
-- Starting before PR #3 is reviewed unless John explicitly asks to proceed in parallel.
-- Creating the GitHub repo without John confirmation.
-- Pushing app code before a remote exists.
+- Creating the GitHub repo automatically unless John explicitly provides an authenticated workflow.
+- Onboarding `heater-batch-selection` before the first app repo is connected.
+- Onboarding `prg-supply-readiness-checker` before the first app repo is connected.
 - Changing application logic.
-- Merging to `main`.
+- Merging any app or `project-os` PR automatically.
 
 ## Files To Inspect
 
-- `README.md`
+In `C:\Users\JohnKim\Documents\New project`:
+
 - `.gitignore`
-- `.env.example`
-- `pyproject.toml`
-- `config/planner_sources.yaml`
-- `src/planner_analyzer/*`
-- `tests/*`
-
-## Files To Modify
-
 - `AGENTS.md`
-- `README.md` if needed
+- `README.md`
 - `state/current_state.md`
 - `state/current_state.json`
 - `reports/latest_execution_report.md`
 - `tasks/next_codex_task.md`
 - `decisions/decision_log.md`
-- `.gitignore` only if secret/local exclusions are incomplete
+- `pyproject.toml`
+- `tests/*`
+
+In `project-os`:
+
+- `docs/project-registry.md`
+- `state/project_registry.json`
+- `docs/repo-onboarding-status.md`
+- `reports/latest_execution_report.md`
+
+## Files To Modify
+
+In `New project` only if needed after remote creation:
+
+- `state/current_state.md`
+- `state/current_state.json`
+- `reports/latest_execution_report.md`
+- `tasks/next_codex_task.md`
+- `decisions/decision_log.md`
+
+In `project-os`:
+
+- `docs/project-registry.md`
+- `state/project_registry.json`
+- `docs/repo-onboarding-status.md`
+- `reports/latest_execution_report.md`
+- `state/current_state.md`
+- `state/current_state.json`
+- `tasks/next_codex_task.md`
+- `decisions/decision_log.md`
 
 ## Acceptance Criteria
 
-- PR #3 has been reviewed or John explicitly chooses to continue before merge.
-- No `.env`, credentials, tokens, API keys, generated data, or reports are tracked.
+- `origin` in `New project` points to `https://github.com/BohyungKim/planner-workload-analyzer.git`.
+- Local `main` is pushed to GitHub.
+- No secrets or local-only files are tracked or pushed.
 - Tests pass.
-- Source-of-truth files exist.
-- The exact GitHub remote needed is reported if no remote exists.
-- No app logic is changed.
+- App source-of-truth files reflect the pushed status.
+- `project-os` registry reflects the connected app repo.
+- No automatic merge is performed.
 
 ## Validation Command
 
@@ -64,14 +83,18 @@ After PR #3 is reviewed and merged, onboard `C:\Users\JohnKim\Documents\New proj
 git status --short --branch
 git remote -v
 python -m pytest
+Get-Content state/current_state.json | ConvertFrom-Json
+git diff --check
 ```
 
 ## Report-Back Format
 
-- project name
+- app project repo status
 - branch name
-- git remote status
-- changed files
+- remote URL
 - test result
-- whether it is ready to publish to GitHub
-- exact next step for John
+- changed files
+- whether GitHub repo creation is still needed from John
+- app PR link if created
+- project-os registry update PR link if created
+- next project to onboard

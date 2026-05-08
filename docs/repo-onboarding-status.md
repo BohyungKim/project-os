@@ -1,13 +1,13 @@
 # Repo Onboarding Status
 
-Updated: 2026-05-08 19:36 -04:00
+Updated: 2026-05-08 19:56 -04:00
 
 ## Summary
 
 | Priority | Project | Recommended GitHub Repo | Onboarding Status | Blocker | Next Action |
 | ---: | --- | --- | --- | --- | --- |
-| 0 | project-os | `BohyungKim/project-os` | Established | Registry PR needs review | Review this PR and merge if acceptable |
-| 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Ready for repo onboarding | GitHub repo not created/connected | Create/connect private repo, then add project source-of-truth files |
+| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #3 is merged | Review this planner onboarding status PR |
+| 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Local baseline prepared | GitHub repo not found/connected | John creates empty private repo, then Codex adds origin and pushes `main` |
 | 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Ready after planner onboarding | GitHub repo not created/connected; browser automation safety review needed | Onboard after planner project |
 | 3 | prg-supply-readiness-checker | `BohyungKim/prg-supply-readiness-checker` | Docs-first candidate | No code/tests yet | Add source-of-truth files, then sample data and validation tests |
 | N/A | project-os legacy sync workspace | None | Do not onboard | Duplicate project-os workspace | Archive after John confirmation |
@@ -18,9 +18,33 @@ Updated: 2026-05-08 19:36 -04:00
 
 Reason:
 - It is a real app/code project.
-- It already has `src/`, `tests/`, config, and README.
+- It already has `src/`, `tests/`, config, README, and source-of-truth status files.
 - `python -m pytest` passed 7 tests.
+- Local baseline commit is `749ade2 docs: add source-of-truth onboarding files`.
 - It has lower operational risk than the browser-assisted heater batch project.
+
+Current blocker:
+- `git ls-remote https://github.com/BohyungKim/planner-workload-analyzer.git` returned repository not found.
+- No app code was pushed.
+
+John action required:
+- Create an empty private GitHub repo at `https://github.com/BohyungKim/planner-workload-analyzer`.
+- Use Owner `BohyungKim`.
+- Use Repository name `planner-workload-analyzer`.
+- Do not initialize with README, `.gitignore`, or license.
+
+Then ask Codex:
+
+```text
+I created the GitHub repo:
+https://github.com/BohyungKim/planner-workload-analyzer.git
+
+Continue from C:\Users\JohnKim\Documents\New project.
+Add this remote as origin, push main, and open a PR if applicable.
+Do not merge.
+After pushing, update the project-os registry files and open a separate project-os PR.
+Before finishing, update the state/report/task files so ChatGPT can understand the latest project status from GitHub without reading the entire codebase.
+```
 
 ## Exact Next Prompt For First App Repo
 

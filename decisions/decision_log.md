@@ -85,3 +85,22 @@ Status:
 
 Risk:
 - If future work puts app code directly into `project-os`, the central registry could become noisy and less useful.
+
+## 2026-05-08 - Stop Planner Onboarding Until GitHub Repo Exists
+
+Decision:
+- Prepare `planner-workload-analyzer` locally, but do not push app code until John creates the target GitHub repo.
+
+Rationale:
+- The requested target remote `https://github.com/BohyungKim/planner-workload-analyzer.git` returned repository not found.
+- John instructed Codex to stop and report the exact repo URL needed if the GitHub repo does not exist.
+- The local app baseline is already committed on `main` as `749ade2 docs: add source-of-truth onboarding files`.
+
+Status:
+- Accepted.
+- `New project` is locally prepared as the first app source-of-truth repo candidate.
+- No app code has been pushed.
+- `project-os` registry is being updated to record the blocker.
+
+Risk:
+- Starting the second and third project onboarding before this repo is connected could create confusing partial status across multiple local folders.

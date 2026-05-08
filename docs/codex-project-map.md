@@ -1,6 +1,6 @@
 # Codex Project Map
 
-Updated: 2026-05-08 19:36 -04:00
+Updated: 2026-05-08 19:56 -04:00
 
 ## Control Tower Layout
 
@@ -13,8 +13,10 @@ BohyungKim/project-os
   status/report/task conventions
 
 BohyungKim/planner-workload-analyzer
-  future real app repo
+  first real app repo target
   current local folder: C:\Users\JohnKim\Documents\New project
+  local baseline commit: 749ade2
+  GitHub repo status: not found / needs John creation
 
 BohyungKim/heater-batch-selection
   future real app repo
@@ -43,17 +45,22 @@ ChatGPT entry point:
 ### planner-workload-analyzer
 
 Role:
-- First recommended real project repo to onboard.
+- First real project repo currently being onboarded.
 - Read-only Microsoft Planner workload analyzer.
 
-Why first:
+Current status:
 - Clear Python package.
 - Existing README.
 - Existing `.gitignore`.
-- Tests pass.
+- Source-of-truth files added locally.
+- Tests pass: 7 passed.
+- Local commit created: `749ade2 docs: add source-of-truth onboarding files`.
+- Target GitHub repo is not available yet.
+
+Why first:
 - Lower operational risk than browser-assisted workflows.
 
-Expected future repo:
+Expected repo:
 - `BohyungKim/planner-workload-analyzer`
 
 ### heater-batch-selection

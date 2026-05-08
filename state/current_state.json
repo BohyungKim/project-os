@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-05-08T19:39:00-04:00",
+  "updated_at": "2026-05-08T19:56:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "Central project registry setup",
-  "branch": "codex/central-project-registry",
+  "current_phase": "First app repo onboarding, blocked on GitHub repo creation",
+  "branch": "codex/planner-onboarding-status",
   "base_branch": "main",
   "remote": {
     "origin_configured": true,
@@ -11,78 +11,52 @@
     "push_possible": true
   },
   "pull_request": {
-    "created": true,
-    "number": 3,
-    "url": "https://github.com/BohyungKim/project-os/pull/3",
-    "state": "open",
-    "draft": true,
+    "created": false,
+    "url": null,
+    "state": "not opened yet",
+    "draft": null,
     "base": "main",
-    "head": "codex/central-project-registry"
+    "head": "codex/planner-onboarding-status"
   },
   "confirmed": [
-    "PR #2 was reviewed as an operating/status structure PR and merged into main.",
-    "project-os main now contains the source-of-truth continuity foundation.",
-    "Current work is on feature branch codex/central-project-registry.",
-    "Draft PR #3 is open at https://github.com/BohyungKim/project-os/pull/3.",
-    "Five local git project folders were detected.",
-    "New project is planner-workload-analyzer and has 7 passing tests.",
-    "New project 2 is heater-batch-selection and has 9 passing tests.",
-    "New project 3 is prg-supply-readiness-checker and is planning/docs-only.",
-    "agents-md-role-you-are-working is a legacy project-os sync workspace and should not become a separate repo."
+    "PR #3 for the central registry structure is merged into main.",
+    "Current project-os branch is codex/planner-onboarding-status.",
+    "First app project folder is C:\\Users\\JohnKim\\Documents\\New project.",
+    "First app target repo is BohyungKim/planner-workload-analyzer.",
+    "New project branch was renamed to main because it had no previous commits.",
+    "New project local onboarding baseline commit is 749ade2 docs: add source-of-truth onboarding files.",
+    "New project has no GitHub remote configured.",
+    "Target GitHub repo https://github.com/BohyungKim/planner-workload-analyzer.git was not found.",
+    "No app code was pushed to GitHub.",
+    ".env and local-only files were checked before commit and are excluded from git.",
+    "python -m pytest passed 7 tests in New project."
   ],
   "changed": [
-    "Replaced docs/project-registry.md with central registry content.",
-    "Added state/project_registry.json.",
-    "Added docs/codex-project-map.md.",
-    "Added docs/repo-onboarding-status.md.",
-    "Updated current state/report/task/decision files for the registry phase.",
-    "Committed and pushed registry branch.",
-    "Opened draft PR #3 against main."
+    "Added app source-of-truth files to New project.",
+    "Improved New project .gitignore for secret/local-only/generated file exclusions.",
+    "Updated New project README.md with onboarding clarity.",
+    "Committed local app baseline.",
+    "Updated project-os registry/status files to record the app onboarding result and GitHub repo blocker."
   ],
-  "detected_projects": [
-    {
-      "project_name": "project-os",
-      "recommended_repo_name": "project-os",
-      "classification": "operating/status repo",
-      "source_of_truth_status": "established"
-    },
-    {
-      "project_name": "planner-workload-analyzer",
-      "recommended_repo_name": "planner-workload-analyzer",
-      "classification": "real app/code project",
-      "source_of_truth_status": "not yet established",
-      "test_result": "7 passed"
-    },
-    {
-      "project_name": "heater-batch-selection",
-      "recommended_repo_name": "heater-batch-selection",
-      "classification": "real app/code project",
-      "source_of_truth_status": "not yet established",
-      "test_result": "9 passed"
-    },
-    {
-      "project_name": "prg-supply-readiness-checker",
-      "recommended_repo_name": "prg-supply-readiness-checker",
-      "classification": "documentation/design project",
-      "source_of_truth_status": "not yet established",
-      "test_result": "not available"
-    },
-    {
-      "project_name": "project-os legacy sync workspace",
-      "recommended_repo_name": null,
-      "classification": "operating/status repo",
-      "source_of_truth_status": "legacy workspace; do not onboard separately"
-    }
-  ],
-  "recommended_first_project_to_onboard": "planner-workload-analyzer",
+  "app_onboarding": {
+    "project_name": "planner-workload-analyzer",
+    "local_folder": "C:\\Users\\JohnKim\\Documents\\New project",
+    "branch": "main",
+    "latest_local_commit": "749ade2 docs: add source-of-truth onboarding files",
+    "target_remote_url": "https://github.com/BohyungKim/planner-workload-analyzer.git",
+    "remote_configured": false,
+    "github_repo_exists_or_accessible": false,
+    "repo_creation_needed_from_john": true,
+    "test_result": "python -m pytest: 7 passed"
+  },
   "still_incomplete": [
-    "PR #3 needs John/ChatGPT review before merge.",
-    "John should review final recommended repo names before creating app repos.",
-    "Actual app repos have not been created or connected yet."
+    "John must create empty private GitHub repo BohyungKim/planner-workload-analyzer.",
+    "After repo creation, Codex must add origin, push main, and open a PR if applicable.",
+    "heater-batch-selection and prg-supply-readiness-checker onboarding have not started yet."
   ],
   "uncertain": [
-    "Whether placeholder local folder names New project, New project 2, and New project 3 should be renamed locally.",
-    "Whether the legacy project-os sync workspace can be archived."
+    "Whether John wants the local folder name New project renamed after remote repo connection.",
+    "Whether GitHub repo creation should be done manually in the browser or through a future authenticated GitHub workflow."
   ],
   "validation": {
     "commands_run": [
@@ -91,23 +65,19 @@
         "result": "7 passed"
       },
       {
-        "command": "python -m pytest in C:\\Users\\JohnKim\\Documents\\New project 2",
-        "result": "9 passed"
+        "command": "secret tracked scan in C:\\Users\\JohnKim\\Documents\\New project",
+        "result": "0 tracked secret/local-only files found"
       },
       {
-        "command": "git status/remote/log checks across detected git folders",
-        "result": "Project git and remote states recorded in registry."
+        "command": "git check-ignore -v .env .env.local data/raw/file.json reports/workload_report.md .cache/token.bin",
+        "result": "Expected local-only paths are ignored"
       },
       {
-        "command": "git push -u origin codex/central-project-registry",
-        "result": "Succeeded."
-      },
-      {
-        "command": "GitHub create pull request",
-        "result": "Draft PR #3 opened at https://github.com/BohyungKim/project-os/pull/3."
+        "command": "git ls-remote https://github.com/BohyungKim/planner-workload-analyzer.git",
+        "result": "Repository not found"
       }
     ],
-    "application_tests": "No project-os app tests; app candidate tests were run where available."
+    "application_tests": "New project passed 7 tests."
   },
   "john_review_required": true
 }

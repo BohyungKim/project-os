@@ -1,6 +1,6 @@
 # Current State
 
-Updated at: 2026-05-08 19:39 America/Toronto
+Updated at: 2026-05-08 19:56 America/Toronto
 
 ## Project Case
 
@@ -8,65 +8,70 @@ Case 3 - Codex Continuation Sync.
 
 ## Current Phase
 
-Central project registry setup.
+First app repo onboarding, blocked on GitHub repo creation.
 
 ## Confirmed
 
-- PR #2 was reviewed as an operating/status structure PR and merged into `main`.
-- `project-os` main now contains the source-of-truth continuity foundation.
-- Current branch: `codex/central-project-registry`.
-- Remote: `https://github.com/BohyungKim/project-os.git`.
-- Draft PR #3 is open: `https://github.com/BohyungKim/project-os/pull/3`.
-- Five local git project folders were detected:
-  - `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of`
-  - `C:\Users\JohnKim\Documents\New project`
-  - `C:\Users\JohnKim\Documents\New project 2`
-  - `C:\Users\JohnKim\Documents\New project 3`
-  - `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working`
-- `New project` is `planner-workload-analyzer`; `python -m pytest` passed 7 tests.
-- `New project 2` is `heater-batch-selection`; `python -m pytest` passed 9 tests.
-- `New project 3` is `prg-supply-readiness-checker`; it is planning/docs-only with no tests yet.
-- `agents-md-role-you-are-working` is a legacy `project-os` sync workspace and should not become a separate repo.
+- PR #3 for the central registry structure is merged into `main`.
+- Current `project-os` branch: `codex/planner-onboarding-status`.
+- `project-os` remote: `https://github.com/BohyungKim/project-os.git`.
+- First app project folder: `C:\Users\JohnKim\Documents\New project`.
+- First app target repo: `BohyungKim/planner-workload-analyzer`.
+- `New project` branch was safely renamed to `main` because it had no previous commits.
+- `New project` now has a local onboarding baseline commit: `749ade2 docs: add source-of-truth onboarding files`.
+- `New project` has no GitHub remote configured.
+- `git ls-remote https://github.com/BohyungKim/planner-workload-analyzer.git` returned repository not found.
+- No app code was pushed to GitHub.
+- `.env` and local-only files were checked before the app commit and are excluded from git.
+- `python -m pytest` passed 7 tests in `New project`.
 
 ## Changed
 
-- Replaced `docs/project-registry.md` with central registry content.
-- Added `state/project_registry.json`.
-- Added `docs/codex-project-map.md`.
-- Added `docs/repo-onboarding-status.md`.
-- Updated current state, report, task, and decision files for the registry phase.
-- Committed and pushed registry branch.
-- Opened draft PR #3 against `main`.
+- Added project-level source-of-truth files to `New project`:
+  - `AGENTS.md`
+  - `state/current_state.md`
+  - `state/current_state.json`
+  - `reports/latest_execution_report.md`
+  - `tasks/next_codex_task.md`
+  - `decisions/decision_log.md`
+- Improved `New project/.gitignore` for secret, local-only, generated data, and generated report exclusions.
+- Updated `New project/README.md` with run/test/folder/limitation/next-action sections.
+- Committed the local app baseline.
+- Updated `project-os` registry/status files to record the app onboarding result and GitHub repo blocker.
 
 ## Still Incomplete
 
-- PR #3 needs John/ChatGPT review before merge.
-- John should review final recommended repo names before creating app repos.
-- Actual app repos have not been created or connected yet.
+- John must create the empty private GitHub repo `BohyungKim/planner-workload-analyzer`.
+- After the repo exists, Codex still needs to add it as `origin`, push `main`, and open a PR if applicable.
+- `heater-batch-selection` and `prg-supply-readiness-checker` onboarding have not started yet.
 
 ## Uncertain
 
-- Whether placeholder local folder names `New project`, `New project 2`, and `New project 3` should be renamed locally.
-- Whether the legacy `agents-md-role-you-are-working` workspace can be archived.
+- Whether John wants the local folder name `New project` renamed after the remote repo is connected.
+- Whether GitHub repo creation should be done manually in the browser or through a future authenticated GitHub workflow.
 
 ## Validation Evidence
 
 Commands run:
 
 ```powershell
-python -m pytest  # in C:\Users\JohnKim\Documents\New project
-python -m pytest  # in C:\Users\JohnKim\Documents\New project 2
 git status --short --branch
 git remote -v
-git log -1 --oneline
+git ls-remote https://github.com/BohyungKim/planner-workload-analyzer.git
+python -m pytest
+Get-Content state/current_state.json | ConvertFrom-Json
+git diff --check
+git check-ignore -v .env .env.local data/raw/file.json reports/workload_report.md .cache/token.bin
 ```
 
 Results:
-- `planner-workload-analyzer`: 7 tests passed.
-- `heater-batch-selection`: 9 tests passed.
-- `project-os`: no app test suite; registry/status files will be validated with JSON parse and `git diff --check` before commit.
-- `state/current_state.json` and `state/project_registry.json` parsed successfully before the first registry commit.
+- `New project`: 7 tests passed.
+- `New project`: secret tracked scan found 0 tracked secret/local-only files.
+- `New project`: ignore checks confirmed `.env`, `.env.local`, `data/`, generated `reports/`, and `.cache/` are ignored.
+- `New project`: `state/current_state.json` parsed successfully.
+- `New project`: `git diff --check` passed.
+- Target GitHub repo is not available yet.
 
 ## Current Risk
 
-This registry intentionally does not create or push app repos yet. The main risk is incorrect naming/mapping if John wants different final repo names.
+The first app project is locally prepared, but it is not a GitHub source of truth until John creates `BohyungKim/planner-workload-analyzer` and Codex pushes the baseline.
