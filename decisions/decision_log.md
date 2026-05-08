@@ -50,3 +50,19 @@ Status:
 
 Risk:
 - The repo may be private and the current shell credential may not have access, or the URL/owner may need to be rechecked in GitHub.
+
+## 2026-05-08 - Correct Origin To BohyungKim/project-os
+
+Decision:
+- Replace the incorrect `johnkim4865/project-os` remote with `https://github.com/BohyungKim/project-os.git`.
+
+Rationale:
+- John clarified that the previous remote URL was wrong and provided the correct private repo URL.
+
+Status:
+- Accepted and applied locally.
+- Branch `codex/source-of-truth-status-setup` pushed successfully.
+- Draft PR #2 opened against `main`: `https://github.com/BohyungKim/project-os/pull/2`.
+
+Risk:
+- The branch initially had no history in common with remote `main`, so `origin/main` was merged into the feature branch to make the PR possible. This did not merge anything into `main`.

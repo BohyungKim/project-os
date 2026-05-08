@@ -2,7 +2,7 @@
 
 Date: 2026-05-08
 Branch: `codex/source-of-truth-status-setup`
-Commit message: `docs: record project-os remote push result`
+Commit message: `docs: record project-os PR creation`
 
 ## What Changed
 
@@ -27,14 +27,21 @@ Commit message: `docs: record project-os remote push result`
 - Attempted to push the branch again; GitHub returned `Repository not found`.
 - Confirmed `git ls-remote origin` also fails with `Repository not found`.
 - Confirmed `gh` CLI is not installed, so PR automation is unavailable from this shell.
+- Corrected `origin` to `https://github.com/BohyungKim/project-os.git`.
+- Pushed `codex/source-of-truth-status-setup` to `origin`.
+- Initial PR creation failed because the branch had no common history with remote `main`.
+- Fetched `origin/main` and merged it into the feature branch only.
+- Resolved the README conflict by preserving the source-of-truth README content under the `project-os` title.
+- Pushed the PR-compatible branch update.
+- Opened draft PR #2: `https://github.com/BohyungKim/project-os/pull/2`.
+- Compared `main` to `codex/source-of-truth-status-setup`; after initial PR creation the branch was ahead by 10 commits and behind by 0. This status update adds one more commit.
 
 ## What Did Not Change
 
 - No application logic was changed.
 - No project folder outside this repo was modified.
 - No merge to `main` was performed.
-- No push completed because the configured private GitHub repo is inaccessible from this shell.
-- No PR was opened because the branch does not exist on GitHub.
+- No merge to `main` was performed.
 
 ## Validation Results
 
@@ -60,15 +67,19 @@ Results:
 - After adding `origin`, `git push -u origin codex/source-of-truth-status-setup` failed with `remote: Repository not found.`
 - `git ls-remote origin` failed with `Repository not found.`
 - `gh --version` failed because `gh` is not installed.
+- `git remote -v` confirmed `origin` is now `https://github.com/BohyungKim/project-os.git`.
+- `git push -u origin codex/source-of-truth-status-setup` succeeded.
+- GitHub draft PR #2 was opened successfully.
+- GitHub compare returned ahead by 10 commits, behind by 0, and 16 changed files before this final status update commit.
 
 Application tests:
 - Not applicable; this repo has no application test suite.
 
 ## Risks
 
-- The branch cannot be pushed until this shell is authenticated with access to `johnkim4865/project-os`.
-- No PR can be created until the branch is pushed.
-- If the URL is correct, John needs to authenticate Git/GitHub Desktop/credential manager for the `johnkim4865` private repo.
+- GitHub connector reported PR #2 `mergeable=false` at creation time; review the PR page before merge.
+- This is a broad first PR for operating docs and status structure, so ChatGPT review is important.
+- The branch includes a merge commit from remote `main` into the feature branch to repair unrelated history. `main` itself was not changed.
 
 ## What ChatGPT Should Review Next
 
@@ -77,3 +88,4 @@ Application tests:
 - Whether `tasks/next_codex_task.md` is specific enough for the next execution step.
 - Whether this operating repo should remain separate or be merged into `project-os`.
 - Whether the local setup branch should be pushed after GitHub access is fixed, then reviewed as a PR against `main`.
+- Review draft PR #2: `https://github.com/BohyungKim/project-os/pull/2`.

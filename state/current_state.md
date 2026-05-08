@@ -1,6 +1,6 @@
 # Current State
 
-Updated at: 2026-05-08 19:15 America/Toronto
+Updated at: 2026-05-08 19:23 America/Toronto
 
 ## Project Case
 
@@ -8,14 +8,18 @@ Case 3 - Codex Continuation Sync.
 
 ## Current Phase
 
-Source-of-truth continuity setup for ChatGPT and Codex.
+PR review preparation for ChatGPT and Codex source-of-truth continuity setup.
 
 ## Confirmed
 
 - Current branch for this work: `codex/source-of-truth-status-setup`.
 - Base branch before this task: `main`.
 - Latest base commit before this task: `690711d docs: refresh status after structure intake`.
-- GitHub remote `origin` is configured as `https://github.com/johnkim4865/project-os.git`.
+- Previous incorrect remote was `https://github.com/johnkim4865/project-os.git`.
+- GitHub remote `origin` is now configured as `https://github.com/BohyungKim/project-os.git`.
+- `codex/source-of-truth-status-setup` has been pushed to `origin`.
+- Draft PR #2 is open: `https://github.com/BohyungKim/project-os/pull/2`.
+- Compare metadata after initial PR creation showed the branch ahead of `main` by 10 commits and behind by 0; this status update adds one more commit.
 - No `.gitignore` existed before this task.
 - No tracked files matching obvious `.env`, secret, credential, token, or key file patterns were found before adding `.gitignore`.
 - This repo contains operating/status documentation, not application logic.
@@ -34,24 +38,25 @@ Source-of-truth continuity setup for ChatGPT and Codex.
   - `decisions/decision_log.md`
 - Created local setup commit `c6f983c docs: set up source-of-truth continuity files`.
 - Attempted to push `codex/source-of-truth-status-setup` before remote setup; push failed because `origin` was not configured.
-- Added `origin` as `https://github.com/johnkim4865/project-os.git`.
-- Confirmed `git remote -v` shows the requested remote URL for fetch and push.
-- Attempted to push again; GitHub returned `Repository not found`.
-- Confirmed `git ls-remote origin` also returns `Repository not found`.
-- Confirmed `gh` CLI is not installed, so PR automation is not available from this shell.
+- Corrected `origin` to `https://github.com/BohyungKim/project-os.git`.
+- Confirmed `git remote -v` shows the corrected remote URL for fetch and push.
+- Pushed `codex/source-of-truth-status-setup` to `origin`.
+- Initial PR creation failed because the branch had no history in common with remote `main`.
+- Fetched `origin/main` and merged it into the feature branch with `--allow-unrelated-histories`; this did not merge into `main`.
+- Resolved the README conflict by keeping the `project-os` title and preserving the source-of-truth setup documentation.
+- Pushed the PR-compatible branch update.
+- Opened draft PR #2 against `main`.
 
 ## Still Incomplete
 
-- GitHub remote is configured, but this environment cannot access the private repo.
-- The current branch has not been pushed.
-- No pull request can be opened until the branch exists on GitHub.
-- John still needs to confirm this machine/session has access to `johnkim4865/project-os`.
-- ChatGPT GitHub connector access still needs to be verified after the remote exists.
+- John and ChatGPT still need to review PR #2.
+- PR #2 is draft and should not be merged until review is complete.
+- GitHub connector reported `mergeable=false` at creation time; review the PR page before merge.
 
 ## Uncertain
 
-- Whether the GitHub credential available to this shell is authenticated as an account with access to `johnkim4865/project-os`.
 - Whether John wants this operating repo separate from `project-os` or merged into it later.
+- Whether PR #2 needs further cleanup after ChatGPT review.
 
 ## Validation Evidence
 
@@ -75,7 +80,12 @@ Push attempt:
 - `git push -u origin codex/source-of-truth-status-setup` failed with: `fatal: 'origin' does not appear to be a git repository`.
 - After adding `origin`, `git push -u origin codex/source-of-truth-status-setup` failed with: `remote: Repository not found.`
 - `git ls-remote origin` failed with the same `Repository not found` response.
+- After correcting `origin` to `https://github.com/BohyungKim/project-os.git`, `git push -u origin codex/source-of-truth-status-setup` succeeded.
+- GitHub PR creation succeeded after aligning the feature branch with `origin/main`.
+
+PR:
+- `https://github.com/BohyungKim/project-os/pull/2`
 
 ## Current Risk
 
-The local setup is committed and `origin` is configured, but the requested push cannot complete until GitHub access/authentication for `johnkim4865/project-os` is available in this environment.
+PR #2 changes source-of-truth operating docs only, but it is broad for a first PR because it adds the continuity file structure, generated status docs, and project intake notes. ChatGPT should review before merge.

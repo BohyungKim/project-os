@@ -2,16 +2,15 @@
 
 ## Objective
 
-Fix GitHub access for `johnkim4865/project-os`, then push this operating branch and prepare a PR.
+Support John and ChatGPT review of draft PR #2.
 
 ## Scope
 
-- Confirm John can access `https://github.com/johnkim4865/project-os`.
-- Confirm this shell/Git credential manager is authenticated with an account that has access to that private repo.
-- Keep `origin` as `https://github.com/johnkim4865/project-os.git`.
-- Push `codex/source-of-truth-status-setup` after access is fixed.
-- Open a pull request against `main` if PR tooling is available.
-- Update state/report/task files after the push attempt.
+- Review feedback on `https://github.com/BohyungKim/project-os/pull/2`.
+- Make small documentation/status-structure adjustments if requested.
+- Keep changes on `codex/source-of-truth-status-setup`.
+- Do not merge to `main`.
+- Update state/report/task/decision files after any follow-up.
 
 ## Out Of Scope
 
@@ -19,6 +18,7 @@ Fix GitHub access for `johnkim4865/project-os`, then push this operating branch 
 - Changing application logic.
 - Publishing unrelated local project folders.
 - Moving this repo into `project-os` without John approval.
+- Force-pushing or rewriting PR history unless John explicitly asks.
 
 ## Files To Inspect
 
@@ -41,9 +41,8 @@ Fix GitHub access for `johnkim4865/project-os`, then push this operating branch 
 
 ## Acceptance Criteria
 
-- `git remote -v` shows `https://github.com/johnkim4865/project-os.git` as `origin`.
-- `git push -u origin codex/source-of-truth-status-setup` succeeds.
-- A PR exists or the exact PR creation blocker is documented.
+- Draft PR #2 remains open and reviewable.
+- Any requested adjustments are committed and pushed.
 - State/report/task files are updated with the verified result.
 - `main` is not merged or modified directly.
 
@@ -53,7 +52,6 @@ Fix GitHub access for `johnkim4865/project-os`, then push this operating branch 
 git status --short --branch
 git remote -v
 git log --oneline -1
-git ls-remote origin
 ```
 
 ## Report-Back Format
