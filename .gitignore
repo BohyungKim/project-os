@@ -1,0 +1,39 @@
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.pfx
+*.p12
+*.key
+*secret*
+*secrets*
+*credential*
+*credentials*
+*token*
+*tokens*
+
+# Local caches and virtual environments
+.cache/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+node_modules/
+
+# Local-only outputs
+.local/
+tmp/
+temp/
+logs/
+*.log
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

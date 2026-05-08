@@ -2,6 +2,19 @@
 
 This repository is the operating hub for John's beginner-friendly setup where each project uses GitHub as the shared source of truth.
 
+## Project Purpose
+
+This repo is not an application runtime. It is the source-of-truth setup and status hub that helps John, ChatGPT, and Codex stay aligned across project work.
+
+It records:
+
+- how GitHub should be used as the stable reference point
+- which local project folders have been discovered
+- what each project appears to contain
+- what is confirmed, incomplete, or risky
+- what Codex should do next
+- what John must review before publishing or merging
+
 ## Final Structure
 
 ```text
@@ -124,8 +137,46 @@ Night:
 - No automatic source code edits at first.
 - Generate reports or draft docs only.
 
+## How To Run
+
+Refresh the generated repo status snapshot:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
+```
+
+Review the current source-of-truth files:
+
+```powershell
+Get-Content state/current_state.md
+Get-Content reports/latest_execution_report.md
+Get-Content tasks/next_codex_task.md
+```
+
+## How To Test
+
+This repo currently has no application test suite. Use these checks for the source-of-truth setup:
+
+```powershell
+git status --short --branch
+git diff --check
+powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
+Get-Content state/current_state.json | ConvertFrom-Json
+```
+
+For discovered project folders, run their project-specific tests. For example:
+
+```powershell
+python -m pytest
+```
+
 ## Status Files
 
+- `state/current_state.md`: human-readable current project state.
+- `state/current_state.json`: machine-readable current project state.
+- `reports/latest_execution_report.md`: latest Codex execution report.
+- `tasks/next_codex_task.md`: next recommended Codex task.
+- `decisions/decision_log.md`: decisions that affect future work.
 - `docs/today-checklist-status.md`: today's setup checklist and evidence.
 - `docs/project-registry.md`: discovered local project folders and Git/GitHub state.
 - `docs/project-structure-intake.md`: actual structure summaries for discovered local project folders.
@@ -137,3 +188,21 @@ Refresh generated status:
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
 ```
+
+## Main Folders
+
+- `state/`: current state for ChatGPT and Codex.
+- `reports/`: latest execution report.
+- `tasks/`: next Codex task definition.
+- `decisions/`: decision history.
+- `docs/`: checklist, registry, structure intake, Notion update, and generated status snapshots.
+- `scripts/`: local status refresh scripts.
+- `templates/`: reusable templates for project repos.
+
+## Current Limitations
+
+- No GitHub remote is configured for this repo yet.
+- The branch can be committed locally, but cannot be pushed until John creates or connects a GitHub repo.
+- This repo tracks operating docs only; it does not contain application source code.
+- Discovered local project folders still need John mapping to final GitHub repo names.
+- ChatGPT GitHub connector access still needs to be verified after the GitHub repo exists.

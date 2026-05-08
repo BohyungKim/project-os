@@ -117,6 +117,16 @@ When this operating repo is used, refresh:
 powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
 ```
 
+Before finishing every future Codex task, update these continuity files so ChatGPT and Codex can both read the same current status from the repo:
+
+- `state/current_state.md`
+- `state/current_state.json`
+- `reports/latest_execution_report.md`
+- `tasks/next_codex_task.md`
+- `decisions/decision_log.md` when a decision was made or changed
+
+Every update must separate confirmed facts from assumptions, include validation evidence, and clearly say what still needs John review.
+
 Commit/push source-of-truth updates only after verifying the files changed intentionally.
 
 ## Communication Rules
