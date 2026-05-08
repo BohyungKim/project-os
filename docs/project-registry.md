@@ -11,7 +11,9 @@ This registry tracks local project folders that may need GitHub source-of-truth 
 | Local path | `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of` |
 | Purpose | Operating guide/status hub for GitHub-Codex-ChatGPT source-of-truth setup |
 | Git status at start | Not a git repository |
-| Required action | Initialize git, commit setup docs, create private GitHub repo, push `main` |
+| Current local state | Git initialized on `main`; setup docs committed locally |
+| Remote state | No GitHub remote configured yet |
+| Required action | Create private GitHub repo, add `origin`, push `main` |
 
 ## Discovered Local Git Folders
 

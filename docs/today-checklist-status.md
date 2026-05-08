@@ -28,12 +28,15 @@ Confirmed:
 - Notion access is available.
 - Existing local git folders were discovered.
 - The current operating folder was not a git repo at task start.
+- The current operating folder has now been initialized as a local git repo on `main`.
+- Initial source-of-truth docs have been committed locally.
 
 Incomplete:
 - GitHub private repos still need to be created.
 - Local projects need remotes.
 - Existing local projects need first commits and branch normalization from `master` to `main`.
 - ChatGPT GitHub connector access must be verified from ChatGPT.
+- This operating repo still needs a GitHub remote and push.
 
 Uncertain:
 - Which discovered folders map to John's named projects.

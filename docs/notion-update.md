@@ -26,6 +26,8 @@ Changed:
 - Created project registry.
 - Created real-time repo status generation script.
 - Created nightly automation prompt.
+- Initialized this operating folder as a local git repo on `main`.
+- Created local commits for the operating guide and repo status snapshot.
 
 Still incomplete:
 - Private GitHub repos need to be created or confirmed by John.
@@ -33,6 +35,7 @@ Still incomplete:
 - Local project branches need to be normalized to `main` after first commit.
 - Remotes need to be added.
 - ChatGPT GitHub connector access must be tested from ChatGPT.
+- This operating repo still needs a private GitHub remote and push.
 
 Uncertain:
 - Which local folders correspond to `bom-console`, `epicor-chatbot`, `job-bom-comparator`, `transaction-analysis-system`, and `john-executive-assistant-v1`.
