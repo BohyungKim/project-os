@@ -22,7 +22,16 @@ This registry tracks local project folders that may need GitHub source-of-truth 
 | `C:\Users\JohnKim\Documents\New project` | `master` | None found | No commits yet | Python project with `pyproject.toml`, `src/`, `tests/`, `.env`, `.env.example`. Needs `.env` safety review before first commit. |
 | `C:\Users\JohnKim\Documents\New project 2` | `master` | None found | No commits yet | Git folder exists, but no visible project files were found in the first scan. Needs intake before publishing. |
 | `C:\Users\JohnKim\Documents\New project 3` | `master` | None found | No commits yet | Contains `README.md` and `docs/SUPPLY_READINESS_CHECKER_SYSTEM_PLAN.md`. Needs project name mapping. |
-| `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working` | `docs/agents-guidelines-sync` | Not confirmed in registry scan | Latest commit: `2cd4c91 docs(agents): integrate project operating rules` | Existing Codex work repo. Needs owner decision before inclusion. |
+| `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working` | `docs/agents-guidelines-sync-mainbase` | `https://github.com/BohyungKim/project-os.git` | Latest commit: `2c940d6 docs(state): record pull request and notion update` | Existing Codex work repo for project operating rules. PR #1 needs John review before merge. |
+
+## Structure Intake Summary
+
+Detailed notes are in `docs/project-structure-intake.md`.
+
+- `C:\Users\JohnKim\Documents\New project`: inferred as Microsoft Planner Workload Analyzer MVP. It has a runnable Python package, CLI entry point, config, tests, and report generation. `python -m pytest` passed with 7 tests.
+- `C:\Users\JohnKim\Documents\New project 2`: no visible project files outside `.git`.
+- `C:\Users\JohnKim\Documents\New project 3`: inferred as PRG Supply Readiness Checker. It is a docs-first architecture planning repo with no implementation or tests yet.
+- `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working`: inferred as the `project-os` operating rules workspace connected to GitHub.
 
 ## John Mapping Needed
 

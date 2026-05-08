@@ -28,6 +28,11 @@ Changed:
 - Created nightly automation prompt.
 - Initialized this operating folder as a local git repo on `main`.
 - Created local commits for the operating guide and repo status snapshot.
+- Added structure intake for the discovered local project folders.
+- Confirmed `C:\Users\JohnKim\Documents\New project` is a runnable Microsoft Planner Workload Analyzer Python MVP with 7 passing tests.
+- Confirmed `C:\Users\JohnKim\Documents\New project 3` is a docs-first PRG Supply Readiness Checker planning repo.
+- Confirmed `C:\Users\JohnKim\Documents\New project 2` has no visible project files outside `.git`.
+- Confirmed `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working` is a GitHub-connected `project-os` operating rules workspace.
 
 Still incomplete:
 - Private GitHub repos need to be created or confirmed by John.
@@ -36,6 +41,7 @@ Still incomplete:
 - Remotes need to be added.
 - ChatGPT GitHub connector access must be tested from ChatGPT.
 - This operating repo still needs a private GitHub remote and push.
+- John still needs to map friendly folder names to final GitHub repo names.
 
 Uncertain:
 - Which local folders correspond to `bom-console`, `epicor-chatbot`, `job-bom-comparator`, `transaction-analysis-system`, and `john-executive-assistant-v1`.

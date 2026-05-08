@@ -30,6 +30,10 @@ Confirmed:
 - The current operating folder was not a git repo at task start.
 - The current operating folder has now been initialized as a local git repo on `main`.
 - Initial source-of-truth docs have been committed locally.
+- Project structure intake has now been performed for the discovered local folders.
+- `C:\Users\JohnKim\Documents\New project` has runnable Python MVP structure and 7 passing tests.
+- `C:\Users\JohnKim\Documents\New project 3` has docs-first PRG Supply Readiness Checker planning structure.
+- `C:\Users\JohnKim\Documents\New project 2` has no visible project files outside `.git`.
 
 Incomplete:
 - GitHub private repos still need to be created.

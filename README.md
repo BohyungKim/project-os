@@ -128,6 +128,7 @@ Night:
 
 - `docs/today-checklist-status.md`: today's setup checklist and evidence.
 - `docs/project-registry.md`: discovered local project folders and Git/GitHub state.
+- `docs/project-structure-intake.md`: actual structure summaries for discovered local project folders.
 - `docs/realtime-repo-status.md`: generated status snapshot for ChatGPT/Codex.
 - `docs/notion-update.md`: copy-paste-ready Notion update if direct Notion update is unavailable.
 
