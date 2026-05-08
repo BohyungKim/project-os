@@ -2,67 +2,74 @@
 
 ## Objective
 
-Support John and ChatGPT review of draft PR #2, then make only requested follow-up documentation/status changes.
+Onboard `C:\Users\JohnKim\Documents\New project` as the first real project source-of-truth repo named `planner-workload-analyzer`.
 
 ## Scope
 
-- Review feedback on `https://github.com/BohyungKim/project-os/pull/2`.
-- Make small documentation/status-structure adjustments if requested.
-- Keep changes on `codex/source-of-truth-status-setup`.
-- Do not merge to `main`.
-- Update state/report/task/decision files after any follow-up.
-- Push follow-up commits to `origin/codex/source-of-truth-status-setup`.
+- Inspect `C:\Users\JohnKim\Documents\New project`.
+- Confirm git branch, commit state, and remote state.
+- Confirm `.env` and local-only files are ignored and not tracked.
+- Add project-level source-of-truth files:
+  - `AGENTS.md`
+  - `state/current_state.md`
+  - `state/current_state.json`
+  - `reports/latest_execution_report.md`
+  - `tasks/next_codex_task.md`
+  - `decisions/decision_log.md`
+- Update README only for repo onboarding clarity if needed.
+- Run tests.
+- Commit on a feature branch.
 
 ## Out Of Scope
 
-- Merging to `main`.
+- Creating the GitHub repo without John confirmation.
+- Pushing app code before a remote exists.
 - Changing application logic.
-- Publishing unrelated local project folders.
-- Moving this repo into `project-os` without John approval.
-- Force-pushing or rewriting PR history unless John explicitly asks.
+- Merging to `main`.
 
 ## Files To Inspect
 
-- `AGENTS.md`
 - `README.md`
 - `.gitignore`
+- `.env.example`
+- `pyproject.toml`
+- `config/planner_sources.yaml`
+- `src/planner_analyzer/*`
+- `tests/*`
+
+## Files To Modify
+
+- `AGENTS.md`
+- `README.md` if needed
 - `state/current_state.md`
 - `state/current_state.json`
 - `reports/latest_execution_report.md`
 - `tasks/next_codex_task.md`
 - `decisions/decision_log.md`
-
-## Files To Modify
-
-- `state/current_state.md`
-- `state/current_state.json`
-- `reports/latest_execution_report.md`
-- `tasks/next_codex_task.md`
-- `decisions/decision_log.md` if John makes a repo ownership decision
+- `.gitignore` only if secret/local exclusions are incomplete
 
 ## Acceptance Criteria
 
-- Draft PR #2 remains open and reviewable.
-- Any requested adjustments are committed and pushed.
-- State/report/task files are updated with the verified result.
-- `main` is not merged or modified directly.
+- No `.env`, credentials, tokens, API keys, generated data, or reports are tracked.
+- Tests pass.
+- Source-of-truth files exist.
+- The exact GitHub remote needed is reported if no remote exists.
+- No app logic is changed.
 
 ## Validation Command
 
 ```powershell
 git status --short --branch
 git remote -v
-git log --oneline -1
+python -m pytest
 ```
 
 ## Report-Back Format
 
-Use the final output structure required by `AGENTS.md`, plus:
-
+- project name
 - branch name
-- commit message
+- git remote status
 - changed files
 - test result
-- risks
-- what ChatGPT should review next
-- next recommended Codex prompt
+- whether it is ready to publish to GitHub
+- exact next step for John

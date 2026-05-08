@@ -1,79 +1,93 @@
 {
-  "updated_at": "2026-05-08T19:29:00-04:00",
+  "updated_at": "2026-05-08T19:36:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "PR review preparation for ChatGPT and Codex source-of-truth continuity setup",
-  "branch": "codex/source-of-truth-status-setup",
+  "current_phase": "Central project registry setup",
+  "branch": "codex/central-project-registry",
   "base_branch": "main",
   "remote": {
     "origin_configured": true,
     "url": "https://github.com/BohyungKim/project-os.git",
     "push_possible": true
   },
-  "pull_request": {
-    "created": true,
-    "number": 2,
-    "url": "https://github.com/BohyungKim/project-os/pull/2",
-    "state": "open",
-    "draft": true,
-    "base": "main",
-    "head": "codex/source-of-truth-status-setup",
-    "mergeable_at_creation": false
-  },
   "confirmed": [
-    "Current branch is codex/source-of-truth-status-setup.",
-    "Previous incorrect remote was https://github.com/johnkim4865/project-os.git.",
-    "Origin is now configured as https://github.com/BohyungKim/project-os.git.",
-    "Branch codex/source-of-truth-status-setup was pushed to origin.",
-    "Draft PR #2 was opened against main.",
-    "Revalidated origin with git remote -v; fetch and push both point to https://github.com/BohyungKim/project-os.git.",
-    "Re-ran git push -u origin codex/source-of-truth-status-setup; result was Everything up-to-date.",
-    "GitHub compare currently shows the branch ahead of main by 12 commits and behind by 0 before this final status update commit.",
-    "No merge to main was performed.",
-    "This repo contains operating/status documentation, not application logic."
+    "PR #2 was reviewed as an operating/status structure PR and merged into main.",
+    "project-os main now contains the source-of-truth continuity foundation.",
+    "Current work is on feature branch codex/central-project-registry.",
+    "Five local git project folders were detected.",
+    "New project is planner-workload-analyzer and has 7 passing tests.",
+    "New project 2 is heater-batch-selection and has 9 passing tests.",
+    "New project 3 is prg-supply-readiness-checker and is planning/docs-only.",
+    "agents-md-role-you-are-working is a legacy project-os sync workspace and should not become a separate repo."
   ],
   "changed": [
-    "Origin remote corrected to https://github.com/BohyungKim/project-os.git.",
-    "Branch pushed to origin.",
-    "Fetched origin/main and merged it into the feature branch to create common PR history.",
-    "Resolved README conflict by keeping the project-os title and preserving source-of-truth setup documentation.",
-    "Opened draft PR #2.",
-    "Updated state, report, task, decision, and generated status files after push/PR.",
-    "Reconfirmed the corrected remote URL and push status after John repeated the remote-fix request."
+    "Replaced docs/project-registry.md with central registry content.",
+    "Added state/project_registry.json.",
+    "Added docs/codex-project-map.md.",
+    "Added docs/repo-onboarding-status.md.",
+    "Updated current state/report/task/decision files for the registry phase."
   ],
+  "detected_projects": [
+    {
+      "project_name": "project-os",
+      "recommended_repo_name": "project-os",
+      "classification": "operating/status repo",
+      "source_of_truth_status": "established"
+    },
+    {
+      "project_name": "planner-workload-analyzer",
+      "recommended_repo_name": "planner-workload-analyzer",
+      "classification": "real app/code project",
+      "source_of_truth_status": "not yet established",
+      "test_result": "7 passed"
+    },
+    {
+      "project_name": "heater-batch-selection",
+      "recommended_repo_name": "heater-batch-selection",
+      "classification": "real app/code project",
+      "source_of_truth_status": "not yet established",
+      "test_result": "9 passed"
+    },
+    {
+      "project_name": "prg-supply-readiness-checker",
+      "recommended_repo_name": "prg-supply-readiness-checker",
+      "classification": "documentation/design project",
+      "source_of_truth_status": "not yet established",
+      "test_result": "not available"
+    },
+    {
+      "project_name": "project-os legacy sync workspace",
+      "recommended_repo_name": null,
+      "classification": "operating/status repo",
+      "source_of_truth_status": "legacy workspace; do not onboard separately"
+    }
+  ],
+  "recommended_first_project_to_onboard": "planner-workload-analyzer",
   "still_incomplete": [
-    "John and ChatGPT need to review PR #2.",
-    "PR #2 is draft and should not be merged until review is complete.",
-    "GitHub connector reported mergeable=false at creation time; review the PR page before merge."
+    "Central registry branch still needs to be committed, pushed, and opened as a PR.",
+    "John should review final recommended repo names before creating app repos.",
+    "Actual app repos have not been created or connected yet."
   ],
   "uncertain": [
-    "Whether this operating repo should remain separate or be folded into project-os after review.",
-    "Whether ChatGPT will request cleanup to reduce the first PR scope."
+    "Whether placeholder local folder names New project, New project 2, and New project 3 should be renamed locally.",
+    "Whether the legacy project-os sync workspace can be archived."
   ],
   "validation": {
     "commands_run": [
       {
-        "command": "git branch --show-current",
-        "result": "codex/source-of-truth-status-setup"
+        "command": "python -m pytest in C:\\Users\\JohnKim\\Documents\\New project",
+        "result": "7 passed"
       },
       {
-        "command": "git remote -v",
-        "result": "Confirmed origin is https://github.com/BohyungKim/project-os.git for fetch and push."
+        "command": "python -m pytest in C:\\Users\\JohnKim\\Documents\\New project 2",
+        "result": "9 passed"
       },
       {
-        "command": "git push -u origin codex/source-of-truth-status-setup",
-        "result": "Succeeded after correcting origin; repeated push returned Everything up-to-date."
-      },
-      {
-        "command": "GitHub create pull request",
-        "result": "Draft PR #2 opened at https://github.com/BohyungKim/project-os/pull/2."
-      },
-      {
-        "command": "GitHub compare main...codex/source-of-truth-status-setup",
-        "result": "Branch was ahead by 12 commits, behind by 0, with 16 changed files before this final status update commit."
+        "command": "git status/remote/log checks across detected git folders",
+        "result": "Project git and remote states recorded in registry."
       }
     ],
-    "application_tests": "Not applicable; this repo has no application code."
+    "application_tests": "No project-os app tests; app candidate tests were run where available."
   },
   "john_review_required": true
 }

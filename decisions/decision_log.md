@@ -67,3 +67,20 @@ Status:
 
 Risk:
 - The branch initially had no history in common with remote `main`, so `origin/main` was merged into the feature branch to make the PR possible. This did not merge anything into `main`.
+
+## 2026-05-08 - project-os Is The Central Registry, Not A Monorepo
+
+Decision:
+- Use `project-os` as the central control tower and registry.
+- Keep actual application code in separate repositories.
+
+Rationale:
+- ChatGPT and Codex need a stable project map, but each real project still needs its own source-of-truth repo.
+- This avoids turning `project-os` into a mixed application monorepo.
+
+Status:
+- Accepted.
+- Registry files added in `codex/central-project-registry`.
+
+Risk:
+- If future work puts app code directly into `project-os`, the central registry could become noisy and less useful.
