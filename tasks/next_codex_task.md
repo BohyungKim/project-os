@@ -2,21 +2,21 @@
 
 ## Objective
 
-Connect this initialized workspace to the intended remote repository and Notion project page so future Codex sessions can push branches, open PRs, and update project state directly.
+Create the PR from the `main`-based branch and complete the Notion update with the PR link.
 
 ## Scope
 
-- Confirm or configure `origin`.
-- Confirm the target Notion project page URL or ID.
-- Push `docs/agents-guidelines-sync`.
+- Push `docs/agents-guidelines-sync-mainbase`.
 - Create a PR if GitHub access is available.
-- Update state and report files with the remote and Notion details.
+- Update the Notion project page with the final PR link.
+- Ask John to confirm that `BohyungKim/project-os` and the selected Notion page are the intended long-term targets.
 
 ## Out of Scope
 
 - Application feature work.
 - Refactoring the AGENTS rules beyond review feedback.
 - Modifying credentials, tokens, API keys, or production config.
+- Force-pushing or deleting the original `docs/agents-guidelines-sync` branch.
 
 ## Files to Inspect
 
@@ -37,10 +37,10 @@ Connect this initialized workspace to the intended remote repository and Notion 
 
 ## Acceptance Criteria
 
-- `git remote -v` shows the intended remote.
-- Feature branch is pushed or the exact blocker is documented.
-- PR is opened or exact PR creation commands are provided.
-- Notion project page is updated directly or a copy-paste-ready update block is produced with the reason.
+- `git remote -v` shows `https://github.com/BohyungKim/project-os.git`.
+- `docs/agents-guidelines-sync-mainbase` is pushed.
+- PR is opened against `main` or exact blocker is documented.
+- Notion project page is updated directly with the final run summary and PR link.
 - Required state files reflect the latest verified state.
 
 ## Validation Command
