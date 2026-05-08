@@ -34,4 +34,4 @@ Rationale:
 - Guessing a remote could push project status to the wrong place.
 
 Status:
-- Pending John review.
+- Confirmed by attempted push. `git push -u origin codex/source-of-truth-status-setup` failed because `origin` is not configured.

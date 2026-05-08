@@ -8,7 +8,7 @@ Connect this operating repo to GitHub so it can become a true shared source of t
 
 - Confirm the intended GitHub owner and repo name with John.
 - Add the GitHub remote as `origin`.
-- Push `codex/source-of-truth-status-setup`.
+- Push `codex/source-of-truth-status-setup` after `origin` exists.
 - Open a pull request against `main` if PR tooling is available.
 - Update state/report/task files after the push attempt.
 
