@@ -2,7 +2,7 @@
 
 ## Objective
 
-Support John and ChatGPT review of draft PR #2.
+Support John and ChatGPT review of draft PR #2, then make only requested follow-up documentation/status changes.
 
 ## Scope
 
@@ -11,6 +11,7 @@ Support John and ChatGPT review of draft PR #2.
 - Keep changes on `codex/source-of-truth-status-setup`.
 - Do not merge to `main`.
 - Update state/report/task/decision files after any follow-up.
+- Push follow-up commits to `origin/codex/source-of-truth-status-setup`.
 
 ## Out Of Scope
 

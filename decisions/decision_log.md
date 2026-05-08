@@ -63,6 +63,7 @@ Status:
 - Accepted and applied locally.
 - Branch `codex/source-of-truth-status-setup` pushed successfully.
 - Draft PR #2 opened against `main`: `https://github.com/BohyungKim/project-os/pull/2`.
+- Revalidated on 2026-05-08: `git remote -v` still points to `https://github.com/BohyungKim/project-os.git`, and repeated push returned `Everything up-to-date`.
 
 Risk:
 - The branch initially had no history in common with remote `main`, so `origin/main` was merged into the feature branch to make the PR possible. This did not merge anything into `main`.

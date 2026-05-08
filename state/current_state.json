@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-08T19:23:00-04:00",
+  "updated_at": "2026-05-08T19:29:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
   "current_phase": "PR review preparation for ChatGPT and Codex source-of-truth continuity setup",
@@ -26,7 +26,9 @@
     "Origin is now configured as https://github.com/BohyungKim/project-os.git.",
     "Branch codex/source-of-truth-status-setup was pushed to origin.",
     "Draft PR #2 was opened against main.",
-    "Compare metadata after initial PR creation showed the branch ahead of main by 10 commits and behind by 0; this status update adds one more commit.",
+    "Revalidated origin with git remote -v; fetch and push both point to https://github.com/BohyungKim/project-os.git.",
+    "Re-ran git push -u origin codex/source-of-truth-status-setup; result was Everything up-to-date.",
+    "GitHub compare currently shows the branch ahead of main by 12 commits and behind by 0 before this final status update commit.",
     "No merge to main was performed.",
     "This repo contains operating/status documentation, not application logic."
   ],
@@ -36,7 +38,8 @@
     "Fetched origin/main and merged it into the feature branch to create common PR history.",
     "Resolved README conflict by keeping the project-os title and preserving source-of-truth setup documentation.",
     "Opened draft PR #2.",
-    "Updated state, report, task, decision, and generated status files after push/PR."
+    "Updated state, report, task, decision, and generated status files after push/PR.",
+    "Reconfirmed the corrected remote URL and push status after John repeated the remote-fix request."
   ],
   "still_incomplete": [
     "John and ChatGPT need to review PR #2.",
@@ -59,7 +62,7 @@
       },
       {
         "command": "git push -u origin codex/source-of-truth-status-setup",
-        "result": "Succeeded after correcting origin."
+        "result": "Succeeded after correcting origin; repeated push returned Everything up-to-date."
       },
       {
         "command": "GitHub create pull request",
@@ -67,7 +70,7 @@
       },
       {
         "command": "GitHub compare main...codex/source-of-truth-status-setup",
-        "result": "After initial PR creation, branch was ahead by 10 commits, behind by 0, with 16 changed files."
+        "result": "Branch was ahead by 12 commits, behind by 0, with 16 changed files before this final status update commit."
       }
     ],
     "application_tests": "Not applicable; this repo has no application code."

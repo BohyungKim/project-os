@@ -2,7 +2,7 @@
 
 Date: 2026-05-08
 Branch: `codex/source-of-truth-status-setup`
-Commit message: `docs: record project-os PR creation`
+Commit message: `docs: revalidate project-os remote and PR`
 
 ## What Changed
 
@@ -35,6 +35,10 @@ Commit message: `docs: record project-os PR creation`
 - Pushed the PR-compatible branch update.
 - Opened draft PR #2: `https://github.com/BohyungKim/project-os/pull/2`.
 - Compared `main` to `codex/source-of-truth-status-setup`; after initial PR creation the branch was ahead by 10 commits and behind by 0. This status update adds one more commit.
+- Reconfirmed current branch is `codex/source-of-truth-status-setup`.
+- Reconfirmed `origin` is `https://github.com/BohyungKim/project-os.git`.
+- Re-ran `git push -u origin codex/source-of-truth-status-setup`; result was `Everything up-to-date`.
+- Rechecked GitHub compare; branch was ahead by 12 commits and behind by 0 before this final status update commit.
 
 ## What Did Not Change
 
@@ -71,6 +75,8 @@ Results:
 - `git push -u origin codex/source-of-truth-status-setup` succeeded.
 - GitHub draft PR #2 was opened successfully.
 - GitHub compare returned ahead by 10 commits, behind by 0, and 16 changed files before this final status update commit.
+- Repeated push returned `Everything up-to-date`.
+- Latest GitHub compare returned ahead by 12 commits, behind by 0, and 16 changed files before this final status update commit.
 
 Application tests:
 - Not applicable; this repo has no application test suite.
@@ -89,3 +95,4 @@ Application tests:
 - Whether this operating repo should remain separate or be merged into `project-os`.
 - Whether the local setup branch should be pushed after GitHub access is fixed, then reviewed as a PR against `main`.
 - Review draft PR #2: `https://github.com/BohyungKim/project-os/pull/2`.
+- Manual PR/compare link if needed: `https://github.com/BohyungKim/project-os/compare/main...codex/source-of-truth-status-setup?expand=1`.

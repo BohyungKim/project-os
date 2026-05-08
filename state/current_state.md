@@ -1,6 +1,6 @@
 # Current State
 
-Updated at: 2026-05-08 19:23 America/Toronto
+Updated at: 2026-05-08 19:29 America/Toronto
 
 ## Project Case
 
@@ -19,7 +19,9 @@ PR review preparation for ChatGPT and Codex source-of-truth continuity setup.
 - GitHub remote `origin` is now configured as `https://github.com/BohyungKim/project-os.git`.
 - `codex/source-of-truth-status-setup` has been pushed to `origin`.
 - Draft PR #2 is open: `https://github.com/BohyungKim/project-os/pull/2`.
-- Compare metadata after initial PR creation showed the branch ahead of `main` by 10 commits and behind by 0; this status update adds one more commit.
+- Revalidated `origin` with `git remote -v`; fetch and push both point to `https://github.com/BohyungKim/project-os.git`.
+- Re-ran `git push -u origin codex/source-of-truth-status-setup`; result was `Everything up-to-date`.
+- GitHub compare currently shows the branch ahead of `main` by 12 commits and behind by 0 before this final status update commit.
 - No `.gitignore` existed before this task.
 - No tracked files matching obvious `.env`, secret, credential, token, or key file patterns were found before adding `.gitignore`.
 - This repo contains operating/status documentation, not application logic.
@@ -46,6 +48,7 @@ PR review preparation for ChatGPT and Codex source-of-truth continuity setup.
 - Resolved the README conflict by keeping the `project-os` title and preserving the source-of-truth setup documentation.
 - Pushed the PR-compatible branch update.
 - Opened draft PR #2 against `main`.
+- Reconfirmed the corrected remote URL and push status after John repeated the remote-fix request.
 
 ## Still Incomplete
 
@@ -85,6 +88,7 @@ Push attempt:
 
 PR:
 - `https://github.com/BohyungKim/project-os/pull/2`
+- Manual PR link, if needed: `https://github.com/BohyungKim/project-os/compare/main...codex/source-of-truth-status-setup?expand=1`
 
 ## Current Risk
 
