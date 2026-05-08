@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-08T19:36:00-04:00",
+  "updated_at": "2026-05-08T19:39:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
   "current_phase": "Central project registry setup",
@@ -10,10 +10,20 @@
     "url": "https://github.com/BohyungKim/project-os.git",
     "push_possible": true
   },
+  "pull_request": {
+    "created": true,
+    "number": 3,
+    "url": "https://github.com/BohyungKim/project-os/pull/3",
+    "state": "open",
+    "draft": true,
+    "base": "main",
+    "head": "codex/central-project-registry"
+  },
   "confirmed": [
     "PR #2 was reviewed as an operating/status structure PR and merged into main.",
     "project-os main now contains the source-of-truth continuity foundation.",
     "Current work is on feature branch codex/central-project-registry.",
+    "Draft PR #3 is open at https://github.com/BohyungKim/project-os/pull/3.",
     "Five local git project folders were detected.",
     "New project is planner-workload-analyzer and has 7 passing tests.",
     "New project 2 is heater-batch-selection and has 9 passing tests.",
@@ -25,7 +35,9 @@
     "Added state/project_registry.json.",
     "Added docs/codex-project-map.md.",
     "Added docs/repo-onboarding-status.md.",
-    "Updated current state/report/task/decision files for the registry phase."
+    "Updated current state/report/task/decision files for the registry phase.",
+    "Committed and pushed registry branch.",
+    "Opened draft PR #3 against main."
   ],
   "detected_projects": [
     {
@@ -64,7 +76,7 @@
   ],
   "recommended_first_project_to_onboard": "planner-workload-analyzer",
   "still_incomplete": [
-    "Central registry branch still needs to be committed, pushed, and opened as a PR.",
+    "PR #3 needs John/ChatGPT review before merge.",
     "John should review final recommended repo names before creating app repos.",
     "Actual app repos have not been created or connected yet."
   ],
@@ -85,6 +97,14 @@
       {
         "command": "git status/remote/log checks across detected git folders",
         "result": "Project git and remote states recorded in registry."
+      },
+      {
+        "command": "git push -u origin codex/central-project-registry",
+        "result": "Succeeded."
+      },
+      {
+        "command": "GitHub create pull request",
+        "result": "Draft PR #3 opened at https://github.com/BohyungKim/project-os/pull/3."
       }
     ],
     "application_tests": "No project-os app tests; app candidate tests were run where available."

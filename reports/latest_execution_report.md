@@ -2,7 +2,7 @@
 
 Date: 2026-05-08
 Branch: `codex/central-project-registry`
-Commit message: `docs: add central project registry`
+Commit message: `docs: record central registry PR`
 
 ## What Changed
 
@@ -22,6 +22,9 @@ Commit message: `docs: add central project registry`
 - Added `docs/codex-project-map.md`.
 - Added `docs/repo-onboarding-status.md`.
 - Updated state/report/task/decision files for this registry phase.
+- Committed registry changes with `docs: add central project registry`.
+- Pushed `codex/central-project-registry` to `origin`.
+- Opened draft PR #3: `https://github.com/BohyungKim/project-os/pull/3`.
 
 ## What Did Not Change
 
@@ -29,6 +32,7 @@ Commit message: `docs: add central project registry`
 - No app project repos were created.
 - No app code was pushed to GitHub.
 - `main` was not modified after creating this registry branch.
+- PR #3 was not merged.
 
 ## Validation Results
 
@@ -46,6 +50,9 @@ Additional checks:
 - Git status, remote, and latest commit inspected for each detected git folder.
 - `New project 3` README and system plan inspected.
 - Legacy project-os workspace state inspected.
+- `state/current_state.json` parsed successfully before the first registry commit.
+- `state/project_registry.json` parsed successfully before the first registry commit.
+- `git diff --check` passed before the first registry commit.
 
 ## Detected Projects
 
@@ -71,3 +78,4 @@ Additional checks:
 - Whether the recommended repo names are acceptable.
 - Whether `planner-workload-analyzer` should be the first app repo onboarded.
 - Whether any unclear folder should be archived or renamed before repo creation.
+- Draft PR #3: `https://github.com/BohyungKim/project-os/pull/3`.

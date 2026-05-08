@@ -1,6 +1,6 @@
 # Current State
 
-Updated at: 2026-05-08 19:36 America/Toronto
+Updated at: 2026-05-08 19:39 America/Toronto
 
 ## Project Case
 
@@ -16,6 +16,7 @@ Central project registry setup.
 - `project-os` main now contains the source-of-truth continuity foundation.
 - Current branch: `codex/central-project-registry`.
 - Remote: `https://github.com/BohyungKim/project-os.git`.
+- Draft PR #3 is open: `https://github.com/BohyungKim/project-os/pull/3`.
 - Five local git project folders were detected:
   - `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of`
   - `C:\Users\JohnKim\Documents\New project`
@@ -34,10 +35,12 @@ Central project registry setup.
 - Added `docs/codex-project-map.md`.
 - Added `docs/repo-onboarding-status.md`.
 - Updated current state, report, task, and decision files for the registry phase.
+- Committed and pushed registry branch.
+- Opened draft PR #3 against `main`.
 
 ## Still Incomplete
 
-- This registry branch still needs to be committed, pushed, and opened as a PR.
+- PR #3 needs John/ChatGPT review before merge.
 - John should review final recommended repo names before creating app repos.
 - Actual app repos have not been created or connected yet.
 
@@ -62,6 +65,7 @@ Results:
 - `planner-workload-analyzer`: 7 tests passed.
 - `heater-batch-selection`: 9 tests passed.
 - `project-os`: no app test suite; registry/status files will be validated with JSON parse and `git diff --check` before commit.
+- `state/current_state.json` and `state/project_registry.json` parsed successfully before the first registry commit.
 
 ## Current Risk
 

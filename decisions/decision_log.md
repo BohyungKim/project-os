@@ -81,6 +81,7 @@ Rationale:
 Status:
 - Accepted.
 - Registry files added in `codex/central-project-registry`.
+- Draft PR #3 opened: `https://github.com/BohyungKim/project-os/pull/3`.
 
 Risk:
 - If future work puts app code directly into `project-os`, the central registry could become noisy and less useful.

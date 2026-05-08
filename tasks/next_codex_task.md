@@ -2,7 +2,7 @@
 
 ## Objective
 
-Onboard `C:\Users\JohnKim\Documents\New project` as the first real project source-of-truth repo named `planner-workload-analyzer`.
+After PR #3 is reviewed and merged, onboard `C:\Users\JohnKim\Documents\New project` as the first real project source-of-truth repo named `planner-workload-analyzer`.
 
 ## Scope
 
@@ -22,6 +22,7 @@ Onboard `C:\Users\JohnKim\Documents\New project` as the first real project sourc
 
 ## Out Of Scope
 
+- Starting before PR #3 is reviewed unless John explicitly asks to proceed in parallel.
 - Creating the GitHub repo without John confirmation.
 - Pushing app code before a remote exists.
 - Changing application logic.
@@ -50,6 +51,7 @@ Onboard `C:\Users\JohnKim\Documents\New project` as the first real project sourc
 
 ## Acceptance Criteria
 
+- PR #3 has been reviewed or John explicitly chooses to continue before merge.
 - No `.env`, credentials, tokens, API keys, generated data, or reports are tracked.
 - Tests pass.
 - Source-of-truth files exist.
