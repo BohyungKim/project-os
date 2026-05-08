@@ -2,14 +2,14 @@
 
 ## Objective
 
-Create the PR from the `main`-based branch and complete the Notion update with the PR link.
+Support John review of PR #1 and prepare any requested follow-up changes.
 
 ## Scope
 
-- Push `docs/agents-guidelines-sync-mainbase`.
-- Create a PR if GitHub access is available.
-- Update the Notion project page with the final PR link.
-- Ask John to confirm that `BohyungKim/project-os` and the selected Notion page are the intended long-term targets.
+- Review PR #1 feedback.
+- Confirm whether `BohyungKim/project-os` and the selected Notion page are the intended long-term targets.
+- Make small documentation adjustments if John requests them.
+- Update state files after review feedback.
 
 ## Out of Scope
 
@@ -38,9 +38,9 @@ Create the PR from the `main`-based branch and complete the Notion update with t
 ## Acceptance Criteria
 
 - `git remote -v` shows `https://github.com/BohyungKim/project-os.git`.
-- `docs/agents-guidelines-sync-mainbase` is pushed.
-- PR is opened against `main` or exact blocker is documented.
-- Notion project page is updated directly with the final run summary and PR link.
+- PR #1 remains open and reviewable.
+- Any requested documentation changes are committed to `docs/agents-guidelines-sync-mainbase`.
+- Notion project page is updated directly after any follow-up.
 - Required state files reflect the latest verified state.
 
 ## Validation Command
