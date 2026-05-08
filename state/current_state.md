@@ -1,6 +1,6 @@
 # Current State
 
-Updated at: 2026-05-08 19:13 America/Toronto
+Updated at: 2026-05-08 19:15 America/Toronto
 
 ## Project Case
 
@@ -15,7 +15,7 @@ Source-of-truth continuity setup for ChatGPT and Codex.
 - Current branch for this work: `codex/source-of-truth-status-setup`.
 - Base branch before this task: `main`.
 - Latest base commit before this task: `690711d docs: refresh status after structure intake`.
-- No GitHub remote is configured for this repo.
+- GitHub remote `origin` is configured as `https://github.com/johnkim4865/project-os.git`.
 - No `.gitignore` existed before this task.
 - No tracked files matching obvious `.env`, secret, credential, token, or key file patterns were found before adding `.gitignore`.
 - This repo contains operating/status documentation, not application logic.
@@ -33,18 +33,24 @@ Source-of-truth continuity setup for ChatGPT and Codex.
   - `tasks/next_codex_task.md`
   - `decisions/decision_log.md`
 - Created local setup commit `c6f983c docs: set up source-of-truth continuity files`.
-- Attempted to push `codex/source-of-truth-status-setup`; push failed because `origin` is not configured.
+- Attempted to push `codex/source-of-truth-status-setup` before remote setup; push failed because `origin` was not configured.
+- Added `origin` as `https://github.com/johnkim4865/project-os.git`.
+- Confirmed `git remote -v` shows the requested remote URL for fetch and push.
+- Attempted to push again; GitHub returned `Repository not found`.
+- Confirmed `git ls-remote origin` also returns `Repository not found`.
+- Confirmed `gh` CLI is not installed, so PR automation is not available from this shell.
 
 ## Still Incomplete
 
-- GitHub remote is still missing, so this branch cannot be pushed yet.
-- No pull request can be opened until a remote exists.
-- John still needs to create or connect the GitHub private repo for this operating repo.
+- GitHub remote is configured, but this environment cannot access the private repo.
+- The current branch has not been pushed.
+- No pull request can be opened until the branch exists on GitHub.
+- John still needs to confirm this machine/session has access to `johnkim4865/project-os`.
 - ChatGPT GitHub connector access still needs to be verified after the remote exists.
 
 ## Uncertain
 
-- Final GitHub repository name and owner for this operating repo.
+- Whether the GitHub credential available to this shell is authenticated as an account with access to `johnkim4865/project-os`.
 - Whether John wants this operating repo separate from `project-os` or merged into it later.
 
 ## Validation Evidence
@@ -67,7 +73,9 @@ Tracked secret scan:
 
 Push attempt:
 - `git push -u origin codex/source-of-truth-status-setup` failed with: `fatal: 'origin' does not appear to be a git repository`.
+- After adding `origin`, `git push -u origin codex/source-of-truth-status-setup` failed with: `remote: Repository not found.`
+- `git ls-remote origin` failed with the same `Repository not found` response.
 
 ## Current Risk
 
-The local setup can be committed, but the requested push cannot complete until `origin` exists.
+The local setup is committed and `origin` is configured, but the requested push cannot complete until GitHub access/authentication for `johnkim4865/project-os` is available in this environment.

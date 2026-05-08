@@ -2,13 +2,14 @@
 
 ## Objective
 
-Connect this operating repo to GitHub so it can become a true shared source of truth between ChatGPT and Codex.
+Fix GitHub access for `johnkim4865/project-os`, then push this operating branch and prepare a PR.
 
 ## Scope
 
-- Confirm the intended GitHub owner and repo name with John.
-- Add the GitHub remote as `origin`.
-- Push `codex/source-of-truth-status-setup` after `origin` exists.
+- Confirm John can access `https://github.com/johnkim4865/project-os`.
+- Confirm this shell/Git credential manager is authenticated with an account that has access to that private repo.
+- Keep `origin` as `https://github.com/johnkim4865/project-os.git`.
+- Push `codex/source-of-truth-status-setup` after access is fixed.
 - Open a pull request against `main` if PR tooling is available.
 - Update state/report/task files after the push attempt.
 
@@ -40,7 +41,7 @@ Connect this operating repo to GitHub so it can become a true shared source of t
 
 ## Acceptance Criteria
 
-- `git remote -v` shows the intended GitHub repo as `origin`.
+- `git remote -v` shows `https://github.com/johnkim4865/project-os.git` as `origin`.
 - `git push -u origin codex/source-of-truth-status-setup` succeeds.
 - A PR exists or the exact PR creation blocker is documented.
 - State/report/task files are updated with the verified result.
@@ -52,6 +53,7 @@ Connect this operating repo to GitHub so it can become a true shared source of t
 git status --short --branch
 git remote -v
 git log --oneline -1
+git ls-remote origin
 ```
 
 ## Report-Back Format

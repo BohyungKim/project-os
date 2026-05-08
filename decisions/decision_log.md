@@ -35,3 +35,18 @@ Rationale:
 
 Status:
 - Confirmed by attempted push. `git push -u origin codex/source-of-truth-status-setup` failed because `origin` is not configured.
+
+## 2026-05-08 - Use johnkim4865/project-os As Origin
+
+Decision:
+- Configure `origin` as `https://github.com/johnkim4865/project-os.git`.
+
+Rationale:
+- John confirmed there is an existing private GitHub repository named `project-os` and provided the exact remote URL.
+
+Status:
+- Remote configured locally.
+- Push is blocked because GitHub returns `Repository not found` from this shell.
+
+Risk:
+- The repo may be private and the current shell credential may not have access, or the URL/owner may need to be rechecked in GitHub.
