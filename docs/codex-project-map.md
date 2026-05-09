@@ -1,152 +1,106 @@
 # Codex Project Map
 
-Updated: 2026-05-09 11:35 -04:00
+Updated: 2026-05-09 12:12 -04:00
+
+## Canonical Project Root
+
+```text
+C:\Users\JohnKim\Desktop\Bins\Projects
+```
+
+All active project paths should be mapped under this root. `Documents\New project*` and `Documents\Codex\...` paths are non-canonical legacy/execution paths.
 
 ## Control Tower Layout
 
 ```text
-BohyungKim/project-os
-  central control tower
-  project registry
-  onboarding status
-  shared AGENTS.md template
-  status/report/task conventions
+C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS
+  canonical local folder for BohyungKim/project-os
+  status: exists, git repo, but dirty/old and needs sync review
 
-BohyungKim/planner-workload-analyzer
-  real app repo
-  current local folder: C:\Users\JohnKim\Documents\New project
-  GitHub main status: established
+C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts
+  canonical local folder for BohyungKim/prg-contracts
+  status: clean clone, main tracks origin/main
 
-BohyungKim/heater-batch-selection
-  real app repo
-  current local folder: C:\Users\JohnKim\Documents\New project 2
-  GitHub main status: established
-  safety note: browser automation stays dry-run/manual-review unless John explicitly approves otherwise
+C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent
+  canonical local folder for job-bom-comparator candidate
+  status: local git repo, no remote, dirty working tree
 
-BohyungKim/prg-contracts
-  shared PRG / Manufacturing Copilot contract repo
-  current local folder: C:\Users\JohnKim\Documents\New project 3
-  GitHub main status: established
-  defines PRGCase-compatible contract output for feeder modules
+C:\Users\JohnKim\Desktop\Bins\Projects\PRG
+  canonical PRG workspace
+  status: mixed app/contracts folder, not git, .env exists
 ```
 
-## Project Relationships
+## Active Repo Facts
 
 ### project-os
 
-Role:
-- Central registry and operating layer.
-- Does not own application code.
-- Tracks which project repo is the source of truth for each initiative.
+Canonical local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS`
 
-ChatGPT entry point:
-- `docs/project-registry.md`
-- `state/project_registry.json`
-- `docs/repo-onboarding-status.md`
-- `reports/latest_execution_report.md`
+Remote:
+- `https://github.com/BohyungKim/project-os.git`
 
-### planner-workload-analyzer
-
-Role:
-- Read-only Microsoft Planner workload analyzer.
-- First real app repo onboarded into GitHub source-of-truth flow.
-
-Current status:
-- GitHub `main` is established.
-- Tests passed during onboarding: 7 passed.
-
-Repo:
-- `BohyungKim/planner-workload-analyzer`
-
-### heater-batch-selection
-
-Role:
-- Internal heater batch selection MVP.
-- Second real app repo onboarded into GitHub source-of-truth flow.
-
-Current status:
-- GitHub `main` is established.
-- Tests passed during onboarding: 9 passed.
-- Browser automation safety rules are documented.
-
-Repo:
-- `BohyungKim/heater-batch-selection`
+Important:
+- The current Codex execution workspace for this PR is still under `Documents\Codex\...`.
+- That is not the canonical project directory.
+- The canonical `Project-OS` folder exists but is dirty/old and should be audited before becoming the active working copy.
 
 ### prg-contracts
 
-Role:
-- Shared PRG / Manufacturing Copilot contract source of truth.
-- Defines the common output contract that feeder modules should emit.
+Canonical local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts`
 
-Current status:
-- GitHub `main` is established.
-- Latest known remote main commit: `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
-- Validation command passed:
-  - `python tools/validate_prg_case.py examples/*.json`
+Remote:
+- `https://github.com/BohyungKim/prg-contracts.git`
 
-Repo:
-- `BohyungKim/prg-contracts`
+Status:
+- Branch `main`.
+- Latest commit `3455ead`.
+- Clean working tree.
 
-Contains:
-- `schemas/prg_case.schema.json`
-- `schemas/evidence_item.schema.json`
-- `schemas/action_item.schema.json`
-- `docs/field_registry.md`
-- `docs/severity_taxonomy.md`
-- `docs/readiness_area_taxonomy.md`
-- `docs/owner_mapping.md`
-- `docs/schema_change_request_process.md`
-- `docs/codex_prompt_guardrails.md`
-- `examples/*_prg_case_sample.json`
-- `tools/validate_prg_case.py`
+### Job BOM Comparator Agent
 
-Guardrail:
-- This is not a dashboard repo.
-- This is not the POBTO checker repo.
-- This is not an Epicor write-back repo.
-- This is not a production automation repo.
-- This is not where feeder-specific detection logic belongs.
+Canonical local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`
 
-### project-os legacy sync workspace
+Status:
+- Git repo exists.
+- Branch `master`.
+- No `origin` remote.
+- Latest commit `b520f4a`.
+- Many modified/untracked files.
+- `.env` exists.
 
-Role:
-- Historical setup workspace for project-os operating rules.
+This should be treated as the next onboarding candidate, but it is not yet a GitHub source-of-truth repo.
 
-Action:
-- Do not turn this into a separate repo.
-- Keep only until John confirms it is safe to archive.
+### PRG
 
-## First PRG Contract Integration Candidate
+Canonical local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG`
 
-Recommended next repo:
-- `job-bom-comparator`
+Status:
+- Not a Git repo.
+- Mixed app/orchestrator/dashboard and contract docs.
+- `.env` exists.
 
-Reason:
-- Comparator output is a natural first feeder for PRGCase.
-- `prg-contracts` already includes `examples/comparator_prg_case_sample.json`.
+Do not map this directly to `prg-contracts` without a split plan.
 
-Expected pattern:
-- Feeder repo owns detection logic.
-- Feeder repo emits PRGCase-compatible output.
-- `prg-contracts` owns shared schema and taxonomy.
-- `project-os` tracks overall status.
+## Missing Canonical Clones
 
-## How John Should Ask ChatGPT Later
+These GitHub repos are established, but canonical local clones under `Desktop\Bins\Projects` are currently missing:
 
-```text
-Use project-os as the central registry.
-Then use prg-contracts current_state.md as the PRG contract source of truth.
-Tell me which feeder repo should integrate next and what files ChatGPT should review.
-```
+- `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`
+- `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection`
 
-## Required Per-Project Source-Of-Truth Files
+Clone them into the canonical root before future local work.
 
-Every real project repo should contain:
+## Archive Candidates
 
-- `AGENTS.md`
-- `README.md`
-- `state/current_state.md`
-- `state/current_state.json`
-- `reports/latest_execution_report.md`
-- `tasks/next_codex_task.md`
-- `decisions/decision_log.md`
+Non-canonical legacy paths that should eventually be retired only after review:
+
+- `C:\Users\JohnKim\Documents\New project`
+- `C:\Users\JohnKim\Documents\New project 2`
+- `C:\Users\JohnKim\Documents\New project 3`
+- `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of`
+
+Do not delete these until John explicitly approves after canonical clones are verified.

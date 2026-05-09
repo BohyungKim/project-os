@@ -1,71 +1,81 @@
 # Latest Execution Report
 
 Date: 2026-05-09
-Branch: `codex/prg-contracts-onboarding-status`
-Project-os PR: `https://github.com/BohyungKim/project-os/pull/6`
-PRG contracts remote main commit: `3455eaddc9413acf12f195cd58ad04deaef9a4d0`
+Branch: `codex/local-folder-mapping-audit`
+Project-os PR: `https://github.com/BohyungKim/project-os/pull/8`
 
 ## What Changed
 
-- Confirmed `project-os` PR #5 was merged into `main`.
-- Completed `prg-contracts` GitHub source-of-truth setup.
-- Added/confirmed app remote:
-  - `https://github.com/BohyungKim/prg-contracts.git`
-- Pushed `prg-contracts` `main` to GitHub.
-- Confirmed `prg-contracts` `origin/main` now points to:
-  - `3455eaddc9413acf12f195cd58ad04deaef9a4d0`
-- Updated `project-os` registry/status files to replace the old `prg-supply-readiness-checker` concept with `prg-contracts`.
-- Updated next recommended integration target to `job-bom-comparator`.
+- Corrected the project directory policy:
+  - canonical root is `C:\Users\JohnKim\Desktop\Bins\Projects`.
+- Updated project registry and map so future work does not default to `Documents\New project*`.
+- Updated `scripts/update-project-status.ps1` default scan paths to inspect the canonical Projects root.
+- Created a canonical `prg-contracts` clone at:
+  - `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts`
+- Recorded `Job BOM Comparator Agent` as the current local repo candidate for `job-bom-comparator`.
 
 ## What Did Not Change
 
-- No dashboard was built.
-- No POBTO Material Readiness Checker was built.
-- No Epicor write-back logic was added.
-- No production-impacting automation was added.
-- No feeder-specific detection logic was added to `prg-contracts`.
-- No `project-os` PR was merged automatically.
+- No app code was modified.
+- No app folder was deleted or moved.
+- No `.env` contents were read.
+- No remote was added to `Job BOM Comparator Agent`.
+- No PR was merged automatically.
+
+## Confirmed
+
+`prg-contracts`:
+
+- Canonical path: `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts`.
+- Branch: `main`.
+- Remote: `https://github.com/BohyungKim/prg-contracts.git`.
+- Latest commit: `3455ead docs: mark prg contracts source of truth established`.
+- Working tree: clean.
+
+`Job BOM Comparator Agent`:
+
+- Canonical path: `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`.
+- Branch: `master`.
+- Remote: none.
+- Latest commit: `b520f4a Surface sibling and owner signals`.
+- Working tree: many modified/untracked files.
+- `.env` exists.
+
+`Project-OS`:
+
+- Canonical path: `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS`.
+- Remote: `https://github.com/BohyungKim/project-os.git`.
+- Branch: `main`.
+- Latest commit: `d4740a2 Initial commit`.
+- Working tree: modified/untracked files.
+- Needs sync/audit before becoming the active Codex workspace.
 
 ## Validation Results
 
-Contract repo checks in `C:\Users\JohnKim\Documents\New project 3`:
+Commands run:
 
 ```powershell
-python tools/validate_prg_case.py examples/*.json
+git clone https://github.com/BohyungKim/prg-contracts.git "C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts"
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts" status --short --branch
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" status --short --branch
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS" status --short --branch
+powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
 ```
 
-Result:
-- 4 sample PRGCase files passed validation.
+Results:
 
-Additional contract repo checks:
-- `git push -u origin main`: succeeded.
-- `git push origin main`: succeeded for final status update.
-- `git ls-remote origin refs/heads/main`: `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
-- Tracked secret/local-only filename scan: 0 blocked files.
-- `git diff --check` passed before commit.
-
-`project-os` checks:
-- `state/current_state.json` parsed successfully.
-- `state/project_registry.json` parsed successfully.
-- `git diff --check` passed before commit.
-- `scripts/update-project-status.ps1` refreshed `docs/realtime-repo-status.md`.
+- `prg-contracts` canonical clone created and clean.
+- `Job BOM Comparator Agent` is a local git repo with no remote and dirty working tree.
+- `Project-OS` canonical clone exists but is dirty/old.
+- Realtime status now scans canonical Projects paths.
 
 ## Risks
 
-- `prg-contracts` setup risk is low.
-- Scope drift is the main ongoing risk. Keep `prg-contracts` contract-only.
-- Feeder repos must not invent incompatible PRGCase fields. If the contract is insufficient, use the schema change request process.
-- `project-os` PR #6 still needs John/ChatGPT review before merge.
+- `Job BOM Comparator Agent` has many local changes and `.env`; do not add remote or push until audited.
+- `Project-OS` canonical clone is not clean; do not switch Codex work there until it is reconciled.
+- Legacy `Documents\New project*` folders should not be deleted until canonical clones and local-only config are verified.
 
 ## What ChatGPT Should Review Next
 
-- Review `project-os` PR #6:
-  - `https://github.com/BohyungKim/project-os/pull/6`
-- Confirm `prg-contracts` is marked established.
-- Review `prg-contracts` contract surfaces:
-  - `schemas/prg_case.schema.json`
-  - `docs/field_registry.md`
-  - `docs/severity_taxonomy.md`
-  - `docs/readiness_area_taxonomy.md`
-  - `docs/owner_mapping.md`
-- Confirm whether `job-bom-comparator` should be the first feeder repo to integrate with `prg-contracts`.
+- Whether PR #8 correctly enforces `C:\Users\JohnKim\Desktop\Bins\Projects` as canonical root.
+- Whether `Job BOM Comparator Agent` should be onboarded next as `BohyungKim/job-bom-comparator`.

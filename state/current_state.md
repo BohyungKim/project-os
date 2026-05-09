@@ -1,6 +1,6 @@
 # Current State
 
-Updated at: 2026-05-09 11:35 America/Toronto
+Updated at: 2026-05-09 12:12 America/Toronto
 
 ## Project Case
 
@@ -8,59 +8,60 @@ Case 3 - Codex Continuation Sync.
 
 ## Current Phase
 
-Third source-of-truth repo established; `project-os` registry update in progress.
+Canonical project root correction in progress on PR #8.
 
 ## Confirmed
 
-- PR #5 is merged into `project-os/main`.
-- `project-os/main` reflects `planner-workload-analyzer` and `heater-batch-selection` as established.
-- Current `project-os` branch: `codex/prg-contracts-onboarding-status`.
-- `project-os` remote: `https://github.com/BohyungKim/project-os.git`.
-- Project-os PR #6 is open:
-  - `https://github.com/BohyungKim/project-os/pull/6`
-- Third repo local folder: `C:\Users\JohnKim\Documents\New project 3`.
-- Third repo is now `prg-contracts`, not `prg-supply-readiness-checker`.
-- PRG contracts repo:
-  - `https://github.com/BohyungKim/prg-contracts.git`
-- `prg-contracts` `origin/main` now points to `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
-- `prg-contracts` sample validation passed for four sample PRGCase files.
-- No tracked `.env`, credentials, tokens, API keys, passwords, or local-only files were found in `prg-contracts`.
+- The canonical local project root is:
+  - `C:\Users\JohnKim\Desktop\Bins\Projects`
+- `Documents\New project*` paths are non-canonical legacy paths.
+- `Documents\Codex\...` paths are Codex execution workspaces, not the default project directory.
+- `prg-contracts` canonical clone now exists at:
+  - `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts`
+- `Job BOM Comparator Agent` exists at:
+  - `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`
+- `Job BOM Comparator Agent` is a local git repo but has no remote.
+- `Job BOM Comparator Agent` has many modified/untracked files and a local `.env`.
+- `Project-OS` canonical folder exists at:
+  - `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS`
+- `Project-OS` canonical folder has a GitHub remote but is dirty/old and needs sync review.
 
 ## Changed
 
-- Updated `project-os` registry/status files to show `prg-contracts` is established.
-- Replaced old `prg-supply-readiness-checker` onboarding language with PRG / Manufacturing Copilot contract repo language.
-- Updated next task to integrate the first feeder repo with `prg-contracts`.
-- Recommended first feeder: `job-bom-comparator`.
+- Updated project registry and map to use `C:\Users\JohnKim\Desktop\Bins\Projects` as canonical root.
+- Updated `scripts/update-project-status.ps1` default scan paths to inspect canonical project folders.
+- Created canonical `prg-contracts` clone.
+- Updated latest report and next task to focus on `Job BOM Comparator Agent` onboarding.
 
 ## Still Incomplete
 
-- `project-os` PR #6 still needs to be reviewed and merged.
-- First feeder integration with `prg-contracts` has not started yet.
+- `planner-workload-analyzer` canonical clone is still missing.
+- `heater-batch-selection` canonical clone is still missing.
+- `Job BOM Comparator Agent` has not been onboarded to GitHub.
+- Canonical `Project-OS` folder has not been reconciled with current GitHub main work.
 
 ## Uncertain
 
-- Whether John wants the local folder `New project 3` renamed to `prg-contracts`.
-- Exact local/GitHub repo location for `job-bom-comparator` still needs confirmation before integration.
+- Whether John wants canonical folder names to preserve current friendly names, such as `Job BOM Comparator Agent`, or use repo slugs such as `job-bom-comparator`.
+- Whether `Project-OS` canonical folder should be repaired in place or replaced by a clean clone after review.
 
 ## Validation Evidence
 
 Commands run:
 
 ```powershell
-python tools/validate_prg_case.py examples/*.json
-git ls-remote origin refs/heads/main
-Get-Content state/current_state.json | ConvertFrom-Json
-Get-Content state/project_registry.json | ConvertFrom-Json
-git diff --check
+git clone https://github.com/BohyungKim/prg-contracts.git "C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts"
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts" status --short --branch
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" status --short --branch
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS" status --short --branch
 powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
 ```
 
 Results:
-- `prg-contracts` validation passed: 4 sample files.
-- `prg-contracts` remote `main` points to `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
-- `project-os` JSON state files parse successfully.
+- `prg-contracts` canonical clone is clean on `main...origin/main`.
+- `Job BOM Comparator Agent` is dirty and has no remote.
+- `Project-OS` canonical folder is dirty/old and needs review.
 
 ## Current Risk
 
-Low for repo setup. Main ongoing risk is scope drift: `prg-contracts` must remain contract-only and feeder repos must use the schema change process instead of inventing incompatible local formats.
+Medium until the canonical path cleanup is complete. The main risk is Codex accidentally reading/writing `Documents\New project*` instead of `C:\Users\JohnKim\Desktop\Bins\Projects`.

@@ -1,10 +1,18 @@
 param(
     [string[]]$ProjectPaths = @(
-        "C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of",
-        "C:\Users\JohnKim\Documents\New project",
-        "C:\Users\JohnKim\Documents\New project 2",
-        "C:\Users\JohnKim\Documents\New project 3",
-        "C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working"
+        "C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\BOM_Release_Console",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\BOM Ordering Automation",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\Job Closing Bottleneck Agent",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\Neptronic Selection Automation",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\Part Transaction Pattern Error Analysis",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\PO Release Engineering Workflow",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\PRG",
+        "C:\Users\JohnKim\Desktop\Bins\Projects\Real Time Issuance"
     ),
     [string]$OutputPath = "docs/realtime-repo-status.md"
 )

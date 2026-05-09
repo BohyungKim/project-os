@@ -1,10 +1,11 @@
 {
-  "updated_at": "2026-05-09T11:35:00-04:00",
+  "updated_at": "2026-05-09T12:12:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "Third source-of-truth repo established; project-os registry update in progress",
-  "branch": "codex/prg-contracts-onboarding-status",
+  "current_phase": "Canonical project root correction in progress on PR #8",
+  "branch": "codex/local-folder-mapping-audit",
   "base_branch": "main",
+  "canonical_project_root": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects",
   "remote": {
     "origin_configured": true,
     "url": "https://github.com/BohyungKim/project-os.git",
@@ -12,64 +13,55 @@
   },
   "pull_request": {
     "created": true,
-    "number": 6,
-    "url": "https://github.com/BohyungKim/project-os/pull/6",
+    "number": 8,
+    "url": "https://github.com/BohyungKim/project-os/pull/8",
     "state": "open",
     "draft": false,
     "base": "main",
-    "head": "codex/prg-contracts-onboarding-status"
+    "head": "codex/local-folder-mapping-audit"
   },
   "confirmed": [
-    "PR #5 is merged into project-os main.",
-    "project-os main reflects planner-workload-analyzer and heater-batch-selection as established.",
-    "Current project-os branch is codex/prg-contracts-onboarding-status.",
-    "Project-os PR #6 is open for the prg-contracts registry update.",
-    "New project 3 is now prg-contracts, not prg-supply-readiness-checker.",
-    "prg-contracts repo is https://github.com/BohyungKim/prg-contracts.git.",
-    "prg-contracts origin/main now points to 3455eaddc9413acf12f195cd58ad04deaef9a4d0.",
-    "prg-contracts sample validation passed for four sample PRGCase files.",
-    "No tracked .env, credentials, tokens, API keys, passwords, or local-only files were found in prg-contracts."
+    "Canonical local project root is C:\\Users\\JohnKim\\Desktop\\Bins\\Projects.",
+    "Documents\\New project* paths are non-canonical legacy paths.",
+    "Documents\\Codex paths are Codex execution workspaces, not the default project directory.",
+    "prg-contracts canonical clone now exists at C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts.",
+    "Job BOM Comparator Agent exists at C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent.",
+    "Job BOM Comparator Agent is a local git repo but has no remote.",
+    "Job BOM Comparator Agent has many modified/untracked files and a local .env.",
+    "Project-OS canonical folder exists at C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Project-OS.",
+    "Project-OS canonical folder has a GitHub remote but is dirty/old and needs sync review."
   ],
   "changed": [
-    "Updated project-os registry/status files to show prg-contracts is established.",
-    "Replaced old prg-supply-readiness-checker onboarding language with PRG / Manufacturing Copilot contract repo language.",
-    "Updated next task to integrate the first feeder repo with prg-contracts.",
-    "Recommended first feeder: job-bom-comparator."
+    "Updated project registry and map to use C:\\Users\\JohnKim\\Desktop\\Bins\\Projects as canonical root.",
+    "Updated scripts/update-project-status.ps1 default scan paths to inspect canonical project folders.",
+    "Created canonical prg-contracts clone.",
+    "Updated latest report and next task to focus on Job BOM Comparator Agent onboarding."
   ],
-  "contract_repo": {
-    "project_name": "prg-contracts",
-    "local_folder": "C:\\Users\\JohnKim\\Documents\\New project 3",
-    "branch": "main",
-    "latest_remote_main_commit": "3455eaddc9413acf12f195cd58ad04deaef9a4d0",
-    "target_remote_url": "https://github.com/BohyungKim/prg-contracts.git",
-    "remote_configured": true,
-    "github_repo_exists_or_accessible": true,
-    "origin_main_is_source_of_truth": true,
-    "validation_result": "python tools/validate_prg_case.py examples/*.json: 4 sample files passed",
-    "source_of_truth_status": "established",
-    "scope_guardrail": "contract-only; no dashboard, no POBTO checker, no Epicor write-back, no production automation, no feeder-specific detection logic"
-  },
   "still_incomplete": [
-    "project-os PR #6 still needs John/ChatGPT review before merge.",
-    "First feeder integration with prg-contracts has not started yet."
+    "planner-workload-analyzer canonical clone is still missing.",
+    "heater-batch-selection canonical clone is still missing.",
+    "Job BOM Comparator Agent has not been onboarded to GitHub.",
+    "Canonical Project-OS folder has not been reconciled with current GitHub main work."
   ],
-  "next_recommended_repo_to_integrate_with_prg_contracts": "job-bom-comparator",
   "validation": {
     "commands_run": [
       {
-        "command": "python tools/validate_prg_case.py examples/*.json in C:\\Users\\JohnKim\\Documents\\New project 3",
-        "result": "4 sample files passed"
+        "command": "git clone https://github.com/BohyungKim/prg-contracts.git C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts",
+        "result": "succeeded"
       },
       {
-        "command": "git push -u origin main and later git push origin main in prg-contracts repo",
-        "result": "Succeeded"
+        "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts status --short --branch",
+        "result": "clean on main...origin/main"
       },
       {
-        "command": "git ls-remote origin refs/heads/main in prg-contracts repo",
-        "result": "main points to 3455eaddc9413acf12f195cd58ad04deaef9a4d0"
+        "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent status --short --branch",
+        "result": "local git repo on master with many modified/untracked files"
+      },
+      {
+        "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Project-OS status --short --branch",
+        "result": "main...origin/main with modified/untracked files"
       }
-    ],
-    "contract_validation": "prg-contracts passed sample validation."
+    ]
   },
   "john_review_required": true
 }
