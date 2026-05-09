@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-05-09T12:12:00-04:00",
+  "updated_at": "2026-05-09T12:30:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "Canonical project root correction in progress on PR #8",
-  "branch": "codex/local-folder-mapping-audit",
+  "current_phase": "Job BOM Comparator source-of-truth onboarding prepared locally; GitHub repo creation is the current blocker",
+  "branch": "codex/job-bom-comparator-onboarding-status",
   "base_branch": "main",
   "canonical_project_root": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects",
   "remote": {
@@ -13,9 +13,9 @@
   },
   "pull_request": {
     "created": true,
-    "number": 8,
-    "url": "https://github.com/BohyungKim/project-os/pull/8",
-    "state": "open",
+    "number": null,
+    "url": null,
+    "state": "pending creation",
     "draft": false,
     "base": "main",
     "head": "codex/local-folder-mapping-audit"
@@ -29,18 +29,25 @@
     "Job BOM Comparator Agent is a local git repo but has no remote.",
     "Job BOM Comparator Agent has many modified/untracked files and a local .env.",
     "Project-OS canonical folder exists at C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Project-OS.",
-    "Project-OS canonical folder has a GitHub remote but is dirty/old and needs sync review."
+    "Project-OS canonical folder has a GitHub remote but is dirty/old and needs sync review.",
+    "project-os PR #8 has been merged into main.",
+    "Job BOM Comparator Agent canonical local folder is C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent.",
+    "Job BOM Comparator Agent is on branch codex/source-of-truth-onboarding.",
+    "Job BOM Comparator Agent local onboarding commit is 42f2ee7 docs: prepare source-of-truth onboarding.",
+    "Target remote https://github.com/BohyungKim/job-bom-comparator.git returned repository not found from local git credentials.",
+    ".env exists locally, was not read, and is not tracked.",
+    "Tracked secret-like filename scan found only .env.example.",
+    "Job BOM Comparator Agent tests passed: 87 passed."
   ],
   "changed": [
-    "Updated project registry and map to use C:\\Users\\JohnKim\\Desktop\\Bins\\Projects as canonical root.",
-    "Updated scripts/update-project-status.ps1 default scan paths to inspect canonical project folders.",
-    "Created canonical prg-contracts clone.",
-    "Updated latest report and next task to focus on Job BOM Comparator Agent onboarding."
+    "Prepared Job BOM Comparator Agent local source-of-truth onboarding files.",
+    "Committed the onboarding setup locally in the app repo.",
+    "Updated project-os registry and status files to record that the repo is ready for GitHub creation/push."
   ],
   "still_incomplete": [
     "planner-workload-analyzer canonical clone is still missing.",
     "heater-batch-selection canonical clone is still missing.",
-    "Job BOM Comparator Agent has not been onboarded to GitHub.",
+    "Job BOM Comparator Agent has not been pushed to GitHub because BohyungKim/job-bom-comparator does not exist yet.",
     "Canonical Project-OS folder has not been reconciled with current GitHub main work."
   ],
   "validation": {
@@ -55,7 +62,15 @@
       },
       {
         "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent status --short --branch",
-        "result": "local git repo on master with many modified/untracked files"
+        "result": "local git repo on codex/source-of-truth-onboarding with existing app/product changes preserved"
+      },
+      {
+        "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent ls-remote https://github.com/BohyungKim/job-bom-comparator.git",
+        "result": "repository not found"
+      },
+      {
+        "command": ".\\.venv\\Scripts\\python.exe -B -m pytest",
+        "result": "87 passed"
       },
       {
         "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Project-OS status --short --branch",

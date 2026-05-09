@@ -285,3 +285,22 @@ Status:
 Risk:
 - Some established GitHub repos still need canonical clones under the project root.
 - `Project-OS` canonical folder exists but is dirty/old and needs sync review before becoming the active Codex workspace.
+
+## 2026-05-09 - Prepare Job BOM Comparator Locally Before GitHub Repo Exists
+
+Decision:
+- Prepare `Job BOM Comparator Agent` as the next source-of-truth repo candidate, but do not add an origin or push until John creates `BohyungKim/job-bom-comparator`.
+
+Rationale:
+- The canonical local folder exists at `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`.
+- The requested target remote `https://github.com/BohyungKim/job-bom-comparator.git` returned repository not found from local git credentials.
+- Source-of-truth onboarding files were committed locally on `codex/source-of-truth-onboarding`.
+- `.env` was not read and is not tracked.
+- Tests pass with 87 tests.
+
+Status:
+- Local onboarding prepared.
+- GitHub source of truth is blocked until John creates the empty private repo.
+
+Risk:
+- Existing modified/untracked app/product files remain in the working tree and need separate review before deciding what to push as the app baseline.

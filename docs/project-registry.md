@@ -1,6 +1,6 @@
 # Project Registry
 
-Updated: 2026-05-09 12:12 -04:00
+Updated: 2026-05-09 12:30 -04:00
 
 Canonical project root:
 
@@ -34,7 +34,7 @@ Every real project repo should eventually contain:
 | --- | --- | --- | --- | --- | --- | --- |
 | project-os | `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS` | Yes, branch `main` | `https://github.com/BohyungKim/project-os.git` | GitHub repo exists, but this local clone is dirty/old and needs sync review | Modified/untracked files present | Do not use as clean working copy until audited |
 | prg-contracts | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` | Yes, branch `main` | `https://github.com/BohyungKim/prg-contracts.git` | Established; canonical clone created | Clean, `main...origin/main`, latest `3455ead` | Use this path going forward |
-| Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | Yes, branch `master` | None | Local project only; GitHub source of truth not established | Many modified/untracked files, `.env` exists | Audit secrets/working tree, then onboard to GitHub |
+| Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | Yes, branch `codex/source-of-truth-onboarding` | None; target `https://github.com/BohyungKim/job-bom-comparator.git` not found | Local source-of-truth setup prepared; GitHub repo creation required before push | Onboarding commit `42f2ee7`; tests pass; existing app/product changes remain uncommitted; `.env` exists but is not tracked | John creates empty private repo, then Codex adds origin and pushes |
 | BOM_Release_Console | `C:\Users\JohnKim\Desktop\Bins\Projects\BOM_Release_Console` | Yes, branch `master` | None | Local project only; GitHub source of truth not established | Modified/untracked files present | Audit before onboarding |
 | PRG | `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` | No | None | Not established; mixed app/contracts workspace | `.env`, app/orchestrator/dashboard code, docs, tests | Split before repo assignment |
 | planner-workload-analyzer | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | Missing path | `https://github.com/BohyungKim/planner-workload-analyzer.git` | GitHub source of truth established, but canonical local clone missing | Missing canonical clone | Clone here before future local work |
@@ -94,13 +94,19 @@ C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent
 
 Status:
 
-- Branch: `master`
+- Branch: `codex/source-of-truth-onboarding`
 - Remote: none
-- Latest commit: `b520f4a Surface sibling and owner signals`
-- Working tree: many modified/untracked files
-- `.env` exists
+- Target remote checked: `https://github.com/BohyungKim/job-bom-comparator.git`
+- Target remote result: repository not found from local git credentials
+- Latest onboarding commit: `42f2ee7 docs: prepare source-of-truth onboarding`
+- Previous app baseline commit: `b520f4a Surface sibling and owner signals`
+- Validation: `.\.venv\Scripts\python.exe -B -m pytest` -> 87 passed
+- `.env` exists locally and was not read
+- `.env` is not tracked
+- Tracked secret-like filename scan only found `.env.example`
+- Existing app/product changes remain modified or untracked and were preserved
 
-This is not yet a GitHub source-of-truth repo. It should be treated as the next onboarding candidate, but only after a secrets and working-tree audit.
+This is not yet a GitHub source-of-truth repo because the target GitHub repo does not exist yet. John should create an empty private repo named `job-bom-comparator` under `BohyungKim` without README, gitignore, or license. Then Codex can add `origin`, push the onboarding branch/main, and update this registry again.
 
 ## Cleanup Plan
 
@@ -109,5 +115,5 @@ This is not yet a GitHub source-of-truth repo. It should be treated as the next 
 3. Clone missing established repos into canonical paths:
    - `planner-workload-analyzer`
    - `heater-batch-selection`
-4. Audit `Job BOM Comparator Agent` before adding a GitHub remote.
+4. Create `BohyungKim/job-bom-comparator`, then connect and push `Job BOM Comparator Agent`.
 5. Audit/split `PRG` before assigning it to `prg-contracts` or a PRG app repo.
