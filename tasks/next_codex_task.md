@@ -8,6 +8,8 @@ Finish connecting `C:\Users\JohnKim\Documents\New project 2` to GitHub as `Bohyu
 
 - Wait until John creates the empty private GitHub repo:
   - `https://github.com/BohyungKim/heater-batch-selection`
+- Review/merge `project-os` PR #5 if the registry status update is acceptable:
+  - `https://github.com/BohyungKim/project-os/pull/5`
 - In `C:\Users\JohnKim\Documents\New project 2`, add the GitHub remote as `origin`.
 - Push local `main` to `origin` if the remote is empty.
 - If remote `main` has unrelated history, stop and report before any overwrite.

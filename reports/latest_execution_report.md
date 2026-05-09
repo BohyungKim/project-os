@@ -20,6 +20,9 @@ Heater local commit: `4f5eb1f docs: add heater source-of-truth setup`
 - Updated app `README.md` with project purpose, main folders, browser automation safety rules, limitations, and next actions.
 - Committed the app baseline locally with `docs: add heater source-of-truth setup`.
 - Updated `project-os` registry and status files to show the app is locally prepared but blocked on GitHub repo creation.
+- Pushed `codex/heater-onboarding-status` to `project-os`.
+- Opened draft PR #5:
+  - `https://github.com/BohyungKim/project-os/pull/5`
 
 ## What Did Not Change
 
@@ -48,6 +51,7 @@ Additional app checks:
 - Tracked secret/local-only scan found 0 blocked files.
 - `git check-ignore` confirmed representative `.env`, output, screenshot, download, trace, HAR, storage state, auth, log, and temp paths are ignored.
 - `git ls-remote https://github.com/BohyungKim/heater-batch-selection.git` returned repository not found.
+- `project-os` draft PR #5 opened successfully.
 
 ## Risks
 
@@ -57,6 +61,7 @@ Additional app checks:
 
 ## What ChatGPT Should Review Next
 
-- Review this `project-os` registry status update PR.
+- Review this `project-os` registry status update PR:
+  - `https://github.com/BohyungKim/project-os/pull/5`
 - Confirm the second app repo blocker is recorded clearly.
 - After John creates `BohyungKim/heater-batch-selection`, review the pushed app baseline before moving to `prg-supply-readiness-checker`.

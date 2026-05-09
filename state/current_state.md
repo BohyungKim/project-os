@@ -16,6 +16,8 @@ Second app repo onboarding, blocked on GitHub repo creation.
 - `project-os/main` reflects `planner-workload-analyzer` as established.
 - Current `project-os` branch: `codex/heater-onboarding-status`.
 - `project-os` remote: `https://github.com/BohyungKim/project-os.git`.
+- Draft PR #5 is open for this heater onboarding status update:
+  - `https://github.com/BohyungKim/project-os/pull/5`
 - Second app project folder: `C:\Users\JohnKim\Documents\New project 2`.
 - Second app target repo: `BohyungKim/heater-batch-selection`.
 - `New project 2` branch was renamed from `master` to `main` because it had no commits yet.
@@ -34,6 +36,7 @@ Second app repo onboarding, blocked on GitHub repo creation.
 - Updated `New project 2/README.md` with browser automation safety rules.
 - Committed the local heater app baseline.
 - Updated `project-os` registry/status files to record the heater onboarding result and GitHub repo blocker.
+- Pushed `codex/heater-onboarding-status` and opened draft PR #5.
 
 ## Still Incomplete
 
@@ -63,6 +66,7 @@ Results:
 - `New project 2`: ignore checks confirmed representative secret, browser artifact, output, log, and temp paths are ignored.
 - `New project 2`: `state/current_state.json` parsed successfully.
 - `New project 2`: `git diff --check` passed.
+- `project-os`: `state/current_state.json` and `state/project_registry.json` parsed successfully.
 - Target GitHub repo is not available yet.
 
 ## Current Risk

@@ -10,10 +10,20 @@
     "url": "https://github.com/BohyungKim/project-os.git",
     "push_possible": true
   },
+  "pull_request": {
+    "created": true,
+    "number": 5,
+    "url": "https://github.com/BohyungKim/project-os/pull/5",
+    "state": "open",
+    "draft": true,
+    "base": "main",
+    "head": "codex/heater-onboarding-status"
+  },
   "confirmed": [
     "PR #4 is merged into project-os main.",
     "project-os main reflects planner-workload-analyzer as established.",
     "Current project-os branch is codex/heater-onboarding-status.",
+    "Draft PR #5 is open for the heater onboarding status update.",
     "Second app project folder is C:\\Users\\JohnKim\\Documents\\New project 2.",
     "Second app target repo is BohyungKim/heater-batch-selection.",
     "New project 2 branch was renamed from master to main because it had no commits yet.",
@@ -30,7 +40,8 @@
     "Improved New project 2 .gitignore for secret/local-only/browser artifact exclusions.",
     "Updated New project 2 README.md with browser automation safety rules.",
     "Committed local heater app baseline.",
-    "Updated project-os registry/status files to record the heater onboarding result and GitHub repo blocker."
+    "Updated project-os registry/status files to record the heater onboarding result and GitHub repo blocker.",
+    "Pushed codex/heater-onboarding-status and opened draft PR #5."
   ],
   "app_onboarding": {
     "project_name": "heater-batch-selection",
@@ -66,6 +77,10 @@
       {
         "command": "git ls-remote https://github.com/BohyungKim/heater-batch-selection.git",
         "result": "Repository not found"
+      },
+      {
+        "command": "GitHub create pull request for project-os",
+        "result": "Draft PR #5 opened at https://github.com/BohyungKim/project-os/pull/5"
       }
     ],
     "application_tests": "New project 2 passed 9 tests."
