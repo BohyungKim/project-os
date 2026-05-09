@@ -17,6 +17,12 @@ It records:
 - what Codex should do next
 - what John must review before publishing or merging
 
+## PRG 안에서의 역할
+
+`project-os` is the PRG operating control tower. It tracks which PRG repos exist, which branch is the stable source of truth, what each repo is responsible for, what Codex should do next, and what John must review before a repo is treated as operationally safe.
+
+This repo should not contain PRG module runtime code, Epicor/Planner/NepConnect automation, or production-impacting business logic. Those belong in their own project repos and should be summarized here only as source-of-truth status.
+
 ## Final Structure
 
 ```text
@@ -203,8 +209,7 @@ powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
 
 ## Current Limitations
 
-- No GitHub remote is configured for this repo yet.
-- The branch can be committed locally, but cannot be pushed until John creates or connects a GitHub repo.
 - This repo tracks operating docs only; it does not contain application source code.
-- Discovered local project folders still need John mapping to final GitHub repo names.
-- ChatGPT GitHub connector access still needs to be verified after the GitHub repo exists.
+- Some canonical local project folders may lag GitHub and need sync review before local work continues.
+- `job-bom-comparator` still needs GitHub default branch review because GitHub currently reports `codex/source-of-truth-onboarding` as the default branch, while `main` is the intended stable baseline.
+- PRG module repos still need continued README/CURRENT_STATE normalization as their contracts and source-of-truth docs mature.
