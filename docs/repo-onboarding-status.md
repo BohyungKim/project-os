@@ -6,7 +6,7 @@ Updated: 2026-05-09 11:35 -04:00
 
 | Priority | Project | Recommended GitHub Repo | Onboarding Status | Blocker | Next Action |
 | ---: | --- | --- | --- | --- | --- |
-| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #5 is merged | Review this `prg-contracts` registry update PR |
+| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #5 is merged | Review PR #6: `https://github.com/BohyungKim/project-os/pull/6` |
 | 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Established | None | Use GitHub `main` as source of truth |
 | 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Established | Browser automation safety review remains ongoing | Use GitHub `main` as source of truth; keep browser actions dry-run/manual-review |
 | 3 | prg-contracts | `BohyungKim/prg-contracts` | Established | None for contract repo baseline | Integrate first feeder repo with PRGCase-compatible output |

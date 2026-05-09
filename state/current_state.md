@@ -16,6 +16,8 @@ Third source-of-truth repo established; `project-os` registry update in progress
 - `project-os/main` reflects `planner-workload-analyzer` and `heater-batch-selection` as established.
 - Current `project-os` branch: `codex/prg-contracts-onboarding-status`.
 - `project-os` remote: `https://github.com/BohyungKim/project-os.git`.
+- Project-os PR #6 is open:
+  - `https://github.com/BohyungKim/project-os/pull/6`
 - Third repo local folder: `C:\Users\JohnKim\Documents\New project 3`.
 - Third repo is now `prg-contracts`, not `prg-supply-readiness-checker`.
 - PRG contracts repo:
@@ -33,7 +35,7 @@ Third source-of-truth repo established; `project-os` registry update in progress
 
 ## Still Incomplete
 
-- This `project-os` registry update PR still needs to be opened/reviewed/merged.
+- `project-os` PR #6 still needs to be reviewed and merged.
 - First feeder integration with `prg-contracts` has not started yet.
 
 ## Uncertain

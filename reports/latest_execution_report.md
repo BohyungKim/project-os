@@ -2,7 +2,7 @@
 
 Date: 2026-05-09
 Branch: `codex/prg-contracts-onboarding-status`
-Project-os PR: pending creation
+Project-os PR: `https://github.com/BohyungKim/project-os/pull/6`
 PRG contracts remote main commit: `3455eaddc9413acf12f195cd58ad04deaef9a4d0`
 
 ## What Changed
@@ -55,11 +55,12 @@ Additional contract repo checks:
 - `prg-contracts` setup risk is low.
 - Scope drift is the main ongoing risk. Keep `prg-contracts` contract-only.
 - Feeder repos must not invent incompatible PRGCase fields. If the contract is insufficient, use the schema change request process.
-- `project-os` PR for this registry update still needs John/ChatGPT review before merge.
+- `project-os` PR #6 still needs John/ChatGPT review before merge.
 
 ## What ChatGPT Should Review Next
 
-- Review this `project-os` PR once created.
+- Review `project-os` PR #6:
+  - `https://github.com/BohyungKim/project-os/pull/6`
 - Confirm `prg-contracts` is marked established.
 - Review `prg-contracts` contract surfaces:
   - `schemas/prg_case.schema.json`

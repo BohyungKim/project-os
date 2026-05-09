@@ -11,11 +11,11 @@
     "push_possible": true
   },
   "pull_request": {
-    "created": false,
-    "number": null,
-    "url": null,
-    "state": null,
-    "draft": null,
+    "created": true,
+    "number": 6,
+    "url": "https://github.com/BohyungKim/project-os/pull/6",
+    "state": "open",
+    "draft": false,
     "base": "main",
     "head": "codex/prg-contracts-onboarding-status"
   },
@@ -23,6 +23,7 @@
     "PR #5 is merged into project-os main.",
     "project-os main reflects planner-workload-analyzer and heater-batch-selection as established.",
     "Current project-os branch is codex/prg-contracts-onboarding-status.",
+    "Project-os PR #6 is open for the prg-contracts registry update.",
     "New project 3 is now prg-contracts, not prg-supply-readiness-checker.",
     "prg-contracts repo is https://github.com/BohyungKim/prg-contracts.git.",
     "prg-contracts origin/main now points to 3455eaddc9413acf12f195cd58ad04deaef9a4d0.",
@@ -49,7 +50,7 @@
     "scope_guardrail": "contract-only; no dashboard, no POBTO checker, no Epicor write-back, no production automation, no feeder-specific detection logic"
   },
   "still_incomplete": [
-    "project-os registry update PR still needs to be opened, reviewed, and merged.",
+    "project-os PR #6 still needs John/ChatGPT review before merge.",
     "First feeder integration with prg-contracts has not started yet."
   ],
   "next_recommended_repo_to_integrate_with_prg_contracts": "job-bom-comparator",

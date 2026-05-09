@@ -1,12 +1,12 @@
 {
-  "updated_at": "2026-05-09T11:35:00-04:00",
+  "updated_at": "2026-05-09T11:37:00-04:00",
   "timezone": "America/Toronto",
   "registry_owner_repo": "BohyungKim/project-os",
   "purpose": "Central control tower for Codex and ChatGPT continuity across project repositories.",
   "source_of_truth_model": {
     "project_os": "Central registry, status dashboard, operating rules, and templates.",
     "actual_project_repos": "Each real project owns its code, AGENTS.md, README, state files, reports, tasks, and decisions.",
-    "sync_rule": "Before finishing, Codex must update state/report/task files so ChatGPT can understand the latest project status from GitHub."
+    "sync_rule": "Before finishing, Codex must update registry/report/task files so ChatGPT can understand the latest project status from GitHub."
   },
   "projects": [
     {
@@ -16,17 +16,18 @@
       "probable_purpose": "Central control tower and source-of-truth registry for Codex/ChatGPT project continuity.",
       "has_code": false,
       "has_tests": false,
-      "validation": "JSON state parse checks, git diff --check, and scripts/update-project-status.ps1.",
+      "validation": "JSON parse checks, git diff --check, and git status inspection.",
       "git_initialized": true,
-      "current_branch": "codex/prg-contracts-onboarding-status",
+      "current_branch": "codex/correct-local-folder-mapping",
       "github_remote": "https://github.com/BohyungKim/project-os.git",
       "recommended_repo_name": "project-os",
       "source_of_truth_status": "established",
-      "next_onboarding_action": "Review the prg-contracts registry update PR after validation."
+      "next_onboarding_action": "Review the local folder mapping correction PR."
     },
     {
       "project_name": "planner-workload-analyzer",
       "local_folder": "C:\\Users\\JohnKim\\Documents\\New project",
+      "preferred_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\planner-workload-analyzer",
       "classification": "real app/code project",
       "probable_purpose": "Read-only Microsoft Planner workload analyzer using Microsoft Graph, local normalization, and workload reports.",
       "has_code": true,
@@ -34,14 +35,28 @@
         "src/planner_analyzer"
       ],
       "has_tests": true,
-      "validation": "python -m pytest passed 7 tests on 2026-05-09.",
+      "validation": "python -m pytest previously passed 7 tests; current audit confirmed clean git state.",
       "git_initialized": true,
       "current_branch": "main",
-      "latest_remote_main_commit": "7427048 docs: confirm GitHub source of truth",
+      "latest_local_commit": "7427048 docs: confirm GitHub source of truth",
       "github_remote": "https://github.com/BohyungKim/planner-workload-analyzer.git",
+      "target_github_remote": "https://github.com/BohyungKim/planner-workload-analyzer.git",
+      "remote_main": {
+        "exists": true,
+        "latest_commit": "7427048 docs: confirm GitHub source of truth",
+        "is_source_of_truth": true,
+        "local_head_matches_origin_main": true,
+        "ahead_behind_origin_main": "0/0"
+      },
+      "local_secret_status": {
+        ".env_exists": true,
+        ".env_is_ignored": true,
+        ".env_example_is_tracked": true
+      },
       "recommended_repo_name": "planner-workload-analyzer",
       "source_of_truth_status": "established",
-      "next_onboarding_action": "Use GitHub main as the app source of truth."
+      "relocation_recommendation": "Prefer a clean clone from GitHub into the preferred folder over manually moving the current folder. Do not archive the old folder until John confirms the clone and any local-only .env needs.",
+      "next_onboarding_action": "Clone to C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\planner-workload-analyzer in a separate cleanup task after John approval."
     },
     {
       "project_name": "heater-batch-selection",
@@ -53,48 +68,93 @@
         "src/heater_batch"
       ],
       "has_tests": true,
-      "validation": "python -m pytest passed 9 tests on 2026-05-09.",
+      "validation": "python -m pytest previously passed 9 tests.",
       "git_initialized": true,
       "current_branch": "main",
-      "latest_remote_main_commit": "6e32db7 docs: confirm heater GitHub source of truth",
+      "latest_local_commit": "6e32db7 docs: confirm heater GitHub source of truth",
       "github_remote": "https://github.com/BohyungKim/heater-batch-selection.git",
+      "target_github_remote": "https://github.com/BohyungKim/heater-batch-selection.git",
+      "remote_main": {
+        "exists": true,
+        "latest_commit": "6e32db7 docs: confirm heater GitHub source of truth",
+        "is_source_of_truth": true
+      },
       "recommended_repo_name": "heater-batch-selection",
       "source_of_truth_status": "established",
       "browser_automation_safety": "manual-review / safe dry-run only; no automated login, purchasing, submission, or production-impacting actions",
-      "next_onboarding_action": "Use GitHub main as the app source of truth."
+      "next_onboarding_action": "Keep as established; future browser automation changes require explicit safety review."
     },
     {
       "project_name": "prg-contracts",
       "local_folder": "C:\\Users\\JohnKim\\Documents\\New project 3",
-      "classification": "shared contract repo",
-      "probable_purpose": "PRG / Manufacturing Copilot shared contract source of truth for PRGCase, evidence, actions, taxonomies, owner mapping, examples, schema change process, and validation tooling.",
-      "has_code": true,
-      "code_paths": [
-        "tools/validate_prg_case.py"
-      ],
-      "implementation_status": "Contract validation tooling only; no dashboard, no POBTO checker, no Epicor write-back, and no feeder-specific detection logic.",
+      "requested_remap_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\PRG",
+      "classification": "contract/schema repo",
+      "probable_purpose": "Contract-only PRG / Manufacturing Copilot schema, field registry, taxonomy, examples, and validation tool.",
+      "has_code": false,
+      "code_paths": [],
       "has_tests": true,
-      "validation": "python tools/validate_prg_case.py examples/*.json passed for 4 sample PRGCase files on 2026-05-09.",
+      "validation": "python tools/validate_prg_case.py examples/*.json previously passed for four sample files.",
       "git_initialized": true,
       "current_branch": "main",
-      "latest_remote_main_commit": "3455eaddc9413acf12f195cd58ad04deaef9a4d0",
+      "latest_local_commit": "3455ead docs: mark prg contracts source of truth established",
       "github_remote": "https://github.com/BohyungKim/prg-contracts.git",
+      "target_github_remote": "https://github.com/BohyungKim/prg-contracts.git",
+      "remote_main": {
+        "exists": true,
+        "latest_commit": "3455ead docs: mark prg contracts source of truth established",
+        "is_source_of_truth": true,
+        "local_head_matches_origin_main": true
+      },
       "recommended_repo_name": "prg-contracts",
       "source_of_truth_status": "established",
-      "contract_scope": [
-        "PRGCase schema",
-        "evidence item schema",
-        "action item schema",
-        "field registry",
-        "severity taxonomy",
-        "readiness area taxonomy",
-        "owner mapping",
-        "schema change request process",
-        "Codex prompt guardrails",
-        "sample feeder payloads",
-        "basic validation tool"
+      "remap_audit_result": "Do not replace the verified contract-only local folder with PRG as-is. PRG contains app/orchestrator/dashboard logic, tests, scripts, templates, and a local .env, and it is not a Git repo.",
+      "next_onboarding_action": "Review PRG split decision before changing the prg-contracts local working-folder mapping."
+    },
+    {
+      "project_name": "PRG folder audit",
+      "local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\PRG",
+      "classification": "mixed app/orchestrator plus contract docs",
+      "probable_purpose": "PRG supply readiness/checker workspace with Epicor-facing app logic, factor scoring, templates, docs, sample data, and tests.",
+      "has_code": true,
+      "code_paths": [
+        "src/prg",
+        "scripts"
       ],
-      "next_onboarding_action": "Integrate the first feeder repo with PRGCase-compatible output."
+      "has_contract_docs": true,
+      "contract_doc_paths": [
+        "docs/PRG_DATA_CONTRACT.md",
+        "docs/epicor_schema_notes.md",
+        "docs/factors.md",
+        "docs/architecture.md",
+        "docs/decisions/001-factor-plugin-pattern.md"
+      ],
+      "has_dashboard_or_app_logic": true,
+      "app_logic_evidence": [
+        "src/prg/api.py",
+        "src/prg/epicor/client.py",
+        "src/prg/templates/index.html",
+        "scripts/daily_scan.py",
+        "scripts/run_against_job.py"
+      ],
+      "has_roadmap_docs": true,
+      "roadmap_doc_paths": [
+        "PRG_ClaudeCode_Implementation_Guide.md",
+        "docs/PRG_CHECKLIST.md",
+        "docs/HUMAN_IN_THE_LOOP_POLICY.md"
+      ],
+      "has_tests": true,
+      "test_paths": [
+        "tests/unit",
+        "tests/integration"
+      ],
+      "git_initialized": false,
+      "github_remote": null,
+      "env_or_secret_files_found": [
+        "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\PRG\\.env"
+      ],
+      "recommended_repo_name": null,
+      "source_of_truth_status": "not established; audit-only",
+      "split_recommendation": "Do not force PRG into prg-contracts. Split contract/schema material into the existing prg-contracts repo if needed, and keep app/orchestrator/dashboard logic in a separate PRG application repo."
     },
     {
       "project_name": "project-os legacy sync workspace",
@@ -112,11 +172,6 @@
       "next_onboarding_action": "Do not onboard separately; archive after John confirms it is no longer needed."
     }
   ],
-  "established_source_of_truth_repos": [
-    "planner-workload-analyzer",
-    "heater-batch-selection",
-    "prg-contracts"
-  ],
-  "next_recommended_repo_to_integrate_with_prg_contracts": "job-bom-comparator",
-  "current_blocker": null
+  "recommended_next_action": "John should decide whether PRG should be split into contract/schema material for prg-contracts and app/orchestrator/dashboard logic for a separate PRG application repo.",
+  "current_blocker": "PRG cannot safely become prg-contracts as-is because it is a mixed app/contracts folder and is not a Git repo."
 }
