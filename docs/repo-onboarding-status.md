@@ -1,90 +1,87 @@
 # Repo Onboarding Status
 
-Updated: 2026-05-09 11:09 -04:00
+Updated: 2026-05-09 11:37 -04:00
 
 ## Summary
 
 | Priority | Project | Recommended GitHub Repo | Onboarding Status | Blocker | Next Action |
 | ---: | --- | --- | --- | --- | --- |
-| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #4 is merged | Review draft PR #5: `https://github.com/BohyungKim/project-os/pull/5` |
-| 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Established | None | Use GitHub `main` as source of truth |
-| 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Established | Browser automation safety review remains ongoing | Use GitHub `main` as source of truth |
-| 3 | prg-supply-readiness-checker | `BohyungKim/prg-supply-readiness-checker` | Docs-first candidate | No code/tests yet | Onboard next as docs-first repo |
+| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation | Review local folder mapping correction PR |
+| 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Established | Local folder still uses placeholder name `New project` | Relocate later by clone from GitHub to `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` |
+| 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Established | Browser automation safety review remains ongoing | Keep manual-review / safe dry-run guardrails |
+| 3 | prg-contracts | `BohyungKim/prg-contracts` | Established as contract-only at `C:\Users\JohnKim\Documents\New project 3` | Requested `PRG` remap is not safe as-is | John review: decide PRG split before changing local mapping |
+| Audit | PRG folder | Split needed before repo assignment | Not established as a repo | Contains app/orchestrator/dashboard logic, tests, templates, scripts, and `.env`; no `.git` repo | Split contract/schema docs from app logic before any remap |
 | N/A | project-os legacy sync workspace | None | Do not onboard | Duplicate project-os workspace | Archive after John confirmation |
 
-## First Project Onboarded
+## Planner Local Mapping
 
-`planner-workload-analyzer`
+Current verified folder:
 
-Reason:
-- It is a real app/code project.
-- It already has `src/`, `tests/`, config, README, and source-of-truth status files.
-- `python -m pytest` passed 7 tests.
-- Local baseline commit is `749ade2 docs: add source-of-truth onboarding files`.
-- Latest GitHub `main` commit is `7427048 docs: confirm GitHub source of truth`.
-- Temporary review branch `codex/source-of-truth-baseline` was deleted.
-- It has lower operational risk than the browser-assisted heater batch project.
+- `C:\Users\JohnKim\Documents\New project`
 
-Current blocker:
-- None for `planner-workload-analyzer` source-of-truth setup.
+GitHub source of truth:
 
-John action required:
-- Create/connect `BohyungKim/heater-batch-selection` when ready for the second onboarding.
+- `https://github.com/BohyungKim/planner-workload-analyzer.git`
 
-## Second Project Onboarding Status
+Confirmed on 2026-05-09:
 
-`heater-batch-selection`
-
-Result:
-- Local folder: `C:\Users\JohnKim\Documents\New project 2`.
 - Branch: `main`.
-- Local commit: `4f5eb1f docs: add heater source-of-truth setup`.
-- Latest GitHub `main` commit: `6e32db7 docs: confirm heater GitHub source of truth`.
-- Tests: `python -m pytest` passed 9 tests.
-- GitHub repo: `https://github.com/BohyungKim/heater-batch-selection.git`.
-- Browser automation status: manual-review / safe dry-run only.
+- Local `HEAD`: `7427048 docs: confirm GitHub source of truth`.
+- `origin/main`: `7427048 docs: confirm GitHub source of truth`.
+- Ahead/behind relative to `origin/main`: `0/0`.
+- Working tree: clean.
+- `.env` exists locally but is ignored; `.env.example` is tracked.
 
-Current blocker:
-- None for `heater-batch-selection` source-of-truth setup.
+Recommended cleanup:
 
-John action required:
-- Review/merge `project-os` PR #5 when satisfied.
-- Prepare `BohyungKim/prg-supply-readiness-checker` when ready for the docs-first onboarding.
+- Prefer `git clone https://github.com/BohyungKim/planner-workload-analyzer.git C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`.
+- Do not manually move the current folder unless John explicitly approves after confirming there are no needed local-only files.
 
-Then ask Codex:
+## PRG / prg-contracts Mapping Audit
+
+Current established `prg-contracts` local folder:
+
+- `C:\Users\JohnKim\Documents\New project 3`
+
+GitHub source of truth:
+
+- `https://github.com/BohyungKim/prg-contracts.git`
+
+Requested audit folder:
+
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG`
+
+PRG audit result:
+
+- Contract/schema docs exist.
+- App/orchestrator/dashboard logic also exists under `src/prg`, `src/prg\templates`, and `scripts`.
+- Tests exist under `tests`.
+- `.env` exists at the root.
+- No `.git` repo was found, so no remote URL is configured in that folder.
+
+Decision:
+
+- Do not force `PRG` into `prg-contracts` as-is.
+- Treat `PRG` as a mixed workspace that needs a split decision.
+- Keep the existing contract-only `prg-contracts` mapping until John confirms a split/relocation plan.
+
+## Exact Next Prompt
 
 ```text
-Now onboard the third detected project.
+Use project-os as the central registry.
 
-Local folder:
-C:\Users\JohnKim\Documents\New project 3
+Review the PRG split decision.
 
-Target GitHub repo:
-BohyungKim/prg-supply-readiness-checker
+Audit:
+C:\Users\JohnKim\Desktop\Bins\Projects\PRG
 
-This is a documentation/design-first project, not a production app yet.
+Goal:
+Decide what belongs in BohyungKim/prg-contracts and what belongs in a separate PRG app/orchestrator repo.
 
-Prepare it as a docs-first source-of-truth repo. Do not pretend implementation exists. Do not add Epicor write-back logic. Update project-os registry after completion. Do not merge automatically.
-```
-
-## Exact Next Prompt For Third Repo
-
-```text
-Now onboard the third detected project.
-
-Local folder:
-C:\Users\JohnKim\Documents\New project 3
-
-Target GitHub repo:
-BohyungKim/prg-supply-readiness-checker
-
-This is a documentation/design-first project, not a production app yet.
-
-Add AGENTS.md, source-of-truth state/report/task/decision files, README updates, docs/implementation-roadmap.md, and docs/data-contract-draft.md if useful.
-Do not pretend implementation exists.
-Do not add Epicor write-back logic.
-Run validation checks, update project-os registry, push, and open PR.
-Do not merge automatically.
+Do not move, rename, delete, or push folders.
+Do not read .env contents.
+Do not modify application logic.
+Prepare a split plan with exact files and validation steps.
 ```
 
 ## Notes
