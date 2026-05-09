@@ -299,8 +299,26 @@ Rationale:
 - Tests pass with 87 tests.
 
 Status:
-- Local onboarding prepared.
-- GitHub source of truth is blocked until John creates the empty private repo.
+- Completed.
+- John created the empty private repo.
+- Codex added `origin` and pushed `codex/source-of-truth-onboarding`.
 
 Risk:
 - Existing modified/untracked app/product files remain in the working tree and need separate review before deciding what to push as the app baseline.
+
+## 2026-05-09 - Job BOM Comparator Prepared Branch Pushed, Main Not Promoted
+
+Decision:
+- Record `codex/source-of-truth-onboarding` as the pushed Job BOM Comparator source-of-truth candidate branch.
+- Do not mark stable `main` as established yet.
+
+Rationale:
+- John asked to add origin and push the prepared branch without merging automatically.
+- The empty repo accepted the pushed branch.
+- No separate `main` base exists yet, and existing app/product changes still need review before stable baseline promotion.
+
+Status:
+- Accepted and recorded in project-os PR #9.
+
+Risk:
+- ChatGPT can now inspect the GitHub branch, but John should not treat app `main` as stable until the promotion path is reviewed.

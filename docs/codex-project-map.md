@@ -1,6 +1,6 @@
 # Codex Project Map
 
-Updated: 2026-05-09 12:30 -04:00
+Updated: 2026-05-09 16:42 -04:00
 
 ## Canonical Project Root
 
@@ -23,7 +23,7 @@ C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts
 
 C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent
   canonical local folder for job-bom-comparator candidate
-  status: local source-of-truth setup prepared, no remote, GitHub repo creation required
+  status: prepared branch pushed to GitHub, stable main not yet promoted
 
 C:\Users\JohnKim\Desktop\Bins\Projects\PRG
   canonical PRG workspace
@@ -66,15 +66,17 @@ Canonical local path:
 Status:
 - Git repo exists.
 - Branch `codex/source-of-truth-onboarding`.
-- No `origin` remote.
-- Target remote `https://github.com/BohyungKim/job-bom-comparator.git` currently does not exist.
-- Latest onboarding commit `42f2ee7`.
+- Origin remote `https://github.com/BohyungKim/job-bom-comparator.git`.
+- Pushed branch `codex/source-of-truth-onboarding`.
+- Remote HEAD branch `codex/source-of-truth-onboarding`.
+- Latest pushed commit `c5f7555`.
+- Initial onboarding commit `42f2ee7`.
 - Tests pass: 87 passed with local venv pytest.
 - Source-of-truth files are committed locally.
 - Existing app/product changes remain modified/untracked and were not committed by this onboarding step.
 - `.env` exists locally but is not tracked.
 
-This should be treated as the next onboarding candidate. It is prepared locally, but it is not yet a GitHub source-of-truth repo because John still needs to create `BohyungKim/job-bom-comparator`.
+The prepared branch is now on GitHub. It is not yet stable `main` source of truth because no main promotion or merge was performed.
 
 ### PRG
 

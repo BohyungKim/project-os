@@ -1,6 +1,6 @@
 # Current State
 
-Updated at: 2026-05-09 12:30 America/Toronto
+Updated at: 2026-05-09 16:42 America/Toronto
 
 ## Project Case
 
@@ -8,7 +8,7 @@ Case 3 - Codex Continuation Sync.
 
 ## Current Phase
 
-Job BOM Comparator source-of-truth onboarding prepared locally; GitHub repo creation is the current blocker.
+Job BOM Comparator prepared branch pushed to GitHub; stable `main` promotion is the current decision.
 
 ## Confirmed
 
@@ -35,7 +35,10 @@ Job BOM Comparator source-of-truth onboarding prepared locally; GitHub repo crea
   - `42f2ee7 docs: prepare source-of-truth onboarding`
 - Target GitHub remote checked:
   - `https://github.com/BohyungKim/job-bom-comparator.git`
-- The target GitHub repo does not exist yet from local git credentials.
+- Origin is configured and the prepared branch has been pushed.
+- Remote HEAD branch is `codex/source-of-truth-onboarding`.
+- Latest remote commit is `c5f7555f8f8a97a8d24e221dc13df08d77bf6663`.
+- Stable `main` has not been promoted or merged.
 - `.env` exists locally, was not read, and is not tracked.
 - Tracked secret-like filename scan found only `.env.example`.
 - Local tests pass: 87 passed.
@@ -44,18 +47,19 @@ Job BOM Comparator source-of-truth onboarding prepared locally; GitHub repo crea
 
 - Prepared `Job BOM Comparator Agent` local source-of-truth onboarding files.
 - Committed the onboarding setup locally in the app repo.
-- Updated project-os registry and status files to record that the repo is ready for GitHub creation/push.
+- Updated project-os registry and status files to record that the prepared branch is pushed.
 - Opened project-os PR #9 for John review.
 
 ## Still Incomplete
 
 - `planner-workload-analyzer` canonical clone is still missing.
 - `heater-batch-selection` canonical clone is still missing.
-- `Job BOM Comparator Agent` has not been pushed to GitHub because `BohyungKim/job-bom-comparator` does not exist yet.
+- `Job BOM Comparator Agent` stable `main` source of truth has not been established yet.
 - Canonical `Project-OS` folder has not been reconciled with current GitHub main work.
 
 ## Uncertain
 
+- Whether John wants to promote `codex/source-of-truth-onboarding` to `main` or create a separate `main` base first.
 - Whether John wants to keep the canonical folder name as `Job BOM Comparator Agent` after the GitHub repo becomes `job-bom-comparator`.
 - Whether `Project-OS` canonical folder should be repaired in place or replaced by a clean clone after review.
 
@@ -69,18 +73,19 @@ git -C "C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts" status --short --b
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" status --short --branch
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS" status --short --branch
 powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
-git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-remote https://github.com/BohyungKim/job-bom-comparator.git
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" push -u origin codex/source-of-truth-onboarding
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-remote --heads origin
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-files
 .\.venv\Scripts\python.exe -B -m pytest
 ```
 
 Results:
 - `prg-contracts` canonical clone is clean on `main...origin/main`.
-- `Job BOM Comparator Agent` source-of-truth onboarding commit exists locally.
-- `Job BOM Comparator Agent` has no remote because the target GitHub repo does not exist yet.
+- `Job BOM Comparator Agent` branch `codex/source-of-truth-onboarding` is pushed to GitHub.
+- `Job BOM Comparator Agent` remote branch points to `c5f7555f8f8a97a8d24e221dc13df08d77bf6663`.
 - `Job BOM Comparator Agent` test result: 87 passed.
 - `Project-OS` canonical folder is dirty/old and needs review.
 
 ## Current Risk
 
-Medium. The app repo is locally prepared, but GitHub source of truth is not established until John creates `BohyungKim/job-bom-comparator` and Codex pushes the prepared branch/main.
+Medium. The prepared branch is on GitHub, but stable `main` is not established until John chooses the promotion path.

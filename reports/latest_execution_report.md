@@ -9,7 +9,8 @@ Project-os PR: `https://github.com/BohyungKim/project-os/pull/9`
 - Confirmed project-os PR #8 was merged into `main`.
 - Prepared `Job BOM Comparator Agent` as the next local source-of-truth candidate.
 - Added/committed local app onboarding files in `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`.
-- Updated project-os registry/status files to show the current blocker: the GitHub repo `BohyungKim/job-bom-comparator` does not exist yet.
+- Added `origin` and pushed `codex/source-of-truth-onboarding` to `https://github.com/BohyungKim/job-bom-comparator.git`.
+- Updated project-os registry/status files to show the current blocker: stable `main` promotion is not decided yet.
 - Opened project-os PR #9 for review.
 
 ## What Did Not Change
@@ -17,7 +18,7 @@ Project-os PR: `https://github.com/BohyungKim/project-os/pull/9`
 - No app code was modified.
 - No app folder was deleted or moved.
 - No `.env` contents were read.
-- No remote was added to `Job BOM Comparator Agent` because the target repo does not exist yet.
+- No `main` promotion or merge was performed for `Job BOM Comparator Agent`.
 - No PR was merged automatically.
 
 ## Confirmed
@@ -63,7 +64,8 @@ git -C "C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts" status --short --b
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" status --short --branch
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS" status --short --branch
 powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
-git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-remote https://github.com/BohyungKim/job-bom-comparator.git
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" push -u origin codex/source-of-truth-onboarding
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-remote --heads origin
 .\.venv\Scripts\python.exe -B -m pytest
 ```
 
@@ -71,14 +73,15 @@ Results:
 
 - `prg-contracts` canonical clone created and clean.
 - `Job BOM Comparator Agent` source-of-truth onboarding files are committed locally.
-- `Job BOM Comparator Agent` target GitHub repo is missing.
+- `Job BOM Comparator Agent` branch `codex/source-of-truth-onboarding` is pushed.
+- Latest remote commit is `c5f7555f8f8a97a8d24e221dc13df08d77bf6663`.
 - Job BOM Comparator tests pass: 87 passed.
 - `Project-OS` canonical clone exists but is dirty/old.
 - Realtime status now scans canonical Projects paths.
 
 ## Risks
 
-- `Job BOM Comparator Agent` cannot be pushed until John creates `BohyungKim/job-bom-comparator`.
+- `Job BOM Comparator Agent` stable `main` is not established yet.
 - Existing modified/untracked app/product files were preserved and need separate review before deciding what belongs in the first GitHub baseline.
 - `Project-OS` canonical clone is not clean; do not switch Codex work there until it is reconciled.
 - Legacy `Documents\New project*` folders should not be deleted until canonical clones and local-only config are verified.
@@ -86,4 +89,4 @@ Results:
 ## What ChatGPT Should Review Next
 
 - Whether this project-os update accurately records the Job BOM Comparator blocker.
-- Whether John approves creating the empty private repo `BohyungKim/job-bom-comparator`.
+- Whether John approves promoting `codex/source-of-truth-onboarding` to `main`.

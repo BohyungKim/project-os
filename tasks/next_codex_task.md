@@ -2,7 +2,7 @@
 
 ## Objective
 
-Connect `Job BOM Comparator Agent` to GitHub after John creates the empty private repo.
+Review or promote the pushed Job BOM Comparator source-of-truth branch.
 
 ## Scope
 
@@ -12,18 +12,19 @@ Connect `Job BOM Comparator Agent` to GitHub after John creates the empty privat
   - `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`
 - Use existing local branch:
   - `codex/source-of-truth-onboarding`
-- Confirm John created:
+- Confirm `origin` points to:
   - `https://github.com/BohyungKim/job-bom-comparator.git`
-- Add `origin` only if it is missing.
-- Push the prepared branch or main exactly as John approves.
-- Update project-os after the app repo push.
+- Confirm remote branch:
+  - `codex/source-of-truth-onboarding`
+- Decide whether to promote the pushed branch to `main` or create a separate `main` base.
+- Review existing modified/untracked app/product files before stable baseline promotion.
 
 ## Out Of Scope
 
 - Reading `.env` contents.
 - Discarding local changes.
-- Creating the GitHub repo from Codex unless John explicitly asks and the GitHub tooling supports it.
-- Pushing before the target empty private repo exists.
+- Promoting to `main` without John approval.
+- Rewriting history without explicit approval.
 - Changing application logic.
 - Merging any PR automatically.
 
@@ -49,8 +50,8 @@ Connect `Job BOM Comparator Agent` to GitHub after John creates the empty privat
 ## Acceptance Criteria
 
 - `origin` points to `https://github.com/BohyungKim/job-bom-comparator.git`.
-- Prepared Job BOM Comparator branch/main is pushed without secrets.
-- `origin/main` or the agreed onboarding branch is confirmed.
+- Prepared Job BOM Comparator branch is confirmed on GitHub.
+- Stable `main` path is selected by John.
 - Project-os registry files are updated in a PR.
 - No PR is merged automatically.
 
@@ -60,6 +61,7 @@ Connect `Job BOM Comparator Agent` to GitHub after John creates the empty privat
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" status --short --branch
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" remote -v
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-files
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-remote --heads origin
 cd "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent"
 .\.venv\Scripts\python.exe -B -m pytest
 ```

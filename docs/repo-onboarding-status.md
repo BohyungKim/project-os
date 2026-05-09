@@ -1,6 +1,6 @@
 # Repo Onboarding Status
 
-Updated: 2026-05-09 12:30 -04:00
+Updated: 2026-05-09 16:42 -04:00
 
 Canonical project root:
 
@@ -14,7 +14,7 @@ C:\Users\JohnKim\Desktop\Bins\Projects
 | ---: | --- | --- | --- | --- | --- |
 | 0 | project-os | `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS` | `BohyungKim/project-os` exists | Canonical clone exists but is dirty/old | Audit/sync before making it active workspace |
 | 1 | prg-contracts | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` | Established | Clean clone created, `main...origin/main` | Use this path going forward |
-| 2 | Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | Target repo missing: `BohyungKim/job-bom-comparator` | Source-of-truth files committed on `codex/source-of-truth-onboarding`; tests pass; app changes preserved | John creates empty private repo, then Codex pushes |
+| 2 | Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | Prepared branch pushed to `BohyungKim/job-bom-comparator` | Remote HEAD is `codex/source-of-truth-onboarding`; latest pushed commit `c5f7555`; app changes preserved | John reviews stable `main` promotion path |
 | 3 | planner-workload-analyzer | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | Established | Canonical clone missing | Clone here before future work |
 | 4 | heater-batch-selection | `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection` | Established | Canonical clone missing | Clone here before future work |
 | 5 | PRG | `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` | No repo yet | Mixed workspace, not git, `.env` exists | Split plan before repo assignment |
@@ -49,8 +49,11 @@ Confirmed:
 - Git repo exists.
 - Branch: `codex/source-of-truth-onboarding`.
 - Remote: none.
-- Target remote `https://github.com/BohyungKim/job-bom-comparator.git` was checked and returned repository not found.
-- Latest onboarding commit: `42f2ee7 docs: prepare source-of-truth onboarding`.
+- Origin remote: `https://github.com/BohyungKim/job-bom-comparator.git`.
+- Pushed branch: `codex/source-of-truth-onboarding`.
+- Remote HEAD branch: `codex/source-of-truth-onboarding`.
+- Latest pushed commit: `c5f7555 docs: confirm job bom GitHub branch push`.
+- Initial onboarding commit: `42f2ee7 docs: prepare source-of-truth onboarding`.
 - Previous app baseline commit: `b520f4a Surface sibling and owner signals`.
 - `AGENTS.md`, `.gitignore`, and source-of-truth state/report/task/decision files were committed locally.
 - `.\.venv\Scripts\python.exe -B -m pytest` passed with 87 tests.
@@ -59,12 +62,12 @@ Confirmed:
 - Existing app/product changes remain modified or untracked and were preserved.
 
 Status:
-- Local source-of-truth onboarding is prepared.
-- GitHub source of truth is blocked until John creates the empty private repo.
+- Prepared source-of-truth branch is pushed to GitHub.
+- Stable `main` source of truth is not established yet.
 
 John action required:
-- Create `https://github.com/BohyungKim/job-bom-comparator` as private.
-- Do not initialize it with README, `.gitignore`, or license because the local repo already has history.
+- Review whether `codex/source-of-truth-onboarding` should be promoted to `main`.
+- Review existing modified/untracked app/product files before deciding the stable baseline scope.
 
 ## prg-contracts Status
 
@@ -99,7 +102,7 @@ Canonical project root:
 C:\Users\JohnKim\Desktop\Bins\Projects
 
 Task:
-Connect Job BOM Comparator Agent to GitHub and establish it as source of truth.
+Review or promote Job BOM Comparator Agent source-of-truth branch.
 
 Local folder:
 C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent
@@ -109,7 +112,7 @@ Rules:
 - Do not read .env contents.
 - Do not discard local changes.
 - Use the existing local branch codex/source-of-truth-onboarding.
-- Add origin only after John creates https://github.com/BohyungKim/job-bom-comparator.git.
-- Push the onboarding branch or main as explicitly approved.
+- Confirm origin points to https://github.com/BohyungKim/job-bom-comparator.git.
+- Decide whether to promote to main or create a separate main base.
 - Update project-os after push.
 ```
