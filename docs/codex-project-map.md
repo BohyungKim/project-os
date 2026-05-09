@@ -1,6 +1,6 @@
 # Codex Project Map
 
-Updated: 2026-05-09 12:12 -04:00
+Updated: 2026-05-09 16:50 -04:00
 
 ## Canonical Project Root
 
@@ -23,7 +23,7 @@ C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts
 
 C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent
   canonical local folder for job-bom-comparator candidate
-  status: local git repo, no remote, dirty working tree
+  status: GitHub main established, default branch still needs review
 
 C:\Users\JohnKim\Desktop\Bins\Projects\PRG
   canonical PRG workspace
@@ -65,13 +65,21 @@ Canonical local path:
 
 Status:
 - Git repo exists.
-- Branch `master`.
-- No `origin` remote.
-- Latest commit `b520f4a`.
-- Many modified/untracked files.
-- `.env` exists.
+- Branch `codex/source-of-truth-onboarding`.
+- Origin remote `https://github.com/BohyungKim/job-bom-comparator.git`.
+- Pushed branch `codex/source-of-truth-onboarding`.
+- Remote HEAD branch `codex/source-of-truth-onboarding`.
+- GitHub `main` branch exists.
+- `main` points to `ba2ea94`.
+- PR #1 branch `codex/source-of-truth-onboarding` points to `f619f49`.
+- Latest pushed feature commit `f619f49`.
+- Initial onboarding commit `42f2ee7`.
+- Tests pass: 87 passed with local venv pytest.
+- Source-of-truth files are committed locally.
+- Existing app/product changes remain modified/untracked and were not committed by this onboarding step.
+- `.env` exists locally but is not tracked.
 
-This should be treated as the next onboarding candidate, but it is not yet a GitHub source-of-truth repo.
+Stable `main` is established. App/product changes are isolated in PR #1 for review. GitHub default branch still reports `codex/source-of-truth-onboarding`, so future work should explicitly target `main` until the default branch is switched.
 
 ### PRG
 

@@ -285,3 +285,74 @@ Status:
 Risk:
 - Some established GitHub repos still need canonical clones under the project root.
 - `Project-OS` canonical folder exists but is dirty/old and needs sync review before becoming the active Codex workspace.
+
+## 2026-05-09 - Prepare Job BOM Comparator Locally Before GitHub Repo Exists
+
+Decision:
+- Prepare `Job BOM Comparator Agent` as the next source-of-truth repo candidate, but do not add an origin or push until John creates `BohyungKim/job-bom-comparator`.
+
+Rationale:
+- The canonical local folder exists at `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`.
+- The requested target remote `https://github.com/BohyungKim/job-bom-comparator.git` returned repository not found from local git credentials.
+- Source-of-truth onboarding files were committed locally on `codex/source-of-truth-onboarding`.
+- `.env` was not read and is not tracked.
+- Tests pass with 87 tests.
+
+Status:
+- Completed.
+- John created the empty private repo.
+- Codex added `origin` and pushed `codex/source-of-truth-onboarding`.
+
+Risk:
+- Existing modified/untracked app/product files remain in the working tree and need separate review before deciding what to push as the app baseline.
+
+## 2026-05-09 - Job BOM Comparator Prepared Branch Pushed, Main Not Promoted
+
+Decision:
+- Record `codex/source-of-truth-onboarding` as the pushed Job BOM Comparator source-of-truth candidate branch.
+- Do not mark stable `main` as established yet.
+
+Rationale:
+- John asked to add origin and push the prepared branch without merging automatically.
+- The empty repo accepted the pushed branch.
+- No separate `main` base exists yet, and existing app/product changes still need review before stable baseline promotion.
+
+Status:
+- Superseded by the later decision to establish `main` from the clean onboarding baseline.
+
+Risk:
+- ChatGPT can now inspect the GitHub branch, but John should not treat app `main` as stable until the promotion path is reviewed.
+
+## 2026-05-09 - job-bom-comparator Main Established
+
+Decision:
+- Mark `BohyungKim/job-bom-comparator` `main` as established from the clean onboarding baseline.
+
+Rationale:
+- The pushed onboarding commit was tested in a clean worktree with 48 passing tests.
+- The dirty local working tree also passed 87 tests, but those dirty app/product changes were intentionally kept out of `main`.
+- This gives ChatGPT and Codex a stable GitHub branch to use as source of truth while preserving feature work for later review.
+
+Status:
+- Accepted and recorded in project-os PR #9.
+- `main` and `codex/source-of-truth-onboarding` both point to `ba2ea947f04d56bc8ca5f9a8ffe9879d8ec6234c`.
+
+Risk:
+- GitHub default branch still reports `codex/source-of-truth-onboarding`; John may need to switch it to `main` in GitHub settings.
+
+## 2026-05-09 - Review job-bom-comparator App Changes In PR #1
+
+Decision:
+- Keep `main` stable and review the app/product change set through PR #1 instead of merging automatically.
+
+Rationale:
+- The app/product change set is large and includes docs, UI, correction planning, writer scaffolding, and tests.
+- It needs specific review around Epicor write-back and production-impacting boundaries.
+- Tests pass, but passing tests are not enough to approve production-impacting behavior.
+
+Status:
+- PR #1 opened: `https://github.com/BohyungKim/job-bom-comparator/pull/1`.
+- PR #1 is open and mergeable.
+
+Risk:
+- Merging PR #1 without review could introduce write-path behavior before John explicitly approves it.

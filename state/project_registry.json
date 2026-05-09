@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-09T12:12:00-04:00",
+  "updated_at": "2026-05-09T16:50:00-04:00",
   "timezone": "America/Toronto",
   "registry_owner_repo": "BohyungKim/project-os",
   "canonical_project_root": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects",
@@ -47,12 +47,22 @@
       "recommended_github_repo": "BohyungKim/job-bom-comparator",
       "classification": "real app/code project candidate",
       "git_initialized": true,
-      "current_branch": "master",
-      "github_remote": null,
-      "latest_local_commit": "b520f4a Surface sibling and owner signals",
-      "source_of_truth_status": "not established; local git repo has no GitHub remote",
-      "working_tree_status": "many modified/untracked files; .env exists",
-      "next_action": "Audit secrets and working tree before adding GitHub remote or pushing."
+      "current_branch": "codex/source-of-truth-onboarding",
+      "github_remote": "https://github.com/BohyungKim/job-bom-comparator.git",
+      "target_github_remote": "https://github.com/BohyungKim/job-bom-comparator.git",
+      "target_remote_status": "exists; main established",
+      "latest_local_commit": "f619f49 docs: link job bom feature review PR",
+      "stable_main_commit": "ba2ea947f04d56bc8ca5f9a8ffe9879d8ec6234c",
+      "latest_feature_branch_commit": "f619f49743a4be8c607236aa3aff32bc9866db1f",
+      "previous_app_baseline_commit": "b520f4a Surface sibling and owner signals",
+      "source_of_truth_status": "main established; app/product changes isolated in PR #1; GitHub default branch still reports codex/source-of-truth-onboarding",
+      "working_tree_status": "source-of-truth files committed and pushed; existing app/product changes remain modified or untracked; .env exists but is not tracked",
+      "validation": ".\\.venv\\Scripts\\python.exe -B -m pytest -> 87 passed",
+      "secret_scan_summary": ".env was not read and is not tracked; tracked secret-like filename scan found only .env.example",
+      "remote_head_branch": "codex/source-of-truth-onboarding",
+      "stable_branch": "main",
+      "open_pr": "https://github.com/BohyungKim/job-bom-comparator/pull/1",
+      "next_action": "Review PR #1 before merge and switch GitHub default branch to main if available."
     },
     {
       "project_name": "planner-workload-analyzer",
@@ -103,9 +113,9 @@
   "recommended_next_actions": [
     "Treat C:\\Users\\JohnKim\\Desktop\\Bins\\Projects as the only canonical local project root.",
     "Use C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts for future prg-contracts work.",
-    "Audit Job BOM Comparator Agent before adding remote or pushing.",
+    "Review job-bom-comparator PR #1 before merge.",
     "Clone planner-workload-analyzer and heater-batch-selection into canonical root before future local work.",
     "Audit canonical Project-OS clone because it is dirty/old compared with current GitHub main work."
   ],
-  "current_blocker": "Some established GitHub repos still have only legacy/non-canonical working folders, and Job BOM Comparator Agent has no GitHub remote yet."
+  "current_blocker": "Job BOM Comparator Agent has main established and PR #1 open for app/product review, but GitHub default branch still reports codex/source-of-truth-onboarding. Some established GitHub repos still have only legacy/non-canonical working folders."
 }

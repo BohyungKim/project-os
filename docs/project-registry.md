@@ -1,6 +1,6 @@
 # Project Registry
 
-Updated: 2026-05-09 12:12 -04:00
+Updated: 2026-05-09 16:50 -04:00
 
 Canonical project root:
 
@@ -34,7 +34,7 @@ Every real project repo should eventually contain:
 | --- | --- | --- | --- | --- | --- | --- |
 | project-os | `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS` | Yes, branch `main` | `https://github.com/BohyungKim/project-os.git` | GitHub repo exists, but this local clone is dirty/old and needs sync review | Modified/untracked files present | Do not use as clean working copy until audited |
 | prg-contracts | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` | Yes, branch `main` | `https://github.com/BohyungKim/prg-contracts.git` | Established; canonical clone created | Clean, `main...origin/main`, latest `3455ead` | Use this path going forward |
-| Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | Yes, branch `master` | None | Local project only; GitHub source of truth not established | Many modified/untracked files, `.env` exists | Audit secrets/working tree, then onboard to GitHub |
+| Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | Yes, branch `codex/source-of-truth-onboarding` | `https://github.com/BohyungKim/job-bom-comparator.git` | Established on `main`; app/product changes are isolated in PR #1 | `main` at `ba2ea94`; PR branch at `f619f49`; tests pass; `.env` exists but is not tracked | Review PR #1 and switch GitHub default branch to `main` if available |
 | BOM_Release_Console | `C:\Users\JohnKim\Desktop\Bins\Projects\BOM_Release_Console` | Yes, branch `master` | None | Local project only; GitHub source of truth not established | Modified/untracked files present | Audit before onboarding |
 | PRG | `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` | No | None | Not established; mixed app/contracts workspace | `.env`, app/orchestrator/dashboard code, docs, tests | Split before repo assignment |
 | planner-workload-analyzer | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | Missing path | `https://github.com/BohyungKim/planner-workload-analyzer.git` | GitHub source of truth established, but canonical local clone missing | Missing canonical clone | Clone here before future local work |
@@ -94,13 +94,23 @@ C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent
 
 Status:
 
-- Branch: `master`
-- Remote: none
-- Latest commit: `b520f4a Surface sibling and owner signals`
-- Working tree: many modified/untracked files
-- `.env` exists
+- Branch: `codex/source-of-truth-onboarding`
+- Remote: `https://github.com/BohyungKim/job-bom-comparator.git`
+- Origin remote: `https://github.com/BohyungKim/job-bom-comparator.git`
+- Pushed branch: `codex/source-of-truth-onboarding`
+- Remote HEAD branch: `codex/source-of-truth-onboarding`
+- Stable main commit: `ba2ea94 docs: establish job bom main baseline status`
+- Feature PR: `https://github.com/BohyungKim/job-bom-comparator/pull/1`
+- Feature branch commit: `f619f49 docs: link job bom feature review PR`
+- Initial onboarding commit: `42f2ee7 docs: prepare source-of-truth onboarding`
+- Previous app baseline commit: `b520f4a Surface sibling and owner signals`
+- Validation: dirty local tree `.\.venv\Scripts\python.exe -B -m pytest` -> 87 passed; clean pushed baseline worktree -> 48 passed
+- `.env` exists locally and was not read
+- `.env` is not tracked
+- Tracked secret-like filename scan only found `.env.example`
+- Existing app/product changes remain modified or untracked and were preserved
 
-This is not yet a GitHub source-of-truth repo. It should be treated as the next onboarding candidate, but only after a secrets and working-tree audit.
+Stable `main` exists at `ba2ea94`. The app/product changes are isolated in PR #1 from `codex/source-of-truth-onboarding` to `main`; this PR must be reviewed before merge. GitHub default branch still reports `codex/source-of-truth-onboarding`, so John may need to switch the default branch to `main` in GitHub settings.
 
 ## Cleanup Plan
 
@@ -109,5 +119,5 @@ This is not yet a GitHub source-of-truth repo. It should be treated as the next 
 3. Clone missing established repos into canonical paths:
    - `planner-workload-analyzer`
    - `heater-batch-selection`
-4. Audit `Job BOM Comparator Agent` before adding a GitHub remote.
+4. Review `job-bom-comparator` PR #1 before merge and switch the default branch to `main` if needed.
 5. Audit/split `PRG` before assigning it to `prg-contracts` or a PRG app repo.

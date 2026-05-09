@@ -2,7 +2,7 @@
 
 ## Objective
 
-Audit and prepare `Job BOM Comparator Agent` for GitHub source-of-truth onboarding.
+Review Job BOM Comparator PR #1 before merge.
 
 ## Scope
 
@@ -10,52 +10,51 @@ Audit and prepare `Job BOM Comparator Agent` for GitHub source-of-truth onboardi
   - `C:\Users\JohnKim\Desktop\Bins\Projects`
 - Local folder:
   - `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`
-- Inspect git status, `.gitignore`, tracked files, modified files, untracked files, and remote status.
-- Confirm `.env` and local-only files are not tracked.
-- Decide whether the local folder should become:
-  - `BohyungKim/job-bom-comparator`, or
-  - another repo name John approves.
-- Prepare source-of-truth files only after the working tree is understood.
+- Use existing local branch:
+  - `codex/source-of-truth-onboarding`
+- Confirm `origin` points to:
+  - `https://github.com/BohyungKim/job-bom-comparator.git`
+- Confirm `main` exists and use it as the stable base.
+- Confirm whether GitHub default branch has been switched to `main`.
+- Review PR #1:
+  - `https://github.com/BohyungKim/job-bom-comparator/pull/1`
+- Review existing modified/untracked app/product files before stable baseline promotion.
 
 ## Out Of Scope
 
 - Reading `.env` contents.
 - Discarding local changes.
-- Adding a GitHub remote before safety audit.
-- Pushing code before John approves the target repo.
+- Changing GitHub default branch without John review if the tooling is not explicit.
+- Rewriting history without explicit approval.
 - Changing application logic.
 - Merging any PR automatically.
 
 ## Files To Inspect
 
+- `AGENTS.md`
 - `.gitignore`
-- `README.md`
-- `AGENTS.md`
-- `requirements.txt`
-- `src/`
-- `tests/`
-- `docs/`
-
-## Files To Modify
-
-Only after audit:
-
-- `.gitignore` if needed
-- `AGENTS.md`
-- `README.md`
 - `state/current_state.md`
 - `state/current_state.json`
 - `reports/latest_execution_report.md`
 - `tasks/next_codex_task.md`
 - `decisions/decision_log.md`
 
+## Files To Modify
+
+- `state/current_state.md`
+- `state/current_state.json`
+- `reports/latest_execution_report.md`
+- `tasks/next_codex_task.md`
+- `decisions/decision_log.md`
+- project-os registry/status files after push
+
 ## Acceptance Criteria
 
-- Working tree status is clearly summarized.
-- Secrets/local-only files are confirmed untracked.
-- GitHub remote status is confirmed.
-- Target repo name is recommended.
-- No code is pushed until John approves.
+- `origin` points to `https://github.com/BohyungKim/job-bom-comparator.git`.
+- Job BOM Comparator PR #1 risks are summarized.
+- John has a clear merge / revise / split recommendation.
+- Project-os registry files are updated in a PR.
+- No PR is merged automatically.
 
 ## Validation Command
 
@@ -63,6 +62,9 @@ Only after audit:
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" status --short --branch
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" remote -v
 git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-files
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-remote --heads origin
+cd "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent"
+.\.venv\Scripts\python.exe -B -m pytest
 ```
 
 ## Report-Back Format
@@ -70,8 +72,7 @@ git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-file
 - local folder
 - branch
 - remote status
-- modified files summary
-- untracked files summary
+- pushed branch or blocker
 - secret/local-only tracking result
-- recommended GitHub repo name
-- whether ready for onboarding
+- test result
+- project-os PR link
