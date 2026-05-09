@@ -143,3 +143,42 @@ Status:
 
 Risk:
 - Low for planner onboarding. Continue to use feature branches/PRs for future app work.
+
+## 2026-05-09 - Stop Heater Onboarding Until GitHub Repo Exists
+
+Decision:
+- Prepare `heater-batch-selection` locally, but do not push app code until John creates the target GitHub repo.
+
+Rationale:
+- The requested target remote `https://github.com/BohyungKim/heater-batch-selection.git` returned repository not found.
+- John instructed Codex to stop and report the exact repo URL needed if the GitHub repo does not exist.
+- The local app baseline is already committed on `main` as `4f5eb1f docs: add heater source-of-truth setup`.
+- Browser automation must stay manual-review / safe dry-run only.
+
+Status:
+- Accepted.
+- `New project 2` is locally prepared as the second app source-of-truth repo candidate.
+- No app code has been pushed.
+- `project-os` registry is being updated to record the blocker.
+
+Risk:
+- Starting the third project before this repo is connected could create confusing partial status across multiple local folders.
+
+## 2026-05-09 - heater-batch-selection Main Is Established
+
+Decision:
+- Mark `BohyungKim/heater-batch-selection` `main` as the source of truth.
+
+Rationale:
+- John created the empty private GitHub repo.
+- Codex added `origin` and pushed local `main`.
+- App `origin/main` now points to `6e32db7 docs: confirm heater GitHub source of truth`.
+- Tests pass and no blocked secret/local-only/browser artifact files are tracked.
+- Browser automation safety rules are documented in the app repo.
+
+Status:
+- Accepted and completed.
+- `project-os` PR #5 is updated with the established status.
+
+Risk:
+- Low for heater onboarding. Future browser automation changes still require explicit safety review.

@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-05-09T10:28:00-04:00",
+  "updated_at": "2026-05-09T11:09:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "First app source-of-truth established; ready to onboard the second project",
-  "branch": "codex/planner-onboarding-status",
+  "current_phase": "Second app source-of-truth established; ready to onboard the docs-first project",
+  "branch": "codex/heater-onboarding-status",
   "base_branch": "main",
   "remote": {
     "origin_configured": true,
@@ -12,73 +12,62 @@
   },
   "pull_request": {
     "created": true,
-    "number": 4,
-    "url": "https://github.com/BohyungKim/project-os/pull/4",
+    "number": 5,
+    "url": "https://github.com/BohyungKim/project-os/pull/5",
     "state": "open",
     "draft": true,
     "base": "main",
-    "head": "codex/planner-onboarding-status"
+    "head": "codex/heater-onboarding-status"
   },
   "confirmed": [
-    "PR #3 for the central registry structure is merged into project-os main.",
-    "Current project-os branch is codex/planner-onboarding-status.",
-    "Draft PR #4 is open for the planner onboarding status update.",
-    "planner-workload-analyzer repo is https://github.com/BohyungKim/planner-workload-analyzer.git.",
-    "John approved replacing accidental remote main history.",
-    "App remote main was replaced with local main using git push --force-with-lease origin main.",
-    "Plain --force was not used.",
-    "No unrelated-history merge was performed.",
-    "App origin/main now points to 7427048 docs: confirm GitHub source of truth.",
-    "Temporary app branch codex/source-of-truth-baseline was deleted.",
-    "App tests passed: 7 tests."
+    "PR #4 is merged into project-os main.",
+    "project-os main reflects planner-workload-analyzer as established.",
+    "Current project-os branch is codex/heater-onboarding-status.",
+    "Draft PR #5 is open for the heater onboarding status update.",
+    "heater-batch-selection repo is https://github.com/BohyungKim/heater-batch-selection.git.",
+    "App origin/main now points to 6e32db7 docs: confirm heater GitHub source of truth.",
+    "App tests passed: 9 tests.",
+    "No tracked .env, credentials, tokens, API keys, passwords, browser session artifacts, or local-only files were found.",
+    "Browser automation remains manual-review / safe dry-run only."
   ],
   "changed": [
     "Updated app state/report/task/decision files and pushed them to app main.",
-    "Updated project-os registry/status files to show planner-workload-analyzer is established.",
-    "Updated next task to onboard heater-batch-selection."
+    "Updated project-os registry/status files to show heater-batch-selection is established.",
+    "Updated next task to onboard prg-supply-readiness-checker."
   ],
   "app_onboarding": {
-    "project_name": "planner-workload-analyzer",
-    "local_folder": "C:\\Users\\JohnKim\\Documents\\New project",
+    "project_name": "heater-batch-selection",
+    "local_folder": "C:\\Users\\JohnKim\\Documents\\New project 2",
     "branch": "main",
-    "latest_remote_main_commit": "7427048 docs: confirm GitHub source of truth",
-    "target_remote_url": "https://github.com/BohyungKim/planner-workload-analyzer.git",
+    "latest_remote_main_commit": "6e32db7 docs: confirm heater GitHub source of truth",
+    "target_remote_url": "https://github.com/BohyungKim/heater-batch-selection.git",
     "remote_configured": true,
     "github_repo_exists_or_accessible": true,
     "origin_main_is_source_of_truth": true,
-    "temporary_review_branch_deleted": true,
-    "test_result": "python -m pytest: 7 passed",
-    "source_of_truth_status": "established"
+    "test_result": "python -m pytest: 9 passed",
+    "source_of_truth_status": "established",
+    "browser_automation_safety": "manual-review / safe dry-run only"
   },
   "still_incomplete": [
-    "project-os PR #4 still needs John/ChatGPT review before merge.",
-    "heater-batch-selection has not been onboarded yet.",
-    "prg-supply-readiness-checker has not been onboarded yet."
-  ],
-  "uncertain": [
-    "Whether John wants the local folder New project renamed to planner-workload-analyzer.",
-    "Whether the second project GitHub repo already exists."
+    "project-os PR #5 still needs John/ChatGPT review before merge.",
+    "prg-supply-readiness-checker onboarding has not started yet."
   ],
   "validation": {
     "commands_run": [
       {
-        "command": "python -m pytest in C:\\Users\\JohnKim\\Documents\\New project",
-        "result": "7 passed"
+        "command": "python -m pytest in C:\\Users\\JohnKim\\Documents\\New project 2",
+        "result": "9 passed"
       },
       {
-        "command": "git push --force-with-lease origin main in app repo",
+        "command": "git push -u origin main and later git push origin main in app repo",
         "result": "Succeeded"
       },
       {
-        "command": "git push origin --delete codex/source-of-truth-baseline in app repo",
-        "result": "Succeeded"
-      },
-      {
-        "command": "git ls-remote origin refs/heads/main refs/heads/codex/source-of-truth-baseline in app repo",
-        "result": "main points to 7427048 and temporary branch is absent"
+        "command": "git ls-remote origin refs/heads/main in app repo",
+        "result": "main points to 6e32db7"
       }
     ],
-    "application_tests": "planner-workload-analyzer passed 7 tests."
+    "application_tests": "heater-batch-selection passed 9 tests."
   },
   "john_review_required": true
 }

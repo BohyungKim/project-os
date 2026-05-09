@@ -1,15 +1,15 @@
 # Repo Onboarding Status
 
-Updated: 2026-05-09 10:28 -04:00
+Updated: 2026-05-09 11:09 -04:00
 
 ## Summary
 
 | Priority | Project | Recommended GitHub Repo | Onboarding Status | Blocker | Next Action |
 | ---: | --- | --- | --- | --- | --- |
-| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #3 is merged | Review draft PR #4: `https://github.com/BohyungKim/project-os/pull/4` |
+| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #4 is merged | Review draft PR #5: `https://github.com/BohyungKim/project-os/pull/5` |
 | 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Established | None | Use GitHub `main` as source of truth |
-| 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Ready for onboarding | GitHub repo not created/connected; browser automation safety review needed | Onboard next |
-| 3 | prg-supply-readiness-checker | `BohyungKim/prg-supply-readiness-checker` | Docs-first candidate | No code/tests yet | Add source-of-truth files, then sample data and validation tests |
+| 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Established | Browser automation safety review remains ongoing | Use GitHub `main` as source of truth |
+| 3 | prg-supply-readiness-checker | `BohyungKim/prg-supply-readiness-checker` | Docs-first candidate | No code/tests yet | Onboard next as docs-first repo |
 | N/A | project-os legacy sync workspace | None | Do not onboard | Duplicate project-os workspace | Archive after John confirmation |
 
 ## First Project Onboarded
@@ -29,67 +29,62 @@ Current blocker:
 - None for `planner-workload-analyzer` source-of-truth setup.
 
 John action required:
-- Review/merge `project-os` PR #4 when satisfied.
 - Create/connect `BohyungKim/heater-batch-selection` when ready for the second onboarding.
+
+## Second Project Onboarding Status
+
+`heater-batch-selection`
+
+Result:
+- Local folder: `C:\Users\JohnKim\Documents\New project 2`.
+- Branch: `main`.
+- Local commit: `4f5eb1f docs: add heater source-of-truth setup`.
+- Latest GitHub `main` commit: `6e32db7 docs: confirm heater GitHub source of truth`.
+- Tests: `python -m pytest` passed 9 tests.
+- GitHub repo: `https://github.com/BohyungKim/heater-batch-selection.git`.
+- Browser automation status: manual-review / safe dry-run only.
+
+Current blocker:
+- None for `heater-batch-selection` source-of-truth setup.
+
+John action required:
+- Review/merge `project-os` PR #5 when satisfied.
+- Prepare `BohyungKim/prg-supply-readiness-checker` when ready for the docs-first onboarding.
 
 Then ask Codex:
 
 ```text
-Now onboard the second detected project.
+Now onboard the third detected project.
 
 Local folder:
-C:\Users\JohnKim\Documents\New project 2
+C:\Users\JohnKim\Documents\New project 3
 
 Target GitHub repo:
-BohyungKim/heater-batch-selection
+BohyungKim/prg-supply-readiness-checker
 
-Special caution:
-This project may include Playwright/browser automation. Do not automate login, purchasing, submission, or production-impacting actions. Keep browser automation in manual-review or safe dry-run mode unless explicitly approved.
+This is a documentation/design-first project, not a production app yet.
 
-Use the same source-of-truth setup, run tests, verify no secrets are tracked, prepare GitHub remote/push/PR, update project-os registry after completion, and do not merge automatically.
-Do not merge anything automatically.
+Prepare it as a docs-first source-of-truth repo. Do not pretend implementation exists. Do not add Epicor write-back logic. Update project-os registry after completion. Do not merge automatically.
 ```
 
-## Exact Next Prompt For First App Repo
+## Exact Next Prompt For Third Repo
 
 ```text
-Onboard the local project folder "New project" as the first real project repo.
+Now onboard the third detected project.
 
-Target GitHub repo name:
-planner-workload-analyzer
+Local folder:
+C:\Users\JohnKim\Documents\New project 3
 
-Task:
-Prepare this project so it can become its own GitHub source-of-truth repo for ChatGPT and Codex.
+Target GitHub repo:
+BohyungKim/prg-supply-readiness-checker
 
-Do not change application logic unless required for safe repo setup.
+This is a documentation/design-first project, not a production app yet.
 
-Required:
-1. Inspect the project structure.
-2. Confirm whether git is already initialized.
-3. Confirm whether any GitHub remote exists.
-4. Confirm no .env, credentials, tokens, API keys, or local-only files are tracked.
-5. Improve .gitignore if needed.
-6. Add AGENTS.md using the project-os standard.
-7. Add:
-   - state/current_state.md
-   - state/current_state.json
-   - reports/latest_execution_report.md
-   - tasks/next_codex_task.md
-   - decisions/decision_log.md
-8. Update README.md with:
-   - project purpose
-   - how to run
-   - how to test
-   - main folders
-   - known limitations
-   - next actions
-9. Run available tests.
-10. Commit changes on a feature branch.
-11. If GitHub remote exists, push the branch.
-12. If GitHub remote does not exist, stop and tell John the exact repo URL needed.
-13. Do not merge to main.
-
-Before finishing, update the state/report/task files so ChatGPT can understand the latest project status from the GitHub repo without reading the entire codebase.
+Add AGENTS.md, source-of-truth state/report/task/decision files, README updates, docs/implementation-roadmap.md, and docs/data-contract-draft.md if useful.
+Do not pretend implementation exists.
+Do not add Epicor write-back logic.
+Run validation checks, update project-os registry, push, and open PR.
+Do not merge automatically.
 ```
 
 ## Notes

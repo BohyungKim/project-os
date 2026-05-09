@@ -2,14 +2,15 @@
 
 ## Objective
 
-Onboard the second detected project: `heater-batch-selection`.
+Onboard the third detected project: `prg-supply-readiness-checker`.
 
 ## Scope
 
 - Use local folder:
-  - `C:\Users\JohnKim\Documents\New project 2`
+  - `C:\Users\JohnKim\Documents\New project 3`
 - Target GitHub repo:
-  - `BohyungKim/heater-batch-selection`
+  - `BohyungKim/prg-supply-readiness-checker`
+- Treat it as a documentation/design-first project.
 - Inspect project structure and git state.
 - Verify no `.env`, credentials, tokens, API keys, passwords, or local-only files are tracked.
 - Add/update source-of-truth files:
@@ -20,28 +21,29 @@ Onboard the second detected project: `heater-batch-selection`.
   - `reports/latest_execution_report.md`
   - `tasks/next_codex_task.md`
   - `decisions/decision_log.md`
-- Run tests.
+- Add docs if useful:
+  - `docs/implementation-roadmap.md`
+  - `docs/data-contract-draft.md`
 - Connect/push only if the GitHub repo exists and remote history is safe.
 - Update `project-os` registry after completion.
 
 ## Special Safety Rule
 
-This project may include Playwright/browser automation. Do not automate login, purchasing, submission, or production-impacting actions. Keep browser automation in manual-review or safe dry-run mode unless John explicitly approves otherwise.
+This is a docs-first project, not a production app yet. Do not pretend implementation exists. Do not add Epicor write-back logic.
 
 ## Out Of Scope
 
-- Changing application logic.
-- Running production-impacting browser actions.
+- Writing production app logic.
+- Adding Epicor write-back logic.
+- Claiming tests pass if no tests exist.
 - Pushing secrets or generated local files.
 - Merging any PR automatically.
 
 ## Files To Inspect
 
-- `C:\Users\JohnKim\Documents\New project 2\.gitignore`
-- `C:\Users\JohnKim\Documents\New project 2\README.md`
-- `C:\Users\JohnKim\Documents\New project 2\pyproject.toml`
-- `C:\Users\JohnKim\Documents\New project 2\src\`
-- `C:\Users\JohnKim\Documents\New project 2\tests\`
+- `C:\Users\JohnKim\Documents\New project 3\README.md`
+- `C:\Users\JohnKim\Documents\New project 3\docs\`
+- `.gitignore` if present
 
 ## Files To Modify
 
@@ -52,25 +54,26 @@ This project may include Playwright/browser automation. Do not automate login, p
 - `reports/latest_execution_report.md`
 - `tasks/next_codex_task.md`
 - `decisions/decision_log.md`
+- `docs/implementation-roadmap.md`
+- `docs/data-contract-draft.md` if useful
 - `.gitignore` if needed
 - `project-os` registry files after completion
 
 ## Acceptance Criteria
 
-- `heater-batch-selection` has project source-of-truth files.
-- Tests pass.
+- `prg-supply-readiness-checker` has docs-first source-of-truth files.
+- No implementation is claimed unless code exists.
 - No secrets or local-only files are tracked.
 - GitHub repo connection status is clearly recorded.
 - `project-os` registry is updated.
 - No app logic is changed.
-- No production-impacting browser automation is run.
+- No automatic merge is performed.
 
 ## Validation Command
 
 ```powershell
 git status --short --branch
 git remote -v
-python -m pytest
 Get-Content state/current_state.json | ConvertFrom-Json
 git diff --check
 ```
@@ -80,7 +83,7 @@ git diff --check
 - project name
 - branch name
 - remote URL/status
-- test result
+- validation result
 - changed files
 - source-of-truth status
 - project-os PR link
