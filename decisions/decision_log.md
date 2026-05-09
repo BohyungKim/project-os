@@ -216,3 +216,54 @@ Status:
 
 Risk:
 - The exact local/GitHub repo path for `job-bom-comparator` still needs confirmation before implementation.
+
+## 2026-05-09 - Preserve Local Folder Mapping Audit On Clean Branch
+
+Decision:
+- Preserve the useful local folder mapping audit changes on `codex/local-folder-mapping-audit`.
+
+Rationale:
+- At task start, the active worktree had no uncommitted changes.
+- The previously observed audit changes were already committed on `codex/correct-local-folder-mapping`.
+- The content is useful because it clarifies current local paths, preferred canonical paths, relocation status, and archive candidates.
+- Rebuilding the work on current `origin/main` avoids carrying stale PR #6-era branch context forward.
+
+Status:
+- Accepted for this branch.
+
+Risk:
+- Low. Documentation-only change, but John should review before any physical folder relocation or archive action.
+
+## 2026-05-09 - Do Not Remap PRG To prg-contracts As-Is
+
+Decision:
+- Do not replace the verified contract-only `prg-contracts` working folder with `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` as-is.
+
+Rationale:
+- `PRG` contains contract/schema docs, but it also contains app/orchestrator/dashboard logic, scripts, HTML/CSS templates, unit/integration tests, and a root `.env`.
+- `PRG` is not currently a Git repository and has no remote URL.
+- The established contract-only repo still exists at `C:\Users\JohnKim\Documents\New project 3` and points to `https://github.com/BohyungKim/prg-contracts.git`.
+
+Status:
+- Accepted for this registry correction PR.
+- `PRG` is recorded as an audit/split candidate, not a direct local-folder replacement.
+
+Risk:
+- Forcing `PRG` into `prg-contracts` could mix app logic and local config into a contract-only repo.
+
+## 2026-05-09 - Relocate Planner By Clone, Not Manual Move
+
+Decision:
+- Prefer cloning `https://github.com/BohyungKim/planner-workload-analyzer.git` into `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` over manually moving `C:\Users\JohnKim\Documents\New project`.
+
+Rationale:
+- The current planner folder is clean and matches `origin/main` at `7427048`.
+- `.env` exists locally and is ignored, so manual moves can accidentally blur source-controlled files with local-only configuration.
+- A clean clone verifies GitHub source-of-truth status first and keeps cleanup reversible.
+
+Status:
+- Accepted as the recommended future cleanup plan.
+- No folder move, rename, delete, or clone was performed in this task.
+
+Risk:
+- If the old folder is removed before the clone is verified, John may lose local-only configuration such as `.env`.

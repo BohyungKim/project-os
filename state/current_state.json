@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-05-09T11:35:00-04:00",
+  "updated_at": "2026-05-09T11:52:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "Third source-of-truth repo established; project-os registry update in progress",
-  "branch": "codex/prg-contracts-onboarding-status",
+  "current_phase": "Local folder mapping audit preserved on a clean branch; PR pending",
+  "branch": "codex/local-folder-mapping-audit",
   "base_branch": "main",
   "remote": {
     "origin_configured": true,
@@ -11,65 +11,67 @@
     "push_possible": true
   },
   "pull_request": {
-    "created": true,
-    "number": 6,
-    "url": "https://github.com/BohyungKim/project-os/pull/6",
-    "state": "open",
-    "draft": false,
+    "created": false,
+    "number": null,
+    "url": null,
+    "state": null,
+    "draft": null,
     "base": "main",
-    "head": "codex/prg-contracts-onboarding-status"
+    "head": "codex/local-folder-mapping-audit"
   },
   "confirmed": [
-    "PR #5 is merged into project-os main.",
-    "project-os main reflects planner-workload-analyzer and heater-batch-selection as established.",
-    "Current project-os branch is codex/prg-contracts-onboarding-status.",
-    "Project-os PR #6 is open for the prg-contracts registry update.",
-    "New project 3 is now prg-contracts, not prg-supply-readiness-checker.",
-    "prg-contracts repo is https://github.com/BohyungKim/prg-contracts.git.",
-    "prg-contracts origin/main now points to 3455eaddc9413acf12f195cd58ad04deaef9a4d0.",
-    "prg-contracts sample validation passed for four sample PRGCase files.",
-    "No tracked .env, credentials, tokens, API keys, passwords, or local-only files were found in prg-contracts."
+    "project-os main includes PR #6.",
+    "Current project-os branch is codex/local-folder-mapping-audit.",
+    "At the start of this task, the active worktree had no uncommitted changes.",
+    "The useful local folder mapping audit changes were already preserved on codex/correct-local-folder-mapping.",
+    "Those changes were carried forward onto a clean branch based on current origin/main.",
+    "planner-workload-analyzer current local path is C:\\Users\\JohnKim\\Documents\\New project.",
+    "Preferred canonical planner path is C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\planner-workload-analyzer.",
+    "PRG folder is not a Git repo and contains mixed app/orchestrator/dashboard logic plus contract docs.",
+    "PRG has a root .env; contents were not read.",
+    "Existing prg-contracts contract-only local path remains C:\\Users\\JohnKim\\Documents\\New project 3."
   ],
   "changed": [
-    "Updated project-os registry/status files to show prg-contracts is established.",
-    "Replaced old prg-supply-readiness-checker onboarding language with PRG / Manufacturing Copilot contract repo language.",
-    "Updated next task to integrate the first feeder repo with prg-contracts.",
-    "Recommended first feeder: job-bom-comparator."
+    "Updated project registry/status/map files to clearly mark current local path, preferred canonical local path, relocation status, and archive candidates.",
+    "Recorded that PRG should not replace prg-contracts as-is.",
+    "Recorded a safe planner cleanup plan using clean clone from GitHub.",
+    "Updated next task to canonicalize planner-workload-analyzer folder safely."
   ],
-  "contract_repo": {
-    "project_name": "prg-contracts",
-    "local_folder": "C:\\Users\\JohnKim\\Documents\\New project 3",
-    "branch": "main",
-    "latest_remote_main_commit": "3455eaddc9413acf12f195cd58ad04deaef9a4d0",
-    "target_remote_url": "https://github.com/BohyungKim/prg-contracts.git",
-    "remote_configured": true,
-    "github_repo_exists_or_accessible": true,
-    "origin_main_is_source_of_truth": true,
-    "validation_result": "python tools/validate_prg_case.py examples/*.json: 4 sample files passed",
-    "source_of_truth_status": "established",
-    "scope_guardrail": "contract-only; no dashboard, no POBTO checker, no Epicor write-back, no production automation, no feeder-specific detection logic"
+  "local_folder_mapping": {
+    "uncommitted_changes_existed_at_start": false,
+    "changes_preserved": true,
+    "source_previous_branch": "codex/correct-local-folder-mapping",
+    "clean_branch": "codex/local-folder-mapping-audit",
+    "usefulness_assessment": "Useful local folder mapping corrections. They prevent unsafe PRG/prg-contracts remapping and define safer canonical clone cleanup."
   },
   "still_incomplete": [
-    "project-os PR #6 still needs John/ChatGPT review before merge.",
-    "First feeder integration with prg-contracts has not started yet."
+    "This mapping audit branch still needs to be pushed and opened as a PR.",
+    "No folders have been moved, renamed, deleted, or cloned yet.",
+    "PRG split decision has not been made."
   ],
-  "next_recommended_repo_to_integrate_with_prg_contracts": "job-bom-comparator",
   "validation": {
     "commands_run": [
       {
-        "command": "python tools/validate_prg_case.py examples/*.json in C:\\Users\\JohnKim\\Documents\\New project 3",
-        "result": "4 sample files passed"
+        "command": "git status --short --branch",
+        "result": "Initial active worktree had no uncommitted changes."
       },
       {
-        "command": "git push -u origin main and later git push origin main in prg-contracts repo",
-        "result": "Succeeded"
+        "command": "git -C C:\\Users\\JohnKim\\Documents\\New project rev-list --left-right --count origin/main...HEAD",
+        "result": "0/0"
       },
       {
-        "command": "git ls-remote origin refs/heads/main in prg-contracts repo",
-        "result": "main points to 3455eaddc9413acf12f195cd58ad04deaef9a4d0"
+        "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\PRG rev-parse --show-toplevel",
+        "result": "failed as expected because PRG is not a Git repo"
+      },
+      {
+        "command": "Get-Content state/project_registry.json | ConvertFrom-Json",
+        "result": "parsed successfully"
+      },
+      {
+        "command": "git diff --check",
+        "result": "passed"
       }
-    ],
-    "contract_validation": "prg-contracts passed sample validation."
+    ]
   },
   "john_review_required": true
 }

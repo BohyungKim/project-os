@@ -1,8 +1,8 @@
 # Project Registry
 
-Updated: 2026-05-09 11:37 -04:00
+Updated: 2026-05-09 11:52 -04:00
 
-Purpose: make `project-os` the central control tower for Codex and ChatGPT continuity. This file tracks where each currently accessible local project lives, what it appears to be, whether it already has its own GitHub source-of-truth repo, and the next safe action.
+Purpose: make `project-os` the central control tower for Codex and ChatGPT continuity. This file tracks each currently accessible local project, its GitHub source-of-truth repo, and the safest local folder cleanup path.
 
 ## Control Tower Rule
 
@@ -20,14 +20,24 @@ Each real project should eventually have its own GitHub repository with:
 
 ## Detected Projects
 
-| Project | Local Folder | Classification | Has Code | Has Tests | Git | GitHub Remote | Recommended Repo | Source-of-Truth Status | Next Action |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| project-os | `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of` | operating/status repo | No app code | Status checks only | Yes, branch `codex/correct-local-folder-mapping` | `https://github.com/BohyungKim/project-os.git` | `project-os` | Established; `main` is central registry truth | Review mapping correction PR after validation |
-| planner-workload-analyzer | `C:\Users\JohnKim\Documents\New project` | real app/code project | Yes, Python package under `src/planner_analyzer` | Yes, `python -m pytest` previously passed 7 tests | Yes, branch `main`, local `HEAD` equals `origin/main` at `7427048` | `https://github.com/BohyungKim/planner-workload-analyzer.git` | `planner-workload-analyzer` | Established; current local folder is verified, preferred future folder is `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | Relocate by clean clone from GitHub after confirming no unpushed changes; do not manually move until John approves |
-| heater-batch-selection | `C:\Users\JohnKim\Documents\New project 2` | real app/code project | Yes, Python package under `src/heater_batch` | Yes, `python -m pytest` previously passed 9 tests | Yes, branch `main` | `https://github.com/BohyungKim/heater-batch-selection.git` | `heater-batch-selection` | Established; GitHub `main` is the source of truth | Continue to keep browser automation manual-review / safe dry-run only |
-| prg-contracts | `C:\Users\JohnKim\Documents\New project 3` | contract/schema repo | No application code | Yes, schema sample validator | Yes, branch `main`, local `HEAD` equals `origin/main` at `3455ead` | `https://github.com/BohyungKim/prg-contracts.git` | `prg-contracts` | Established as a contract-only repo; do not replace with `PRG` as-is | Review `PRG` split decision before changing the local working-folder mapping |
-| PRG folder audit | `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` | mixed PRG app/orchestrator plus contract docs | Yes, Python package under `src/prg`, Epicor client/API, scripts, templates | Yes, unit/integration tests under `tests` | No local `.git` repo found | None | Split before assigning to a repo | Not safe to force into `prg-contracts` as-is; folder also contains `.env` | Separate contract/schema material from app/dashboard/orchestrator logic before any repo remap |
-| project-os legacy sync workspace | `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working` | operating/status repo | No app code | Status checks only | Yes, branch `docs/agents-guidelines-sync-mainbase` | `https://github.com/BohyungKim/project-os.git` | No separate repo recommended | Legacy/duplicate project-os workspace | Do not onboard separately; archive after John confirms it is no longer needed |
+| Project | Current Local Path | Preferred Canonical Local Path | Classification | GitHub Remote | Source-of-Truth Status | Relocation Status | Archive Candidate | Next Action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| project-os | `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of` | Same as current for now | operating/status repo | `https://github.com/BohyungKim/project-os.git` | Established; `main` is central registry truth | No relocation needed now | No | Review this local folder mapping audit PR |
+| planner-workload-analyzer | `C:\Users\JohnKim\Documents\New project` | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | real app/code project | `https://github.com/BohyungKim/planner-workload-analyzer.git` | Established; local `HEAD` equals `origin/main` at `7427048` | Safe to relocate later by clean clone from GitHub; do not manually move yet | Current placeholder folder becomes archive candidate only after clone/tests/.env review | Clone to canonical path in a separate explicit cleanup task |
+| heater-batch-selection | `C:\Users\JohnKim\Documents\New project 2` | `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection` | real app/code project | `https://github.com/BohyungKim/heater-batch-selection.git` | Established; GitHub `main` is source of truth at `6e32db7` | Relocation not audited yet; current path remains authoritative for now | Future archive candidate after clean clone and safety check | Keep browser automation manual-review / safe dry-run |
+| prg-contracts | `C:\Users\JohnKim\Documents\New project 3` | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` after PRG split review | contract/schema repo | `https://github.com/BohyungKim/prg-contracts.git` | Established as contract-only; local `HEAD` equals `origin/main` at `3455ead` | Do not replace with `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` as-is | Current placeholder folder becomes archive candidate only after clean clone and PRG split review | Decide PRG split before changing mapping |
+| PRG folder audit | `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` | Split target: contract material to `prg-contracts`, app/orchestrator material to a separate PRG app repo | mixed app/orchestrator plus contract docs | None; not a Git repo | Not established; audit-only | Split required before repo assignment | No; keep until split plan is approved | Prepare a split plan; do not push or read `.env` |
+| project-os legacy sync workspace | `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working` | None | operating/status duplicate | `https://github.com/BohyungKim/project-os.git` | Legacy workspace; not a separate source of truth | Do not relocate; archive after John confirms | Yes, after John confirmation | Keep untouched until John approves archive |
+
+## Audit Result
+
+The useful local folder mapping corrections were preserved and moved onto a clean branch from current `project-os/main`:
+
+- Branch: `codex/local-folder-mapping-audit`
+- Source of previous useful work: `codex/correct-local-folder-mapping`
+- Main base: `origin/main` after PR #6 merge
+
+At the start of this task, there were no uncommitted local changes in the active worktree. The mapping audit changes already existed as committed branch work on `codex/correct-local-folder-mapping`, so they were preserved by carrying the useful content forward instead of discarding it.
 
 ## PRG Folder Audit Summary
 
@@ -55,7 +65,7 @@ Current verified folder:
 
 - `C:\Users\JohnKim\Documents\New project`
 
-Preferred future folder:
+Preferred canonical folder:
 
 - `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`
 
@@ -66,6 +76,7 @@ Audit result:
 - Ahead/behind relative to `origin/main`: `0/0`.
 - Working tree is clean.
 - `.env` exists locally but is ignored; `.env.example` is tracked.
+- Preferred folder does not exist yet.
 
 Safe cleanup plan:
 
@@ -78,12 +89,12 @@ Safe cleanup plan:
 ## Current Risks
 
 - `PRG` is a mixed workspace and contains a local `.env`; treating it as contract-only could accidentally mix app logic and local config into `prg-contracts`.
-- `planner-workload-analyzer` still lives in a placeholder folder name even though its GitHub source of truth is established.
-- Existing `prg-contracts` is contract-only at `C:\Users\JohnKim\Documents\New project 3`; changing that mapping requires John review because it would replace a verified source-of-truth folder with a non-git mixed folder.
+- `planner-workload-analyzer`, `heater-batch-selection`, and `prg-contracts` still live in placeholder `Documents\New project*` folders even though their GitHub repos are established.
+- Existing `prg-contracts` is contract-only at `C:\Users\JohnKim\Documents\New project 3`; changing that mapping requires John review because the requested `PRG` folder is not a Git repo and is not contract-only.
 
 ## Next Best Action
 
-John should review whether PRG should be split into:
+John should review this local folder mapping audit PR, then approve one separate cleanup task:
 
-- contract/schema material that belongs in `BohyungKim/prg-contracts`, and
-- app/orchestrator/dashboard code that belongs in a separate PRG application repo.
+- clone `planner-workload-analyzer` into the canonical folder first, or
+- audit/split `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` into contract and app/orchestrator ownership.

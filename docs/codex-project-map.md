@@ -1,33 +1,40 @@
 # Codex Project Map
 
-Updated: 2026-05-09 11:35 -04:00
+Updated: 2026-05-09 11:52 -04:00
 
 ## Control Tower Layout
 
 ```text
 BohyungKim/project-os
   central control tower
-  project registry
-  onboarding status
-  shared AGENTS.md template
-  status/report/task conventions
+  current local path: C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of
+  preferred canonical path: same as current for now
+  relocation status: no relocation needed now
 
 BohyungKim/planner-workload-analyzer
-  real app repo
-  current local folder: C:\Users\JohnKim\Documents\New project
-  GitHub main status: established
+  established app repo
+  current local path: C:\Users\JohnKim\Documents\New project
+  preferred canonical path: C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer
+  relocation status: clone from GitHub later; do not manually move yet
 
 BohyungKim/heater-batch-selection
-  real app repo
-  current local folder: C:\Users\JohnKim\Documents\New project 2
-  GitHub main status: established
+  established app repo
+  current local path: C:\Users\JohnKim\Documents\New project 2
+  preferred canonical path: C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection
+  relocation status: not audited for relocation yet
   safety note: browser automation stays dry-run/manual-review unless John explicitly approves otherwise
 
 BohyungKim/prg-contracts
-  shared PRG / Manufacturing Copilot contract repo
-  current local folder: C:\Users\JohnKim\Documents\New project 3
-  GitHub main status: established
-  defines PRGCase-compatible contract output for feeder modules
+  established contract/schema repo
+  current verified local path: C:\Users\JohnKim\Documents\New project 3
+  preferred canonical path: C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts
+  requested PRG remap candidate: C:\Users\JohnKim\Desktop\Bins\Projects\PRG
+  remap status: blocked until PRG is split, because PRG is mixed app/contracts and has no git repo
+
+PRG folder audit
+  current local path: C:\Users\JohnKim\Desktop\Bins\Projects\PRG
+  preferred canonical ownership: split contract material and app/orchestrator material
+  relocation status: split decision required before repo assignment
 ```
 
 ## Project Relationships
@@ -48,96 +55,92 @@ ChatGPT entry point:
 ### planner-workload-analyzer
 
 Role:
-- Read-only Microsoft Planner workload analyzer.
-- First real app repo onboarded into GitHub source-of-truth flow.
+- Real project repo for a read-only Microsoft Planner workload analyzer.
 
 Current status:
 - GitHub `main` is established.
-- Tests passed during onboarding: 7 passed.
+- Current local folder is still `C:\Users\JohnKim\Documents\New project`.
+- Current branch is `main`.
+- Local `HEAD` equals `origin/main` at `7427048`.
+- Working tree is clean.
+- `.env` exists locally but is ignored.
 
-Repo:
-- `BohyungKim/planner-workload-analyzer`
+Preferred canonical local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`
+
+Cleanup rule:
+- Prefer a clean clone from GitHub into the preferred path.
+- Do not manually move the current folder until John confirms the clone and any local-only `.env` needs.
 
 ### heater-batch-selection
 
 Role:
-- Internal heater batch selection MVP.
-- Second real app repo onboarded into GitHub source-of-truth flow.
+- Real Python app repo for internal heater batch selection.
 
 Current status:
 - GitHub `main` is established.
-- Tests passed during onboarding: 9 passed.
-- Browser automation safety rules are documented.
+- Current local folder is `C:\Users\JohnKim\Documents\New project 2`.
+- Browser automation must remain manual-review / safe dry-run only unless John explicitly approves a narrower production-safe change.
 
-Repo:
-- `BohyungKim/heater-batch-selection`
+Preferred canonical local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection`
+
+Cleanup rule:
+- Relocation was not audited in this task.
+- Keep the current local folder authoritative until a separate cleanup task verifies clone, tests, and browser safety files.
 
 ### prg-contracts
 
 Role:
-- Shared PRG / Manufacturing Copilot contract source of truth.
-- Defines the common output contract that feeder modules should emit.
+- Contract-only PRG / Manufacturing Copilot schema repo.
+- Owns schemas, field registry, taxonomies, examples, and validator tooling.
 
 Current status:
 - GitHub `main` is established.
-- Latest known remote main commit: `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
-- Validation command passed:
-  - `python tools/validate_prg_case.py examples/*.json`
+- Current verified local folder is `C:\Users\JohnKim\Documents\New project 3`.
+- Local `HEAD` equals `origin/main` at `3455ead`.
 
-Repo:
-- `BohyungKim/prg-contracts`
+Preferred canonical local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts`
 
-Contains:
-- `schemas/prg_case.schema.json`
-- `schemas/evidence_item.schema.json`
-- `schemas/action_item.schema.json`
-- `docs/field_registry.md`
-- `docs/severity_taxonomy.md`
-- `docs/readiness_area_taxonomy.md`
-- `docs/owner_mapping.md`
-- `docs/schema_change_request_process.md`
-- `docs/codex_prompt_guardrails.md`
-- `examples/*_prg_case_sample.json`
-- `tools/validate_prg_case.py`
+Important correction:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` was audited as a requested remap candidate.
+- It contains contract docs, but also app/orchestrator/dashboard logic, scripts, templates, tests, and a root `.env`.
+- It is not a Git repo and has no remote URL.
+- Therefore it should not replace the current `prg-contracts` local folder as-is.
 
-Guardrail:
-- This is not a dashboard repo.
-- This is not the POBTO checker repo.
-- This is not an Epicor write-back repo.
-- This is not a production automation repo.
-- This is not where feeder-specific detection logic belongs.
+### PRG Folder Audit
+
+Role:
+- Mixed PRG workspace with contract docs plus Python app/orchestrator/dashboard code.
+
+Current local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG`
+
+Relocation status:
+- Split before repo assignment.
+- Contract/schema material can be proposed for `prg-contracts` through a reviewed PR.
+- App/orchestrator/dashboard logic should be mapped to a separate PRG application repo if John wants it under source control.
+- Do not read or push `.env`.
 
 ### project-os legacy sync workspace
 
 Role:
 - Historical setup workspace for project-os operating rules.
 
-Action:
+Current local path:
+- `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working`
+
+Archive status:
+- Archive candidate after John confirms it is no longer needed.
 - Do not turn this into a separate repo.
-- Keep only until John confirms it is safe to archive.
 
-## First PRG Contract Integration Candidate
+## Archive Candidates
 
-Recommended next repo:
-- `job-bom-comparator`
-
-Reason:
-- Comparator output is a natural first feeder for PRGCase.
-- `prg-contracts` already includes `examples/comparator_prg_case_sample.json`.
-
-Expected pattern:
-- Feeder repo owns detection logic.
-- Feeder repo emits PRGCase-compatible output.
-- `prg-contracts` owns shared schema and taxonomy.
-- `project-os` tracks overall status.
-
-## How John Should Ask ChatGPT Later
-
-```text
-Use project-os as the central registry.
-Then use prg-contracts current_state.md as the PRG contract source of truth.
-Tell me which feeder repo should integrate next and what files ChatGPT should review.
-```
+- `C:\Users\JohnKim\Documents\New project`: archive candidate only after planner canonical clone is verified and `.env` needs are handled.
+- `C:\Users\JohnKim\Documents\New project 2`: future archive candidate only after heater canonical clone and browser safety review.
+- `C:\Users\JohnKim\Documents\New project 3`: future archive candidate only after `prg-contracts` canonical clone and PRG split review.
+- `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working`: archive candidate after John confirms the legacy sync workspace is no longer needed.
 
 ## Required Per-Project Source-Of-Truth Files
 

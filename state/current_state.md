@@ -1,6 +1,6 @@
 # Current State
 
-Updated at: 2026-05-09 11:35 America/Toronto
+Updated at: 2026-05-09 11:52 America/Toronto
 
 ## Project Case
 
@@ -8,59 +8,63 @@ Case 3 - Codex Continuation Sync.
 
 ## Current Phase
 
-Third source-of-truth repo established; `project-os` registry update in progress.
+Local folder mapping audit preserved on a clean branch; PR pending.
 
 ## Confirmed
 
-- PR #5 is merged into `project-os/main`.
-- `project-os/main` reflects `planner-workload-analyzer` and `heater-batch-selection` as established.
-- Current `project-os` branch: `codex/prg-contracts-onboarding-status`.
+- `project-os/main` includes PR #6.
+- Current `project-os` branch: `codex/local-folder-mapping-audit`.
 - `project-os` remote: `https://github.com/BohyungKim/project-os.git`.
-- Project-os PR #6 is open:
-  - `https://github.com/BohyungKim/project-os/pull/6`
-- Third repo local folder: `C:\Users\JohnKim\Documents\New project 3`.
-- Third repo is now `prg-contracts`, not `prg-supply-readiness-checker`.
-- PRG contracts repo:
-  - `https://github.com/BohyungKim/prg-contracts.git`
-- `prg-contracts` `origin/main` now points to `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
-- `prg-contracts` sample validation passed for four sample PRGCase files.
-- No tracked `.env`, credentials, tokens, API keys, passwords, or local-only files were found in `prg-contracts`.
+- At the start of this task, the active worktree had no uncommitted changes.
+- The useful local folder mapping audit changes were already preserved on `codex/correct-local-folder-mapping`.
+- Those changes were carried forward onto a clean branch based on current `origin/main`.
+- `planner-workload-analyzer` current local path is `C:\Users\JohnKim\Documents\New project`.
+- Preferred canonical planner path is `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`.
+- `PRG` folder is not a Git repo and contains mixed app/orchestrator/dashboard logic plus contract docs.
+- `PRG` has a root `.env`; contents were not read.
+- Existing `prg-contracts` contract-only local path remains `C:\Users\JohnKim\Documents\New project 3`.
 
 ## Changed
 
-- Updated `project-os` registry/status files to show `prg-contracts` is established.
-- Replaced old `prg-supply-readiness-checker` onboarding language with PRG / Manufacturing Copilot contract repo language.
-- Updated next task to integrate the first feeder repo with `prg-contracts`.
-- Recommended first feeder: `job-bom-comparator`.
+- Updated project registry/status/map files to clearly mark current local path, preferred canonical local path, relocation status, and archive candidates.
+- Recorded that `PRG` should not replace `prg-contracts` as-is.
+- Recorded a safe planner cleanup plan using clean clone from GitHub.
+- Updated next task to canonicalize `planner-workload-analyzer` folder safely.
 
 ## Still Incomplete
 
-- `project-os` PR #6 still needs to be reviewed and merged.
-- First feeder integration with `prg-contracts` has not started yet.
+- This mapping audit branch still needs to be pushed and opened as a PR.
+- No folders have been moved, renamed, deleted, or cloned yet.
+- PRG split decision has not been made.
 
 ## Uncertain
 
-- Whether John wants the local folder `New project 3` renamed to `prg-contracts`.
-- Exact local/GitHub repo location for `job-bom-comparator` still needs confirmation before integration.
+- Whether John wants canonical local folders under `C:\Users\JohnKim\Desktop\Bins\Projects` for every repo.
+- What the final repo name should be for PRG app/orchestrator logic if it is split from contract material.
 
 ## Validation Evidence
 
 Commands run:
 
 ```powershell
-python tools/validate_prg_case.py examples/*.json
-git ls-remote origin refs/heads/main
-Get-Content state/current_state.json | ConvertFrom-Json
+git status --short --branch
+git fetch origin
+git switch main
+git pull --ff-only origin main
+git switch -c codex/local-folder-mapping-audit
+git -C "C:\Users\JohnKim\Documents\New project" rev-list --left-right --count origin/main...HEAD
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\PRG" rev-parse --show-toplevel
 Get-Content state/project_registry.json | ConvertFrom-Json
 git diff --check
-powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
 ```
 
 Results:
-- `prg-contracts` validation passed: 4 sample files.
-- `prg-contracts` remote `main` points to `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
-- `project-os` JSON state files parse successfully.
+- Initial active worktree had no uncommitted changes.
+- Planner ahead/behind result was `0/0`.
+- `PRG` git check confirmed it is not a Git repo.
+- `state/project_registry.json` parsed successfully.
+- `git diff --check` passed.
 
 ## Current Risk
 
-Low for repo setup. Main ongoing risk is scope drift: `prg-contracts` must remain contract-only and feeder repos must use the schema change process instead of inventing incompatible local formats.
+Low for documentation-only registry changes. Main risk is accidentally treating `PRG` as `prg-contracts` without splitting it, because `PRG` contains app logic and `.env`.
