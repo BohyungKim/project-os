@@ -123,3 +123,23 @@ Status:
 
 Risk:
 - If John proceeds to the second project before resolving this first app's `origin/main`, the central registry will show partial onboarding rather than a stable source of truth.
+
+## 2026-05-09 - planner-workload-analyzer Main Is Established
+
+Decision:
+- Mark `BohyungKim/planner-workload-analyzer` `main` as the source of truth.
+
+Rationale:
+- John explicitly approved replacing the accidental remote `main` history.
+- Codex used `git push --force-with-lease origin main`.
+- Plain `--force` was not used.
+- No unrelated-history merge was performed.
+- App `origin/main` now points to `7427048 docs: confirm GitHub source of truth`.
+- Temporary branch `codex/source-of-truth-baseline` was deleted.
+
+Status:
+- Accepted and completed.
+- `project-os` PR #4 is updated with the established status.
+
+Risk:
+- Low for planner onboarding. Continue to use feature branches/PRs for future app work.

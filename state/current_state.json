@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-05-09T09:48:00-04:00",
+  "updated_at": "2026-05-09T10:28:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "First app repo connection partially complete; planner-workload-analyzer origin/main is blocked",
+  "current_phase": "First app source-of-truth established; ready to onboard the second project",
   "branch": "codex/planner-onboarding-status",
   "base_branch": "main",
   "remote": {
@@ -23,47 +23,41 @@
     "PR #3 for the central registry structure is merged into project-os main.",
     "Current project-os branch is codex/planner-onboarding-status.",
     "Draft PR #4 is open for the planner onboarding status update.",
-    "First app project folder is C:\\Users\\JohnKim\\Documents\\New project.",
-    "First app target repo is BohyungKim/planner-workload-analyzer.",
-    "App origin is configured as https://github.com/BohyungKim/planner-workload-analyzer.git.",
-    "App local branch is main.",
-    "App latest local commit is 7cdec35 docs: record baseline review branch.",
-    "App remote origin/main has unrelated initialization history.",
-    "Normal app git push -u origin main was rejected as non-fast-forward.",
-    "No force push, overwrite, or unrelated-history merge was performed.",
-    "Safe app review branch codex/source-of-truth-baseline was pushed.",
-    ".env and local-only files were checked and are excluded from git.",
-    "python -m pytest passed 7 tests in New project."
+    "planner-workload-analyzer repo is https://github.com/BohyungKim/planner-workload-analyzer.git.",
+    "John approved replacing accidental remote main history.",
+    "App remote main was replaced with local main using git push --force-with-lease origin main.",
+    "Plain --force was not used.",
+    "No unrelated-history merge was performed.",
+    "App origin/main now points to 7427048 docs: confirm GitHub source of truth.",
+    "Temporary app branch codex/source-of-truth-baseline was deleted.",
+    "App tests passed: 7 tests."
   ],
   "changed": [
-    "Updated app state/report/task/decision files to record the remote main history blocker.",
-    "Pushed app branch codex/source-of-truth-baseline without touching origin/main.",
-    "Updated project-os registry/status files to show the app repo exists but origin/main is blocked."
+    "Updated app state/report/task/decision files and pushed them to app main.",
+    "Updated project-os registry/status files to show planner-workload-analyzer is established.",
+    "Updated next task to onboard heater-batch-selection."
   ],
   "app_onboarding": {
     "project_name": "planner-workload-analyzer",
     "local_folder": "C:\\Users\\JohnKim\\Documents\\New project",
     "branch": "main",
-    "latest_local_commit": "7cdec35 docs: record baseline review branch",
+    "latest_remote_main_commit": "7427048 docs: confirm GitHub source of truth",
     "target_remote_url": "https://github.com/BohyungKim/planner-workload-analyzer.git",
     "remote_configured": true,
     "github_repo_exists_or_accessible": true,
-    "origin_main_latest_commit": "596aa5f Delete README.md",
-    "origin_main_has_common_history_with_local_main": false,
-    "normal_main_push_result": "rejected as non-fast-forward",
-    "safe_review_branch": "codex/source-of-truth-baseline",
-    "safe_review_branch_url": "https://github.com/BohyungKim/planner-workload-analyzer/tree/codex/source-of-truth-baseline",
+    "origin_main_is_source_of_truth": true,
+    "temporary_review_branch_deleted": true,
     "test_result": "python -m pytest: 7 passed",
-    "source_of_truth_status": "blocked: origin/main is not yet the app source of truth"
+    "source_of_truth_status": "established"
   },
   "still_incomplete": [
-    "planner-workload-analyzer origin/main is not yet the stable source of truth.",
-    "John must choose whether to recreate the repo as truly empty or explicitly approve replacing remote main.",
-    "heater-batch-selection and prg-supply-readiness-checker onboarding have not started yet."
+    "project-os PR #4 still needs John/ChatGPT review before merge.",
+    "heater-batch-selection has not been onboarded yet.",
+    "prg-supply-readiness-checker has not been onboarded yet."
   ],
   "uncertain": [
-    "Whether John wants to preserve the remote initialization commits.",
-    "Whether the local folder name New project should be renamed after origin/main is established."
+    "Whether John wants the local folder New project renamed to planner-workload-analyzer.",
+    "Whether the second project GitHub repo already exists."
   ],
   "validation": {
     "commands_run": [
@@ -72,19 +66,19 @@
         "result": "7 passed"
       },
       {
-        "command": "tracked secret/local-only scan in C:\\Users\\JohnKim\\Documents\\New project",
-        "result": "0 blocked tracked files found"
+        "command": "git push --force-with-lease origin main in app repo",
+        "result": "Succeeded"
       },
       {
-        "command": "git push -u origin main in app repo",
-        "result": "Rejected as non-fast-forward"
+        "command": "git push origin --delete codex/source-of-truth-baseline in app repo",
+        "result": "Succeeded"
       },
       {
-        "command": "git push origin main:refs/heads/codex/source-of-truth-baseline in app repo",
-        "result": "Succeeded without overwriting origin/main"
+        "command": "git ls-remote origin refs/heads/main refs/heads/codex/source-of-truth-baseline in app repo",
+        "result": "main points to 7427048 and temporary branch is absent"
       }
     ],
-    "application_tests": "New project passed 7 tests."
+    "application_tests": "planner-workload-analyzer passed 7 tests."
   },
   "john_review_required": true
 }

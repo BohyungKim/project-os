@@ -3,37 +3,30 @@
 Date: 2026-05-09
 Branch: `codex/planner-onboarding-status`
 Project-os PR: `https://github.com/BohyungKim/project-os/pull/4`
-App latest commit: `7cdec35 docs: record baseline review branch`
+App remote main commit: `7427048 docs: confirm GitHub source of truth`
 
 ## What Changed
 
-- Continued first real project onboarding for `planner-workload-analyzer`.
-- Confirmed app local branch is `main`.
-- Confirmed app commit is newer than `749ade2`; latest local commit is `7cdec35`.
-- Confirmed app `origin` is configured:
-  - `https://github.com/BohyungKim/planner-workload-analyzer.git`
-- Confirmed tracked secret/local-only scan found 0 blocked files.
-- Ran app tests; 7 tests passed.
-- Fetched app `origin/main`.
-- Found `origin/main` has unrelated initialization history:
-  - `eb6783e Initial commit`
-  - `596aa5f Delete README.md`
-- Attempted normal `git push -u origin main`; it was rejected as non-fast-forward.
-- Did not force push, overwrite, or merge unrelated histories.
-- Pushed app local `main` safely to remote branch:
+- Completed `planner-workload-analyzer` GitHub source-of-truth setup.
+- Used John-approved command:
+  - `git push --force-with-lease origin main`
+- Replaced accidental remote `main` history with the real local app baseline.
+- Confirmed plain `--force` was not used.
+- Confirmed no unrelated-history merge was performed.
+- Confirmed app `origin/main` now points to:
+  - `7427048 docs: confirm GitHub source of truth`
+- Deleted temporary app remote branch:
   - `codex/source-of-truth-baseline`
-- Updated app state/report/task/decision files.
-- Updated `project-os` registry/status files for the new blocker and safe review branch.
+- Updated app state/report/task/decision files and pushed them to app `main`.
+- Updated `project-os` registry/status files to mark `planner-workload-analyzer` as established.
+- Updated next recommended project to `heater-batch-selection`.
 
 ## What Did Not Change
 
-- No app application logic was changed.
-- No `.env`, credentials, tokens, API keys, passwords, or local-only files were pushed.
-- App `origin/main` was not overwritten.
-- No unrelated-history merge was performed.
-- No PR was merged.
-- `heater-batch-selection` onboarding has not started.
-- `prg-supply-readiness-checker` onboarding has not started.
+- No application logic was changed.
+- No secrets or local-only files were pushed.
+- No project-os PR was merged automatically.
+- No second project onboarding has started yet.
 
 ## Validation Results
 
@@ -47,30 +40,26 @@ Result:
 - 7 tests passed.
 
 Additional app checks:
-- `git branch --show-current`: `main`.
-- `git log -1 --oneline`: `7cdec35 docs: record baseline review branch`.
-- `git remote -v`: `origin` points to `https://github.com/BohyungKim/planner-workload-analyzer.git`.
-- Tracked secret/local-only scan: 0 blocked files.
-- `git merge-base main origin/main`: no common history.
-- `git push -u origin main`: rejected as non-fast-forward.
-- `git push origin main:refs/heads/codex/source-of-truth-baseline`: succeeded.
+- `git push --force-with-lease origin main`: succeeded.
+- `git ls-remote origin refs/heads/main`: `7427048`.
+- `git push origin --delete codex/source-of-truth-baseline`: succeeded.
+- Temporary branch is absent from `git ls-remote` output.
 
 `project-os` checks:
 - `state/current_state.json` parsed successfully.
 - `state/project_registry.json` parsed successfully.
 - `git diff --check` passed before commit.
+- `scripts/update-project-status.ps1` refreshed `docs/realtime-repo-status.md`.
 
 ## Risks
 
-- `planner-workload-analyzer` is not yet a stable GitHub source of truth because `origin/main` still points to unrelated initialization history.
-- A force push would solve this technically, but it would overwrite remote history and requires explicit John approval.
-- Merging unrelated histories would preserve remote commits, but it would make the baseline history noisier and was intentionally avoided.
-- Continuing to the second project before resolving `origin/main` may make the onboarding sequence harder to track.
+- `planner-workload-analyzer` risk is now low.
+- `heater-batch-selection` may include browser automation; onboarding must keep login, purchasing, submission, and production-impacting actions out of automation unless John explicitly approves.
+- `project-os` PR #4 still needs review before merge.
 
 ## What ChatGPT Should Review Next
 
 - Review `project-os` PR #4:
   - `https://github.com/BohyungKim/project-os/pull/4`
-- Review whether John should use the clean recreate path or approve replacing remote `main`.
-- Review the app safe branch if needed:
-  - `https://github.com/BohyungKim/planner-workload-analyzer/tree/codex/source-of-truth-baseline`
+- Confirm `planner-workload-analyzer` is marked established.
+- Prepare to onboard `heater-batch-selection`.

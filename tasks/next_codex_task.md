@@ -2,33 +2,49 @@
 
 ## Objective
 
-Resolve `planner-workload-analyzer` remote `main` history so GitHub `main` can become the app source of truth.
+Onboard the second detected project: `heater-batch-selection`.
 
 ## Scope
 
-- Use John's selected history policy:
-  - Preferred: delete/recreate `BohyungKim/planner-workload-analyzer` as a truly empty repo, then push local `main`.
-  - Alternative: explicitly approve replacing remote `main` with local `main`.
-- Reconfirm no secrets or local-only files are tracked.
-- Re-run tests.
-- Push local `main` only after the history policy is clear.
-- Update app state/report/task files after successful `origin/main` push.
-- Update `project-os` registry after app `origin/main` is established.
-- Keep PR #4 updated or open a follow-up `project-os` PR if needed.
+- Use local folder:
+  - `C:\Users\JohnKim\Documents\New project 2`
+- Target GitHub repo:
+  - `BohyungKim/heater-batch-selection`
+- Inspect project structure and git state.
+- Verify no `.env`, credentials, tokens, API keys, passwords, or local-only files are tracked.
+- Add/update source-of-truth files:
+  - `AGENTS.md`
+  - `README.md`
+  - `state/current_state.md`
+  - `state/current_state.json`
+  - `reports/latest_execution_report.md`
+  - `tasks/next_codex_task.md`
+  - `decisions/decision_log.md`
+- Run tests.
+- Connect/push only if the GitHub repo exists and remote history is safe.
+- Update `project-os` registry after completion.
+
+## Special Safety Rule
+
+This project may include Playwright/browser automation. Do not automate login, purchasing, submission, or production-impacting actions. Keep browser automation in manual-review or safe dry-run mode unless John explicitly approves otherwise.
 
 ## Out Of Scope
 
-- Changing app logic.
-- Force pushing without explicit John approval.
-- Merging unrelated histories without explicit John approval.
-- Onboarding `heater-batch-selection` before this first app has a stable `origin/main`.
+- Changing application logic.
+- Running production-impacting browser actions.
+- Pushing secrets or generated local files.
 - Merging any PR automatically.
 
 ## Files To Inspect
 
-In `C:\Users\JohnKim\Documents\New project`:
+- `C:\Users\JohnKim\Documents\New project 2\.gitignore`
+- `C:\Users\JohnKim\Documents\New project 2\README.md`
+- `C:\Users\JohnKim\Documents\New project 2\pyproject.toml`
+- `C:\Users\JohnKim\Documents\New project 2\src\`
+- `C:\Users\JohnKim\Documents\New project 2\tests\`
 
-- `.gitignore`
+## Files To Modify
+
 - `AGENTS.md`
 - `README.md`
 - `state/current_state.md`
@@ -36,53 +52,24 @@ In `C:\Users\JohnKim\Documents\New project`:
 - `reports/latest_execution_report.md`
 - `tasks/next_codex_task.md`
 - `decisions/decision_log.md`
-
-In `project-os`:
-
-- `docs/project-registry.md`
-- `state/project_registry.json`
-- `docs/repo-onboarding-status.md`
-- `reports/latest_execution_report.md`
-
-## Files To Modify
-
-In app repo:
-
-- `state/current_state.md`
-- `state/current_state.json`
-- `reports/latest_execution_report.md`
-- `tasks/next_codex_task.md`
-- `decisions/decision_log.md` if the selected history policy is new
-
-In `project-os`:
-
-- `docs/project-registry.md`
-- `state/project_registry.json`
-- `docs/repo-onboarding-status.md`
-- `docs/realtime-repo-status.md`
-- `reports/latest_execution_report.md`
-- `state/current_state.md`
-- `state/current_state.json`
-- `tasks/next_codex_task.md`
-- `decisions/decision_log.md` if needed
+- `.gitignore` if needed
+- `project-os` registry files after completion
 
 ## Acceptance Criteria
 
-- `origin/main` in `planner-workload-analyzer` contains the app baseline.
-- `origin/main` is the stable source of truth.
+- `heater-batch-selection` has project source-of-truth files.
 - Tests pass.
 - No secrets or local-only files are tracked.
-- App source-of-truth files reflect the final pushed status.
-- `project-os` registry reflects the connected source-of-truth repo.
-- No automatic merge is performed.
+- GitHub repo connection status is clearly recorded.
+- `project-os` registry is updated.
+- No app logic is changed.
+- No production-impacting browser automation is run.
 
 ## Validation Command
 
 ```powershell
 git status --short --branch
 git remote -v
-git log -1 --oneline
-git ls-remote origin main
 python -m pytest
 Get-Content state/current_state.json | ConvertFrom-Json
 git diff --check
@@ -90,10 +77,11 @@ git diff --check
 
 ## Report-Back Format
 
-- planner-workload-analyzer GitHub repo URL
-- branch pushed
-- latest commit hash
+- project name
+- branch name
+- remote URL/status
 - test result
+- changed files
 - source-of-truth status
 - project-os PR link
-- next project to onboard
+- next recommended project
