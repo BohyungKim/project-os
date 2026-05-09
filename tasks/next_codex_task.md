@@ -2,89 +2,77 @@
 
 ## Objective
 
-Onboard the third detected project: `prg-supply-readiness-checker`.
+Prepare a PRG split plan before changing the `prg-contracts` local working-folder mapping.
 
 ## Scope
 
-- Use local folder:
+- Use `project-os` as the central registry.
+- Inspect `C:\Users\JohnKim\Desktop\Bins\Projects\PRG`.
+- Identify exactly which files are contract/schema material.
+- Identify exactly which files are app/orchestrator/dashboard logic.
+- Recommend whether contract material should be copied into `BohyungKim/prg-contracts` through a reviewed PR.
+- Recommend the separate repo name/path for PRG app/orchestrator/dashboard logic if John wants it under source control.
+- Preserve the current verified `prg-contracts` folder until John approves a split:
   - `C:\Users\JohnKim\Documents\New project 3`
-- Target GitHub repo:
-  - `BohyungKim/prg-supply-readiness-checker`
-- Treat it as a documentation/design-first project.
-- Inspect project structure and git state.
-- Verify no `.env`, credentials, tokens, API keys, passwords, or local-only files are tracked.
-- Add/update source-of-truth files:
-  - `AGENTS.md`
-  - `README.md`
-  - `state/current_state.md`
-  - `state/current_state.json`
-  - `reports/latest_execution_report.md`
-  - `tasks/next_codex_task.md`
-  - `decisions/decision_log.md`
-- Add docs if useful:
-  - `docs/implementation-roadmap.md`
-  - `docs/data-contract-draft.md`
-- Connect/push only if the GitHub repo exists and remote history is safe.
-- Update `project-os` registry after completion.
-
-## Special Safety Rule
-
-This is a docs-first project, not a production app yet. Do not pretend implementation exists. Do not add Epicor write-back logic.
 
 ## Out Of Scope
 
-- Writing production app logic.
-- Adding Epicor write-back logic.
-- Claiming tests pass if no tests exist.
-- Pushing secrets or generated local files.
+- Moving, renaming, deleting, or creating project folders.
+- Reading `.env` contents.
+- Changing application logic.
+- Pushing PRG app code.
+- Replacing the existing contract-only `prg-contracts` repo mapping without John review.
 - Merging any PR automatically.
 
 ## Files To Inspect
 
-- `C:\Users\JohnKim\Documents\New project 3\README.md`
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG\docs\`
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG\PRG_ClaudeCode_Implementation_Guide.md`
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG\pyproject.toml`
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG\src\prg\`
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG\scripts\`
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG\tests\`
+- `C:\Users\JohnKim\Documents\New project 3\schemas\`
 - `C:\Users\JohnKim\Documents\New project 3\docs\`
-- `.gitignore` if present
+- `C:\Users\JohnKim\Documents\New project 3\examples\`
 
 ## Files To Modify
 
-- `AGENTS.md`
-- `README.md`
-- `state/current_state.md`
-- `state/current_state.json`
-- `reports/latest_execution_report.md`
-- `tasks/next_codex_task.md`
-- `decisions/decision_log.md`
-- `docs/implementation-roadmap.md`
-- `docs/data-contract-draft.md` if useful
-- `.gitignore` if needed
-- `project-os` registry files after completion
+- None in `PRG` during the split-plan task.
+- If John approves a docs-only split PR, modify only contract repo files under `C:\Users\JohnKim\Documents\New project 3`.
+- Update `project-os` registry files after the approved split plan or split PR.
 
 ## Acceptance Criteria
 
-- `prg-supply-readiness-checker` has docs-first source-of-truth files.
-- No implementation is claimed unless code exists.
-- No secrets or local-only files are tracked.
-- GitHub repo connection status is clearly recorded.
-- `project-os` registry is updated.
-- No app logic is changed.
-- No automatic merge is performed.
+- PRG split plan lists contract/schema files separately from app/orchestrator/dashboard files.
+- No `.env` contents are read or copied.
+- No folder is moved, renamed, deleted, or created.
+- No application logic is changed.
+- `prg-contracts` remains contract-only unless John approves a scoped docs/schema update.
+- Planner relocation remains clone-first and is not performed during this task.
 
 ## Validation Command
 
 ```powershell
-git status --short --branch
-git remote -v
-Get-Content state/current_state.json | ConvertFrom-Json
-git diff --check
+git -C "C:\Users\JohnKim\Documents\New project 3" status --short --branch
+git -C "C:\Users\JohnKim\Documents\New project 3" remote -v
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\PRG" rev-parse --show-toplevel
+Get-ChildItem -LiteralPath "C:\Users\JohnKim\Desktop\Bins\Projects\PRG" -Force
 ```
+
+Expected validation:
+
+- `prg-contracts` stays clean.
+- `PRG` still reports no Git repo unless John explicitly initializes or clones later.
+- The report clearly states that the task was an audit/split plan, not an implementation change.
 
 ## Report-Back Format
 
-- project name
-- branch name
-- remote URL/status
-- validation result
-- changed files
-- source-of-truth status
-- project-os PR link
-- next recommended project
+- PRG split recommendation
+- contract/schema files
+- app/orchestrator/dashboard files
+- `.env`/secret handling status, without contents
+- whether any file changes were made
+- validation commands and results
+- project-os PR link if registry files changed
+- next recommended action

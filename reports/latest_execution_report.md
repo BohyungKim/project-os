@@ -1,62 +1,109 @@
 # Latest Execution Report
 
 Date: 2026-05-09
-Branch: `codex/heater-onboarding-status`
-Project-os PR: `https://github.com/BohyungKim/project-os/pull/5`
-Heater remote main commit: `6e32db7 docs: confirm heater GitHub source of truth`
+Branch: `codex/correct-local-folder-mapping`
+Project-os PR: pending
 
 ## What Changed
 
-- Completed `heater-batch-selection` GitHub source-of-truth setup.
-- Added app remote:
-  - `https://github.com/BohyungKim/heater-batch-selection.git`
-- Pushed app `main` to GitHub.
-- Confirmed app `origin/main` now points to:
-  - `6e32db7 docs: confirm heater GitHub source of truth`
-- Updated app state/report/task/decision files and pushed them to app `main`.
-- Updated `project-os` registry/status files to mark `heater-batch-selection` as established.
-- Updated next recommended project to `prg-supply-readiness-checker`.
+- Audited `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` as the requested `prg-contracts` remap candidate.
+- Confirmed `PRG` is not contract-only:
+  - contract/schema docs exist,
+  - app/orchestrator/dashboard code exists,
+  - tests exist,
+  - `.env` exists,
+  - no `.git` repo or remote URL exists.
+- Confirmed the existing contract-only `prg-contracts` repo is still at:
+  - `C:\Users\JohnKim\Documents\New project 3`
+  - `https://github.com/BohyungKim/prg-contracts.git`
+- Confirmed `planner-workload-analyzer` is currently at:
+  - `C:\Users\JohnKim\Documents\New project`
+  - `https://github.com/BohyungKim/planner-workload-analyzer.git`
+- Confirmed planner has no unpushed local changes relative to `origin/main`.
+- Recorded the preferred future planner local path:
+  - `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`
+- Updated registry/status/map/report/task/decision files only.
 
 ## What Did Not Change
 
-- No app application logic was changed.
-- No Playwright/NepConnect behavior was changed.
-- No login, purchasing, submission, or production-impacting browser action was automated.
-- No secrets, browser artifacts, or local-only files were pushed.
-- No project-os PR was merged automatically.
+- No application logic was changed.
+- No folder was deleted, renamed, moved, or created for app projects.
+- No `.env` contents were read.
+- No app repo code was pushed.
+- No PR was merged automatically.
+
+## Audit Evidence
+
+`PRG` folder:
+
+- Contract/schema docs:
+  - `docs\PRG_DATA_CONTRACT.md`
+  - `docs\epicor_schema_notes.md`
+  - `docs\factors.md`
+  - `docs\architecture.md`
+  - `docs\decisions\001-factor-plugin-pattern.md`
+- App/orchestrator/dashboard evidence:
+  - `src\prg\api.py`
+  - `src\prg\epicor\client.py`
+  - `src\prg\templates\index.html`
+  - `scripts\daily_scan.py`
+  - `scripts\run_against_job.py`
+- Roadmap/process docs:
+  - `PRG_ClaudeCode_Implementation_Guide.md`
+  - `docs\PRG_CHECKLIST.md`
+  - `docs\HUMAN_IN_THE_LOOP_POLICY.md`
+- Tests:
+  - `tests\unit`
+  - `tests\integration`
+- Git:
+  - `git -C C:\Users\JohnKim\Desktop\Bins\Projects\PRG rev-parse --show-toplevel` failed because it is not a Git repo.
+- Secrets/local config:
+  - `.env` exists at the root. Contents were not read.
+
+`planner-workload-analyzer` folder:
+
+- Branch: `main`.
+- Remote: `https://github.com/BohyungKim/planner-workload-analyzer.git`.
+- Local `HEAD`: `7427048`.
+- `origin/main`: `7427048`.
+- Ahead/behind: `0/0`.
+- Working tree: clean.
+- `.env` exists but is ignored; `.env.example` is tracked.
 
 ## Validation Results
 
-App project checks in `C:\Users\JohnKim\Documents\New project 2`:
+Commands run:
 
 ```powershell
-python -m pytest
+git -C "C:\Users\JohnKim\Documents\New project" fetch origin
+git -C "C:\Users\JohnKim\Documents\New project" rev-list --left-right --count origin/main...HEAD
+git -C "C:\Users\JohnKim\Documents\New project" status --porcelain=v1
+git -C "C:\Users\JohnKim\Documents\New project 3" status -sb
+git -C "C:\Users\JohnKim\Desktop\Bins\Projects\PRG" rev-parse --show-toplevel
+Get-Content state/project_registry.json | ConvertFrom-Json
+git diff --check
+powershell -ExecutionPolicy Bypass -File scripts/update-project-status.ps1
 ```
 
-Result:
-- 9 tests passed.
+Results:
 
-Additional app checks:
-- `git push -u origin main`: succeeded.
-- `git ls-remote origin refs/heads/main`: `6e32db7`.
-- Tracked secret/local-only/browser artifact scan: 0 blocked files.
-- `.gitignore` protects `.env`, credentials, tokens, browser profiles/sessions, Playwright artifacts, logs, generated outputs, and temp files.
-
-`project-os` checks:
-- `state/current_state.json` parsed successfully.
+- Planner ahead/behind result was `0/0`.
+- Planner status output was empty, confirming no uncommitted local changes.
+- `prg-contracts` status showed `main...origin/main`.
+- `PRG` git check confirmed it is not a Git repo.
 - `state/project_registry.json` parsed successfully.
-- `git diff --check` passed before commit.
-- `scripts/update-project-status.ps1` refreshed `docs/realtime-repo-status.md`.
+- `git diff --check` passed.
+- `docs/realtime-repo-status.md` was refreshed.
 
 ## Risks
 
-- `heater-batch-selection` repo setup risk is now low.
-- Browser automation remains the primary safety risk; keep NepConnect/Playwright in manual-review or safe dry-run mode unless John explicitly approves otherwise.
-- `project-os` PR #5 still needs review before merge.
+- `PRG` contains `.env` and mixed app logic. Mapping it directly to `prg-contracts` could leak scope and confuse contract-only ownership.
+- The current verified `prg-contracts` working folder is still the contract-only repo at `C:\Users\JohnKim\Documents\New project 3`; changing that mapping needs John review.
+- Planner cleanup should use clone-from-GitHub first so the placeholder folder can be retired later without losing ignored local configuration.
 
 ## What ChatGPT Should Review Next
 
-- Review `project-os` PR #5:
-  - `https://github.com/BohyungKim/project-os/pull/5`
-- Confirm `heater-batch-selection` is marked established.
-- Prepare to onboard `prg-supply-readiness-checker` as a docs-first repo.
+- Review whether `PRG` should be split into:
+  - contract/schema files for `BohyungKim/prg-contracts`, and
+  - app/orchestrator/dashboard files for a separate PRG application repo.
+- Review the planner clone-based relocation plan before any folder cleanup.

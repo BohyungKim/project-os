@@ -1,6 +1,6 @@
 # Codex Project Map
 
-Updated: 2026-05-08 19:56 -04:00
+Updated: 2026-05-09 11:37 -04:00
 
 ## Control Tower Layout
 
@@ -13,18 +13,21 @@ BohyungKim/project-os
   status/report/task conventions
 
 BohyungKim/planner-workload-analyzer
-  first real app repo target
+  established app repo
   current local folder: C:\Users\JohnKim\Documents\New project
-  local baseline commit: 749ade2
-  GitHub repo status: not found / needs John creation
+  preferred future local folder: C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer
+  GitHub repo status: main established at 7427048
 
 BohyungKim/heater-batch-selection
-  future real app repo
+  established app repo
   current local folder: C:\Users\JohnKim\Documents\New project 2
+  GitHub repo status: main established at 6e32db7
 
-BohyungKim/prg-supply-readiness-checker
-  future docs-first or app repo
-  current local folder: C:\Users\JohnKim\Documents\New project 3
+BohyungKim/prg-contracts
+  established contract/schema repo
+  current verified local folder: C:\Users\JohnKim\Documents\New project 3
+  requested PRG remap candidate: C:\Users\JohnKim\Desktop\Bins\Projects\PRG
+  remap status: blocked until PRG is split, because PRG is mixed app/contracts and has no git repo
 ```
 
 ## Project Relationships
@@ -45,47 +48,59 @@ ChatGPT entry point:
 ### planner-workload-analyzer
 
 Role:
-- First real project repo currently being onboarded.
-- Read-only Microsoft Planner workload analyzer.
+- Real project repo for a read-only Microsoft Planner workload analyzer.
 
 Current status:
-- Clear Python package.
-- Existing README.
-- Existing `.gitignore`.
-- Source-of-truth files added locally.
-- Tests pass: 7 passed.
-- Local commit created: `749ade2 docs: add source-of-truth onboarding files`.
-- Target GitHub repo is not available yet.
+- GitHub `main` is established.
+- Current local folder is still `C:\Users\JohnKim\Documents\New project`.
+- Current branch is `main`.
+- Local `HEAD` equals `origin/main` at `7427048`.
+- Working tree is clean.
+- `.env` exists locally but is ignored.
 
-Why first:
-- Lower operational risk than browser-assisted workflows.
+Future local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`
 
-Expected repo:
-- `BohyungKim/planner-workload-analyzer`
+Cleanup rule:
+- Prefer a clean clone from GitHub into the preferred path.
+- Do not manually move the current folder until John confirms the clone and any local-only `.env` needs.
 
 ### heater-batch-selection
 
 Role:
-- Real Python app candidate for internal heater batch selection.
+- Real Python app repo for internal heater batch selection.
 
-Why second:
-- Tests pass and structure is clear.
-- Includes browser automation through Playwright/NepConnect, so review risk is higher.
+Current status:
+- GitHub `main` is established.
+- Current local folder is `C:\Users\JohnKim\Documents\New project 2`.
+- Browser automation must remain manual-review / safe dry-run only unless John explicitly approves a narrower production-safe change.
 
-Expected future repo:
-- `BohyungKim/heater-batch-selection`
-
-### prg-supply-readiness-checker
+### prg-contracts
 
 Role:
-- PRG sub-system design/planning repo.
+- Contract-only PRG / Manufacturing Copilot schema repo.
+- Owns schemas, field registry, taxonomies, examples, and validator tooling.
 
-Why later:
-- No implementation code or tests yet.
-- Best next step is sample data and validation tests.
+Current status:
+- GitHub `main` is established.
+- Current verified local folder is `C:\Users\JohnKim\Documents\New project 3`.
+- Local `HEAD` equals `origin/main` at `3455ead`.
 
-Expected future repo:
-- `BohyungKim/prg-supply-readiness-checker`
+Important correction:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` was audited as a requested remap candidate.
+- It contains contract docs, but also app/orchestrator/dashboard logic, scripts, templates, tests, and a root `.env`.
+- It is not a Git repo and has no remote URL.
+- Therefore it should not replace the current `prg-contracts` local folder as-is.
+
+### PRG Folder Audit
+
+Role:
+- Mixed PRG workspace with contract docs plus Python app/orchestrator/dashboard code.
+
+Action:
+- Split before repo assignment.
+- Contract/schema material can be proposed for `prg-contracts` through a reviewed PR.
+- App/orchestrator/dashboard logic should be mapped to a separate PRG application repo if John wants it under source control.
 
 ### project-os legacy sync workspace
 
@@ -95,14 +110,6 @@ Role:
 Action:
 - Do not turn this into a separate repo.
 - Keep only until John confirms it is safe to archive.
-
-## How John Should Ask ChatGPT Later
-
-```text
-Use project-os as the central registry.
-Then use planner-workload-analyzer current_state.md as the project source of truth.
-Tell me the current status and next best action.
-```
 
 ## Required Per-Project Source-Of-Truth Files
 

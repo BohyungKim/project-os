@@ -182,3 +182,55 @@ Status:
 
 Risk:
 - Low for heater onboarding. Future browser automation changes still require explicit safety review.
+
+## 2026-05-09 - Do Not Remap PRG To prg-contracts As-Is
+
+Decision:
+- Do not replace the verified contract-only `prg-contracts` working folder with `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` as-is.
+
+Rationale:
+- `PRG` contains contract/schema docs, but it also contains app/orchestrator/dashboard logic, scripts, HTML/CSS templates, unit/integration tests, and a root `.env`.
+- `PRG` is not currently a Git repository and has no remote URL.
+- The established contract-only repo still exists at `C:\Users\JohnKim\Documents\New project 3` and points to `https://github.com/BohyungKim/prg-contracts.git`.
+
+Status:
+- Accepted for this registry correction PR.
+- `PRG` is recorded as an audit/split candidate, not a direct local-folder replacement.
+
+Risk:
+- Forcing `PRG` into `prg-contracts` could mix app logic and local config into a contract-only repo.
+
+## 2026-05-09 - Relocate Planner By Clone, Not Manual Move
+
+Decision:
+- Prefer cloning `https://github.com/BohyungKim/planner-workload-analyzer.git` into `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` over manually moving `C:\Users\JohnKim\Documents\New project`.
+
+Rationale:
+- The current planner folder is clean and matches `origin/main` at `7427048`.
+- `.env` exists locally and is ignored, so manual moves can accidentally blur source-controlled files with local-only configuration.
+- A clean clone verifies GitHub source-of-truth status first and keeps cleanup reversible.
+
+Status:
+- Accepted as the recommended future cleanup plan.
+- No folder move, rename, delete, or clone was performed in this task.
+
+Risk:
+- If the old folder is removed before the clone is verified, John may lose local-only configuration such as `.env`.
+
+## 2026-05-09 - Reclassify Third Repo As prg-contracts
+
+Decision:
+- Do not onboard `New project 3` as `prg-supply-readiness-checker`.
+- Reclassify it as `prg-contracts`, the PRG / Manufacturing Copilot shared contract source-of-truth repo.
+
+Rationale:
+- John renamed the target repo to `https://github.com/BohyungKim/prg-contracts.git`.
+- The repo should define shared contracts and validation tooling used by feeder modules.
+- POBTO readiness, dashboard work, Epicor write-back, and feeder detection logic belong in separate repos/modules.
+
+Status:
+- Accepted and implemented.
+- `prg-contracts` GitHub `main` is established at `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
+
+Risk:
+- Future prompts may refer to the old supply readiness app name. Codex must follow the contract-only guardrails and avoid building app logic inside `prg-contracts`.
