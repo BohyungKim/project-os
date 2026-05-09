@@ -2,49 +2,34 @@
 
 ## Objective
 
-Onboard the second detected project: `heater-batch-selection`.
+Finish connecting `C:\Users\JohnKim\Documents\New project 2` to GitHub as `BohyungKim/heater-batch-selection`.
 
 ## Scope
 
-- Use local folder:
-  - `C:\Users\JohnKim\Documents\New project 2`
-- Target GitHub repo:
-  - `BohyungKim/heater-batch-selection`
-- Inspect project structure and git state.
-- Verify no `.env`, credentials, tokens, API keys, passwords, or local-only files are tracked.
-- Add/update source-of-truth files:
-  - `AGENTS.md`
-  - `README.md`
-  - `state/current_state.md`
-  - `state/current_state.json`
-  - `reports/latest_execution_report.md`
-  - `tasks/next_codex_task.md`
-  - `decisions/decision_log.md`
-- Run tests.
-- Connect/push only if the GitHub repo exists and remote history is safe.
-- Update `project-os` registry after completion.
-
-## Special Safety Rule
-
-This project may include Playwright/browser automation. Do not automate login, purchasing, submission, or production-impacting actions. Keep browser automation in manual-review or safe dry-run mode unless John explicitly approves otherwise.
+- Wait until John creates the empty private GitHub repo:
+  - `https://github.com/BohyungKim/heater-batch-selection`
+- In `C:\Users\JohnKim\Documents\New project 2`, add the GitHub remote as `origin`.
+- Push local `main` to `origin` if the remote is empty.
+- If remote `main` has unrelated history, stop and report before any overwrite.
+- Open a PR if applicable.
+- Re-run tests and secret checks before push if any files changed.
+- Update app state/report/task files after push.
+- Update `project-os` registry/status files after the app repo is connected.
+- Open a separate `project-os` registry update PR.
 
 ## Out Of Scope
 
+- Creating the GitHub repo automatically unless John explicitly provides an authenticated workflow.
+- Onboarding `prg-supply-readiness-checker` before the second app repo is connected.
 - Changing application logic.
-- Running production-impacting browser actions.
-- Pushing secrets or generated local files.
-- Merging any PR automatically.
+- Automating login, purchasing, submission, or production-impacting browser actions.
+- Merging any app or `project-os` PR automatically.
 
 ## Files To Inspect
 
-- `C:\Users\JohnKim\Documents\New project 2\.gitignore`
-- `C:\Users\JohnKim\Documents\New project 2\README.md`
-- `C:\Users\JohnKim\Documents\New project 2\pyproject.toml`
-- `C:\Users\JohnKim\Documents\New project 2\src\`
-- `C:\Users\JohnKim\Documents\New project 2\tests\`
+In `C:\Users\JohnKim\Documents\New project 2`:
 
-## Files To Modify
-
+- `.gitignore`
 - `AGENTS.md`
 - `README.md`
 - `state/current_state.md`
@@ -52,18 +37,49 @@ This project may include Playwright/browser automation. Do not automate login, p
 - `reports/latest_execution_report.md`
 - `tasks/next_codex_task.md`
 - `decisions/decision_log.md`
-- `.gitignore` if needed
-- `project-os` registry files after completion
+- `pyproject.toml`
+- `src/heater_batch/*`
+- `src/heater_batch/adapters/*`
+- `tests/*`
+
+In `project-os`:
+
+- `docs/project-registry.md`
+- `state/project_registry.json`
+- `docs/repo-onboarding-status.md`
+- `reports/latest_execution_report.md`
+
+## Files To Modify
+
+In `New project 2` only if needed after remote creation:
+
+- `state/current_state.md`
+- `state/current_state.json`
+- `reports/latest_execution_report.md`
+- `tasks/next_codex_task.md`
+- `decisions/decision_log.md`
+
+In `project-os`:
+
+- `docs/project-registry.md`
+- `state/project_registry.json`
+- `docs/repo-onboarding-status.md`
+- `docs/realtime-repo-status.md`
+- `reports/latest_execution_report.md`
+- `state/current_state.md`
+- `state/current_state.json`
+- `tasks/next_codex_task.md`
+- `decisions/decision_log.md`
 
 ## Acceptance Criteria
 
-- `heater-batch-selection` has project source-of-truth files.
+- `origin` in `New project 2` points to `https://github.com/BohyungKim/heater-batch-selection.git`.
+- Local `main` is pushed to GitHub or a safe setup branch is created if remote history is not empty.
+- No secrets, browser artifacts, or local-only files are tracked or pushed.
 - Tests pass.
-- No secrets or local-only files are tracked.
-- GitHub repo connection status is clearly recorded.
-- `project-os` registry is updated.
-- No app logic is changed.
-- No production-impacting browser automation is run.
+- App source-of-truth files reflect the pushed status.
+- `project-os` registry reflects the connected app repo.
+- No automatic merge is performed.
 
 ## Validation Command
 
@@ -77,11 +93,11 @@ git diff --check
 
 ## Report-Back Format
 
-- project name
+- heater-batch-selection source-of-truth status
+- GitHub repo URL or repo creation blocker
 - branch name
-- remote URL/status
 - test result
 - changed files
-- source-of-truth status
+- safety risks
 - project-os PR link
-- next recommended project
+- next recommended project to onboard

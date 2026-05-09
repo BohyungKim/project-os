@@ -1,84 +1,74 @@
 {
-  "updated_at": "2026-05-09T10:28:00-04:00",
+  "updated_at": "2026-05-09T10:56:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "First app source-of-truth established; ready to onboard the second project",
-  "branch": "codex/planner-onboarding-status",
+  "current_phase": "Second app repo onboarding, blocked on GitHub repo creation",
+  "branch": "codex/heater-onboarding-status",
   "base_branch": "main",
   "remote": {
     "origin_configured": true,
     "url": "https://github.com/BohyungKim/project-os.git",
     "push_possible": true
   },
-  "pull_request": {
-    "created": true,
-    "number": 4,
-    "url": "https://github.com/BohyungKim/project-os/pull/4",
-    "state": "open",
-    "draft": true,
-    "base": "main",
-    "head": "codex/planner-onboarding-status"
-  },
   "confirmed": [
-    "PR #3 for the central registry structure is merged into project-os main.",
-    "Current project-os branch is codex/planner-onboarding-status.",
-    "Draft PR #4 is open for the planner onboarding status update.",
-    "planner-workload-analyzer repo is https://github.com/BohyungKim/planner-workload-analyzer.git.",
-    "John approved replacing accidental remote main history.",
-    "App remote main was replaced with local main using git push --force-with-lease origin main.",
-    "Plain --force was not used.",
-    "No unrelated-history merge was performed.",
-    "App origin/main now points to 7427048 docs: confirm GitHub source of truth.",
-    "Temporary app branch codex/source-of-truth-baseline was deleted.",
-    "App tests passed: 7 tests."
+    "PR #4 is merged into project-os main.",
+    "project-os main reflects planner-workload-analyzer as established.",
+    "Current project-os branch is codex/heater-onboarding-status.",
+    "Second app project folder is C:\\Users\\JohnKim\\Documents\\New project 2.",
+    "Second app target repo is BohyungKim/heater-batch-selection.",
+    "New project 2 branch was renamed from master to main because it had no commits yet.",
+    "New project 2 local onboarding baseline commit is 4f5eb1f docs: add heater source-of-truth setup.",
+    "New project 2 has no GitHub remote configured.",
+    "Target GitHub repo https://github.com/BohyungKim/heater-batch-selection.git was not found.",
+    "No app code was pushed to GitHub.",
+    "No tracked .env, credentials, tokens, API keys, passwords, or local-only files were found.",
+    "python -m pytest passed 9 tests in New project 2.",
+    "Playwright/NepConnect automation remains manual-review / safe dry-run only."
   ],
   "changed": [
-    "Updated app state/report/task/decision files and pushed them to app main.",
-    "Updated project-os registry/status files to show planner-workload-analyzer is established.",
-    "Updated next task to onboard heater-batch-selection."
+    "Added app source-of-truth files to New project 2.",
+    "Improved New project 2 .gitignore for secret/local-only/browser artifact exclusions.",
+    "Updated New project 2 README.md with browser automation safety rules.",
+    "Committed local heater app baseline.",
+    "Updated project-os registry/status files to record the heater onboarding result and GitHub repo blocker."
   ],
   "app_onboarding": {
-    "project_name": "planner-workload-analyzer",
-    "local_folder": "C:\\Users\\JohnKim\\Documents\\New project",
+    "project_name": "heater-batch-selection",
+    "local_folder": "C:\\Users\\JohnKim\\Documents\\New project 2",
     "branch": "main",
-    "latest_remote_main_commit": "7427048 docs: confirm GitHub source of truth",
-    "target_remote_url": "https://github.com/BohyungKim/planner-workload-analyzer.git",
-    "remote_configured": true,
-    "github_repo_exists_or_accessible": true,
-    "origin_main_is_source_of_truth": true,
-    "temporary_review_branch_deleted": true,
-    "test_result": "python -m pytest: 7 passed",
-    "source_of_truth_status": "established"
+    "latest_local_commit": "4f5eb1f docs: add heater source-of-truth setup",
+    "target_remote_url": "https://github.com/BohyungKim/heater-batch-selection.git",
+    "remote_configured": false,
+    "github_repo_exists_or_accessible": false,
+    "repo_creation_needed_from_john": true,
+    "test_result": "python -m pytest: 9 passed",
+    "browser_automation_safety": "manual-review / safe dry-run only"
   },
   "still_incomplete": [
-    "project-os PR #4 still needs John/ChatGPT review before merge.",
-    "heater-batch-selection has not been onboarded yet.",
-    "prg-supply-readiness-checker has not been onboarded yet."
-  ],
-  "uncertain": [
-    "Whether John wants the local folder New project renamed to planner-workload-analyzer.",
-    "Whether the second project GitHub repo already exists."
+    "John must create empty private GitHub repo BohyungKim/heater-batch-selection.",
+    "After repo creation, Codex must add origin, push main, and open a PR if applicable.",
+    "prg-supply-readiness-checker onboarding has not started yet."
   ],
   "validation": {
     "commands_run": [
       {
-        "command": "python -m pytest in C:\\Users\\JohnKim\\Documents\\New project",
-        "result": "7 passed"
+        "command": "python -m pytest in C:\\Users\\JohnKim\\Documents\\New project 2",
+        "result": "9 passed"
       },
       {
-        "command": "git push --force-with-lease origin main in app repo",
-        "result": "Succeeded"
+        "command": "tracked secret/local-only scan in C:\\Users\\JohnKim\\Documents\\New project 2",
+        "result": "0 blocked tracked files found"
       },
       {
-        "command": "git push origin --delete codex/source-of-truth-baseline in app repo",
-        "result": "Succeeded"
+        "command": "git check-ignore representative secret/browser/output paths",
+        "result": "Expected local-only paths are ignored"
       },
       {
-        "command": "git ls-remote origin refs/heads/main refs/heads/codex/source-of-truth-baseline in app repo",
-        "result": "main points to 7427048 and temporary branch is absent"
+        "command": "git ls-remote https://github.com/BohyungKim/heater-batch-selection.git",
+        "result": "Repository not found"
       }
     ],
-    "application_tests": "planner-workload-analyzer passed 7 tests."
+    "application_tests": "New project 2 passed 9 tests."
   },
   "john_review_required": true
 }
