@@ -11,16 +11,18 @@
     "push_possible": true
   },
   "pull_request": {
-    "created": false,
-    "url": null,
-    "state": "not opened yet",
-    "draft": null,
+    "created": true,
+    "number": 4,
+    "url": "https://github.com/BohyungKim/project-os/pull/4",
+    "state": "open",
+    "draft": true,
     "base": "main",
     "head": "codex/planner-onboarding-status"
   },
   "confirmed": [
     "PR #3 for the central registry structure is merged into main.",
     "Current project-os branch is codex/planner-onboarding-status.",
+    "Draft PR #4 is open for the planner onboarding status update.",
     "First app project folder is C:\\Users\\JohnKim\\Documents\\New project.",
     "First app target repo is BohyungKim/planner-workload-analyzer.",
     "New project branch was renamed to main because it had no previous commits.",
@@ -36,7 +38,8 @@
     "Improved New project .gitignore for secret/local-only/generated file exclusions.",
     "Updated New project README.md with onboarding clarity.",
     "Committed local app baseline.",
-    "Updated project-os registry/status files to record the app onboarding result and GitHub repo blocker."
+    "Updated project-os registry/status files to record the app onboarding result and GitHub repo blocker.",
+    "Pushed codex/planner-onboarding-status and opened draft PR #4."
   ],
   "app_onboarding": {
     "project_name": "planner-workload-analyzer",
@@ -75,6 +78,10 @@
       {
         "command": "git ls-remote https://github.com/BohyungKim/planner-workload-analyzer.git",
         "result": "Repository not found"
+      },
+      {
+        "command": "GitHub create pull request for project-os",
+        "result": "Draft PR #4 opened at https://github.com/BohyungKim/project-os/pull/4"
       }
     ],
     "application_tests": "New project passed 7 tests."

@@ -19,6 +19,8 @@ App baseline commit: `749ade2 docs: add source-of-truth onboarding files`
 - Updated app `README.md`.
 - Committed the app baseline locally with `docs: add source-of-truth onboarding files`.
 - Updated `project-os` registry and status files to show the app is locally prepared but blocked on GitHub repo creation.
+- Pushed `codex/planner-onboarding-status` to `project-os`.
+- Opened draft PR #4: `https://github.com/BohyungKim/project-os/pull/4`.
 
 ## What Did Not Change
 
@@ -46,6 +48,7 @@ Additional app checks:
 - Secret tracked scan found 0 tracked `.env`, credential, token, key, password, or local-only files.
 - `git check-ignore` confirmed `.env`, `.env.local`, generated data/report paths, and `.cache/` are ignored.
 - `git ls-remote https://github.com/BohyungKim/planner-workload-analyzer.git` returned repository not found.
+- `project-os` draft PR #4 opened successfully.
 
 ## Risks
 
@@ -57,5 +60,6 @@ Additional app checks:
 ## What ChatGPT Should Review Next
 
 - Review this `project-os` registry status update PR.
+- PR: `https://github.com/BohyungKim/project-os/pull/4`
 - Confirm the first app repo blocker is recorded clearly.
 - After John creates `BohyungKim/planner-workload-analyzer`, review the pushed app baseline before moving to `heater-batch-selection`.

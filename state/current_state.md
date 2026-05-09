@@ -15,6 +15,7 @@ First app repo onboarding, blocked on GitHub repo creation.
 - PR #3 for the central registry structure is merged into `main`.
 - Current `project-os` branch: `codex/planner-onboarding-status`.
 - `project-os` remote: `https://github.com/BohyungKim/project-os.git`.
+- Draft PR #4 is open for this registry status update: `https://github.com/BohyungKim/project-os/pull/4`.
 - First app project folder: `C:\Users\JohnKim\Documents\New project`.
 - First app target repo: `BohyungKim/planner-workload-analyzer`.
 - `New project` branch was safely renamed to `main` because it had no previous commits.
@@ -38,6 +39,7 @@ First app repo onboarding, blocked on GitHub repo creation.
 - Updated `New project/README.md` with run/test/folder/limitation/next-action sections.
 - Committed the local app baseline.
 - Updated `project-os` registry/status files to record the app onboarding result and GitHub repo blocker.
+- Pushed `codex/planner-onboarding-status` and opened draft PR #4.
 
 ## Still Incomplete
 
@@ -70,6 +72,8 @@ Results:
 - `New project`: ignore checks confirmed `.env`, `.env.local`, `data/`, generated `reports/`, and `.cache/` are ignored.
 - `New project`: `state/current_state.json` parsed successfully.
 - `New project`: `git diff --check` passed.
+- `project-os`: `state/current_state.json` and `state/project_registry.json` parsed successfully.
+- `project-os`: `git diff --check HEAD~2..HEAD` passed.
 - Target GitHub repo is not available yet.
 
 ## Current Risk

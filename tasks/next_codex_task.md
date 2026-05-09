@@ -8,6 +8,8 @@ Finish connecting `C:\Users\JohnKim\Documents\New project` to GitHub as `Bohyung
 
 - Wait until John creates the empty private GitHub repo:
   - `https://github.com/BohyungKim/planner-workload-analyzer`
+- Review/merge `project-os` PR #4 if the registry status update is acceptable:
+  - `https://github.com/BohyungKim/project-os/pull/4`
 - In `C:\Users\JohnKim\Documents\New project`, add the GitHub remote as `origin`.
 - Push local `main` to `origin`.
 - Open a PR if applicable.

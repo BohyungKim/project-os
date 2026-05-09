@@ -6,7 +6,7 @@ Updated: 2026-05-08 19:56 -04:00
 
 | Priority | Project | Recommended GitHub Repo | Onboarding Status | Blocker | Next Action |
 | ---: | --- | --- | --- | --- | --- |
-| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #3 is merged | Review this planner onboarding status PR |
+| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #3 is merged | Review draft PR #4: `https://github.com/BohyungKim/project-os/pull/4` |
 | 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Local baseline prepared | GitHub repo not found/connected | John creates empty private repo, then Codex adds origin and pushes `main` |
 | 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Ready after planner onboarding | GitHub repo not created/connected; browser automation safety review needed | Onboard after planner project |
 | 3 | prg-supply-readiness-checker | `BohyungKim/prg-supply-readiness-checker` | Docs-first candidate | No code/tests yet | Add source-of-truth files, then sample data and validation tests |
