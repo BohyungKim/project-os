@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-05-09T11:09:00-04:00",
+  "updated_at": "2026-05-09T11:35:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "Second app source-of-truth established; ready to onboard the docs-first project",
-  "branch": "codex/heater-onboarding-status",
+  "current_phase": "Third source-of-truth repo established; project-os registry update in progress",
+  "branch": "codex/prg-contracts-onboarding-status",
   "base_branch": "main",
   "remote": {
     "origin_configured": true,
@@ -12,62 +12,64 @@
   },
   "pull_request": {
     "created": true,
-    "number": 5,
-    "url": "https://github.com/BohyungKim/project-os/pull/5",
+    "number": 6,
+    "url": "https://github.com/BohyungKim/project-os/pull/6",
     "state": "open",
-    "draft": true,
+    "draft": false,
     "base": "main",
-    "head": "codex/heater-onboarding-status"
+    "head": "codex/prg-contracts-onboarding-status"
   },
   "confirmed": [
-    "PR #4 is merged into project-os main.",
-    "project-os main reflects planner-workload-analyzer as established.",
-    "Current project-os branch is codex/heater-onboarding-status.",
-    "Draft PR #5 is open for the heater onboarding status update.",
-    "heater-batch-selection repo is https://github.com/BohyungKim/heater-batch-selection.git.",
-    "App origin/main now points to 6e32db7 docs: confirm heater GitHub source of truth.",
-    "App tests passed: 9 tests.",
-    "No tracked .env, credentials, tokens, API keys, passwords, browser session artifacts, or local-only files were found.",
-    "Browser automation remains manual-review / safe dry-run only."
+    "PR #5 is merged into project-os main.",
+    "project-os main reflects planner-workload-analyzer and heater-batch-selection as established.",
+    "Current project-os branch is codex/prg-contracts-onboarding-status.",
+    "Project-os PR #6 is open for the prg-contracts registry update.",
+    "New project 3 is now prg-contracts, not prg-supply-readiness-checker.",
+    "prg-contracts repo is https://github.com/BohyungKim/prg-contracts.git.",
+    "prg-contracts origin/main now points to 3455eaddc9413acf12f195cd58ad04deaef9a4d0.",
+    "prg-contracts sample validation passed for four sample PRGCase files.",
+    "No tracked .env, credentials, tokens, API keys, passwords, or local-only files were found in prg-contracts."
   ],
   "changed": [
-    "Updated app state/report/task/decision files and pushed them to app main.",
-    "Updated project-os registry/status files to show heater-batch-selection is established.",
-    "Updated next task to onboard prg-supply-readiness-checker."
+    "Updated project-os registry/status files to show prg-contracts is established.",
+    "Replaced old prg-supply-readiness-checker onboarding language with PRG / Manufacturing Copilot contract repo language.",
+    "Updated next task to integrate the first feeder repo with prg-contracts.",
+    "Recommended first feeder: job-bom-comparator."
   ],
-  "app_onboarding": {
-    "project_name": "heater-batch-selection",
-    "local_folder": "C:\\Users\\JohnKim\\Documents\\New project 2",
+  "contract_repo": {
+    "project_name": "prg-contracts",
+    "local_folder": "C:\\Users\\JohnKim\\Documents\\New project 3",
     "branch": "main",
-    "latest_remote_main_commit": "6e32db7 docs: confirm heater GitHub source of truth",
-    "target_remote_url": "https://github.com/BohyungKim/heater-batch-selection.git",
+    "latest_remote_main_commit": "3455eaddc9413acf12f195cd58ad04deaef9a4d0",
+    "target_remote_url": "https://github.com/BohyungKim/prg-contracts.git",
     "remote_configured": true,
     "github_repo_exists_or_accessible": true,
     "origin_main_is_source_of_truth": true,
-    "test_result": "python -m pytest: 9 passed",
+    "validation_result": "python tools/validate_prg_case.py examples/*.json: 4 sample files passed",
     "source_of_truth_status": "established",
-    "browser_automation_safety": "manual-review / safe dry-run only"
+    "scope_guardrail": "contract-only; no dashboard, no POBTO checker, no Epicor write-back, no production automation, no feeder-specific detection logic"
   },
   "still_incomplete": [
-    "project-os PR #5 still needs John/ChatGPT review before merge.",
-    "prg-supply-readiness-checker onboarding has not started yet."
+    "project-os PR #6 still needs John/ChatGPT review before merge.",
+    "First feeder integration with prg-contracts has not started yet."
   ],
+  "next_recommended_repo_to_integrate_with_prg_contracts": "job-bom-comparator",
   "validation": {
     "commands_run": [
       {
-        "command": "python -m pytest in C:\\Users\\JohnKim\\Documents\\New project 2",
-        "result": "9 passed"
+        "command": "python tools/validate_prg_case.py examples/*.json in C:\\Users\\JohnKim\\Documents\\New project 3",
+        "result": "4 sample files passed"
       },
       {
-        "command": "git push -u origin main and later git push origin main in app repo",
+        "command": "git push -u origin main and later git push origin main in prg-contracts repo",
         "result": "Succeeded"
       },
       {
-        "command": "git ls-remote origin refs/heads/main in app repo",
-        "result": "main points to 6e32db7"
+        "command": "git ls-remote origin refs/heads/main in prg-contracts repo",
+        "result": "main points to 3455eaddc9413acf12f195cd58ad04deaef9a4d0"
       }
     ],
-    "application_tests": "heater-batch-selection passed 9 tests."
+    "contract_validation": "prg-contracts passed sample validation."
   },
   "john_review_required": true
 }

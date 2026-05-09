@@ -2,89 +2,83 @@
 
 ## Objective
 
-Onboard the third detected project: `prg-supply-readiness-checker`.
+Integrate the first feeder repo with `prg-contracts` PRGCase-compatible output.
+
+Recommended first feeder:
+- `job-bom-comparator`
 
 ## Scope
 
-- Use local folder:
-  - `C:\Users\JohnKim\Documents\New project 3`
-- Target GitHub repo:
-  - `BohyungKim/prg-supply-readiness-checker`
-- Treat it as a documentation/design-first project.
-- Inspect project structure and git state.
-- Verify no `.env`, credentials, tokens, API keys, passwords, or local-only files are tracked.
-- Add/update source-of-truth files:
-  - `AGENTS.md`
-  - `README.md`
-  - `state/current_state.md`
-  - `state/current_state.json`
-  - `reports/latest_execution_report.md`
-  - `tasks/next_codex_task.md`
-  - `decisions/decision_log.md`
-- Add docs if useful:
-  - `docs/implementation-roadmap.md`
-  - `docs/data-contract-draft.md`
-- Connect/push only if the GitHub repo exists and remote history is safe.
-- Update `project-os` registry after completion.
-
-## Special Safety Rule
-
-This is a docs-first project, not a production app yet. Do not pretend implementation exists. Do not add Epicor write-back logic.
+- Use `project-os/main` as the central registry after this PR is merged.
+- Use `prg-contracts/main` as the PRG / Manufacturing Copilot contract source of truth.
+- Locate or onboard the `job-bom-comparator` repo.
+- Inspect its existing output/report shape.
+- Add the smallest safe PRGCase-compatible export or report output.
+- Validate generated/sample output against `prg-contracts/tools/validate_prg_case.py` or equivalent copied validation command.
+- Update the feeder repo state/report/task files.
+- Update `project-os` registry if project status changes.
 
 ## Out Of Scope
 
-- Writing production app logic.
+- Changing `prg-contracts` unless a schema change request is required.
+- Inventing incompatible PRGCase fields.
 - Adding Epicor write-back logic.
-- Claiming tests pass if no tests exist.
-- Pushing secrets or generated local files.
+- Adding production-impacting automation.
 - Merging any PR automatically.
 
 ## Files To Inspect
 
-- `C:\Users\JohnKim\Documents\New project 3\README.md`
-- `C:\Users\JohnKim\Documents\New project 3\docs\`
-- `.gitignore` if present
+- `project-os/state/project_registry.json`
+- `project-os/docs/project-registry.md`
+- `prg-contracts/schemas/prg_case.schema.json`
+- `prg-contracts/docs/field_registry.md`
+- `prg-contracts/examples/comparator_prg_case_sample.json`
+- `job-bom-comparator` README/source/output files once the repo path is confirmed
 
 ## Files To Modify
 
-- `AGENTS.md`
-- `README.md`
+In the feeder repo, expected:
+- source/output module that owns report/export generation
+- tests or sample fixture files for PRGCase-compatible output
 - `state/current_state.md`
 - `state/current_state.json`
 - `reports/latest_execution_report.md`
 - `tasks/next_codex_task.md`
-- `decisions/decision_log.md`
-- `docs/implementation-roadmap.md`
-- `docs/data-contract-draft.md` if useful
-- `.gitignore` if needed
-- `project-os` registry files after completion
+- `decisions/decision_log.md` if a decision is made
+
+In `project-os`, if status changes:
+- `docs/project-registry.md`
+- `state/project_registry.json`
+- `docs/repo-onboarding-status.md`
+- `docs/realtime-repo-status.md`
+- `reports/latest_execution_report.md`
 
 ## Acceptance Criteria
 
-- `prg-supply-readiness-checker` has docs-first source-of-truth files.
-- No implementation is claimed unless code exists.
-- No secrets or local-only files are tracked.
-- GitHub repo connection status is clearly recorded.
-- `project-os` registry is updated.
-- No app logic is changed.
-- No automatic merge is performed.
+- `job-bom-comparator` emits or can export at least one PRGCase-compatible sample.
+- Sample output validates against the `prg-contracts` contract.
+- No Epicor write-back or production-impacting automation is added.
+- Feeder repo source-of-truth status files are updated.
+- `project-os` reflects the feeder integration status.
+- Work is delivered through branch/PR, not auto-merged.
 
 ## Validation Command
 
 ```powershell
-git status --short --branch
-git remote -v
+python tools/validate_prg_case.py examples/*.json
 Get-Content state/current_state.json | ConvertFrom-Json
 git diff --check
 ```
 
+Exact feeder validation may change once the `job-bom-comparator` repo structure is inspected.
+
 ## Report-Back Format
 
-- project name
+- feeder repo name
 - branch name
-- remote URL/status
-- validation result
+- PR link
+- PRGCase sample path
+- validation command/result
 - changed files
-- source-of-truth status
-- project-os PR link
-- next recommended project
+- risks
+- next recommended feeder or schema change request

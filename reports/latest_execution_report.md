@@ -1,46 +1,48 @@
 # Latest Execution Report
 
 Date: 2026-05-09
-Branch: `codex/heater-onboarding-status`
-Project-os PR: `https://github.com/BohyungKim/project-os/pull/5`
-Heater remote main commit: `6e32db7 docs: confirm heater GitHub source of truth`
+Branch: `codex/prg-contracts-onboarding-status`
+Project-os PR: `https://github.com/BohyungKim/project-os/pull/6`
+PRG contracts remote main commit: `3455eaddc9413acf12f195cd58ad04deaef9a4d0`
 
 ## What Changed
 
-- Completed `heater-batch-selection` GitHub source-of-truth setup.
-- Added app remote:
-  - `https://github.com/BohyungKim/heater-batch-selection.git`
-- Pushed app `main` to GitHub.
-- Confirmed app `origin/main` now points to:
-  - `6e32db7 docs: confirm heater GitHub source of truth`
-- Updated app state/report/task/decision files and pushed them to app `main`.
-- Updated `project-os` registry/status files to mark `heater-batch-selection` as established.
-- Updated next recommended project to `prg-supply-readiness-checker`.
+- Confirmed `project-os` PR #5 was merged into `main`.
+- Completed `prg-contracts` GitHub source-of-truth setup.
+- Added/confirmed app remote:
+  - `https://github.com/BohyungKim/prg-contracts.git`
+- Pushed `prg-contracts` `main` to GitHub.
+- Confirmed `prg-contracts` `origin/main` now points to:
+  - `3455eaddc9413acf12f195cd58ad04deaef9a4d0`
+- Updated `project-os` registry/status files to replace the old `prg-supply-readiness-checker` concept with `prg-contracts`.
+- Updated next recommended integration target to `job-bom-comparator`.
 
 ## What Did Not Change
 
-- No app application logic was changed.
-- No Playwright/NepConnect behavior was changed.
-- No login, purchasing, submission, or production-impacting browser action was automated.
-- No secrets, browser artifacts, or local-only files were pushed.
-- No project-os PR was merged automatically.
+- No dashboard was built.
+- No POBTO Material Readiness Checker was built.
+- No Epicor write-back logic was added.
+- No production-impacting automation was added.
+- No feeder-specific detection logic was added to `prg-contracts`.
+- No `project-os` PR was merged automatically.
 
 ## Validation Results
 
-App project checks in `C:\Users\JohnKim\Documents\New project 2`:
+Contract repo checks in `C:\Users\JohnKim\Documents\New project 3`:
 
 ```powershell
-python -m pytest
+python tools/validate_prg_case.py examples/*.json
 ```
 
 Result:
-- 9 tests passed.
+- 4 sample PRGCase files passed validation.
 
-Additional app checks:
+Additional contract repo checks:
 - `git push -u origin main`: succeeded.
-- `git ls-remote origin refs/heads/main`: `6e32db7`.
-- Tracked secret/local-only/browser artifact scan: 0 blocked files.
-- `.gitignore` protects `.env`, credentials, tokens, browser profiles/sessions, Playwright artifacts, logs, generated outputs, and temp files.
+- `git push origin main`: succeeded for final status update.
+- `git ls-remote origin refs/heads/main`: `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
+- Tracked secret/local-only filename scan: 0 blocked files.
+- `git diff --check` passed before commit.
 
 `project-os` checks:
 - `state/current_state.json` parsed successfully.
@@ -50,13 +52,20 @@ Additional app checks:
 
 ## Risks
 
-- `heater-batch-selection` repo setup risk is now low.
-- Browser automation remains the primary safety risk; keep NepConnect/Playwright in manual-review or safe dry-run mode unless John explicitly approves otherwise.
-- `project-os` PR #5 still needs review before merge.
+- `prg-contracts` setup risk is low.
+- Scope drift is the main ongoing risk. Keep `prg-contracts` contract-only.
+- Feeder repos must not invent incompatible PRGCase fields. If the contract is insufficient, use the schema change request process.
+- `project-os` PR #6 still needs John/ChatGPT review before merge.
 
 ## What ChatGPT Should Review Next
 
-- Review `project-os` PR #5:
-  - `https://github.com/BohyungKim/project-os/pull/5`
-- Confirm `heater-batch-selection` is marked established.
-- Prepare to onboard `prg-supply-readiness-checker` as a docs-first repo.
+- Review `project-os` PR #6:
+  - `https://github.com/BohyungKim/project-os/pull/6`
+- Confirm `prg-contracts` is marked established.
+- Review `prg-contracts` contract surfaces:
+  - `schemas/prg_case.schema.json`
+  - `docs/field_registry.md`
+  - `docs/severity_taxonomy.md`
+  - `docs/readiness_area_taxonomy.md`
+  - `docs/owner_mapping.md`
+- Confirm whether `job-bom-comparator` should be the first feeder repo to integrate with `prg-contracts`.

@@ -1,90 +1,81 @@
 # Repo Onboarding Status
 
-Updated: 2026-05-09 11:09 -04:00
+Updated: 2026-05-09 11:35 -04:00
 
 ## Summary
 
 | Priority | Project | Recommended GitHub Repo | Onboarding Status | Blocker | Next Action |
 | ---: | --- | --- | --- | --- | --- |
-| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #4 is merged | Review draft PR #5: `https://github.com/BohyungKim/project-os/pull/5` |
+| 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #5 is merged | Review PR #6: `https://github.com/BohyungKim/project-os/pull/6` |
 | 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Established | None | Use GitHub `main` as source of truth |
-| 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Established | Browser automation safety review remains ongoing | Use GitHub `main` as source of truth |
-| 3 | prg-supply-readiness-checker | `BohyungKim/prg-supply-readiness-checker` | Docs-first candidate | No code/tests yet | Onboard next as docs-first repo |
+| 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Established | Browser automation safety review remains ongoing | Use GitHub `main` as source of truth; keep browser actions dry-run/manual-review |
+| 3 | prg-contracts | `BohyungKim/prg-contracts` | Established | None for contract repo baseline | Integrate first feeder repo with PRGCase-compatible output |
 | N/A | project-os legacy sync workspace | None | Do not onboard | Duplicate project-os workspace | Archive after John confirmation |
 
 ## First Project Onboarded
 
 `planner-workload-analyzer`
 
-Reason:
-- It is a real app/code project.
-- It already has `src/`, `tests/`, config, README, and source-of-truth status files.
-- `python -m pytest` passed 7 tests.
-- Local baseline commit is `749ade2 docs: add source-of-truth onboarding files`.
-- Latest GitHub `main` commit is `7427048 docs: confirm GitHub source of truth`.
-- Temporary review branch `codex/source-of-truth-baseline` was deleted.
-- It has lower operational risk than the browser-assisted heater batch project.
+Result:
+- GitHub repo: `https://github.com/BohyungKim/planner-workload-analyzer.git`.
+- Latest GitHub `main` commit: `7427048 docs: confirm GitHub source of truth`.
+- Tests: `python -m pytest` passed 7 tests.
+- Status: established.
 
-Current blocker:
-- None for `planner-workload-analyzer` source-of-truth setup.
-
-John action required:
-- Create/connect `BohyungKim/heater-batch-selection` when ready for the second onboarding.
-
-## Second Project Onboarding Status
+## Second Project Onboarded
 
 `heater-batch-selection`
 
 Result:
-- Local folder: `C:\Users\JohnKim\Documents\New project 2`.
-- Branch: `main`.
-- Local commit: `4f5eb1f docs: add heater source-of-truth setup`.
+- GitHub repo: `https://github.com/BohyungKim/heater-batch-selection.git`.
 - Latest GitHub `main` commit: `6e32db7 docs: confirm heater GitHub source of truth`.
 - Tests: `python -m pytest` passed 9 tests.
-- GitHub repo: `https://github.com/BohyungKim/heater-batch-selection.git`.
 - Browser automation status: manual-review / safe dry-run only.
+- Status: established.
 
-Current blocker:
-- None for `heater-batch-selection` source-of-truth setup.
+## Third Repo Onboarded
 
-John action required:
-- Review/merge `project-os` PR #5 when satisfied.
-- Prepare `BohyungKim/prg-supply-readiness-checker` when ready for the docs-first onboarding.
+`prg-contracts`
 
-Then ask Codex:
+Result:
+- Local folder: `C:\Users\JohnKim\Documents\New project 3`.
+- Branch: `main`.
+- GitHub repo: `https://github.com/BohyungKim/prg-contracts.git`.
+- Latest GitHub `main` commit: `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
+- Validation: `python tools/validate_prg_case.py examples/*.json` passed for 4 sample PRGCase files.
+- Status: established.
 
-```text
-Now onboard the third detected project.
+Scope:
+- Defines shared PRG / Manufacturing Copilot contracts only.
+- Does not build the PRG dashboard.
+- Does not build the POBTO Material Readiness Checker.
+- Does not add Epicor write-back logic.
+- Does not add production-impacting automation.
+- Does not add feeder-specific detection logic.
 
-Local folder:
-C:\Users\JohnKim\Documents\New project 3
-
-Target GitHub repo:
-BohyungKim/prg-supply-readiness-checker
-
-This is a documentation/design-first project, not a production app yet.
-
-Prepare it as a docs-first source-of-truth repo. Do not pretend implementation exists. Do not add Epicor write-back logic. Update project-os registry after completion. Do not merge automatically.
-```
-
-## Exact Next Prompt For Third Repo
+## Exact Next Prompt For First Feeder Integration
 
 ```text
-Now onboard the third detected project.
+Use project-os main as the central registry.
 
-Local folder:
-C:\Users\JohnKim\Documents\New project 3
+Use prg-contracts main as the PRG / Manufacturing Copilot contract source of truth.
 
-Target GitHub repo:
-BohyungKim/prg-supply-readiness-checker
+Now integrate the first feeder repo with PRGCase-compatible output.
 
-This is a documentation/design-first project, not a production app yet.
+Recommended first feeder:
+job-bom-comparator
 
-Add AGENTS.md, source-of-truth state/report/task/decision files, README updates, docs/implementation-roadmap.md, and docs/data-contract-draft.md if useful.
-Do not pretend implementation exists.
-Do not add Epicor write-back logic.
-Run validation checks, update project-os registry, push, and open PR.
-Do not merge automatically.
+Task:
+Inspect the feeder repo and add the smallest safe PRGCase-compatible export or report output using prg-contracts as the contract reference.
+
+Important:
+- Do not modify prg-contracts unless a schema change request is needed.
+- Do not invent incompatible case fields.
+- Do not add Epicor write-back logic.
+- Do not add production-impacting automation.
+- Do not merge automatically.
+
+Before finishing, update the feeder repo state/report/task files and update project-os registry if project status changed.
 ```
 
 ## Notes
