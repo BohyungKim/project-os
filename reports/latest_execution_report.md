@@ -2,7 +2,7 @@
 
 Date: 2026-05-09
 Branch: `codex/job-bom-comparator-onboarding-status`
-Project-os PR: pending creation
+Project-os PR: `https://github.com/BohyungKim/project-os/pull/9`
 
 ## What Changed
 
@@ -10,6 +10,7 @@ Project-os PR: pending creation
 - Prepared `Job BOM Comparator Agent` as the next local source-of-truth candidate.
 - Added/committed local app onboarding files in `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`.
 - Updated project-os registry/status files to show the current blocker: the GitHub repo `BohyungKim/job-bom-comparator` does not exist yet.
+- Opened project-os PR #9 for review.
 
 ## What Did Not Change
 

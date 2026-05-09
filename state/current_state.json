@@ -13,9 +13,9 @@
   },
   "pull_request": {
     "created": true,
-    "number": null,
-    "url": null,
-    "state": "pending creation",
+    "number": 9,
+    "url": "https://github.com/BohyungKim/project-os/pull/9",
+    "state": "open",
     "draft": false,
     "base": "main",
     "head": "codex/local-folder-mapping-audit"
@@ -31,6 +31,7 @@
     "Project-OS canonical folder exists at C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Project-OS.",
     "Project-OS canonical folder has a GitHub remote but is dirty/old and needs sync review.",
     "project-os PR #8 has been merged into main.",
+    "project-os PR #9 is open for the Job BOM Comparator onboarding status update.",
     "Job BOM Comparator Agent canonical local folder is C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent.",
     "Job BOM Comparator Agent is on branch codex/source-of-truth-onboarding.",
     "Job BOM Comparator Agent local onboarding commit is 42f2ee7 docs: prepare source-of-truth onboarding.",
@@ -42,7 +43,8 @@
   "changed": [
     "Prepared Job BOM Comparator Agent local source-of-truth onboarding files.",
     "Committed the onboarding setup locally in the app repo.",
-    "Updated project-os registry and status files to record that the repo is ready for GitHub creation/push."
+    "Updated project-os registry and status files to record that the repo is ready for GitHub creation/push.",
+    "Opened project-os PR #9 for John review."
   ],
   "still_incomplete": [
     "planner-workload-analyzer canonical clone is still missing.",

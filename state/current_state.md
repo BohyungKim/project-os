@@ -28,6 +28,8 @@ Job BOM Comparator source-of-truth onboarding prepared locally; GitHub repo crea
 - project-os PR #8 has been merged into `main`.
 - `Job BOM Comparator Agent` canonical local folder is:
   - `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`
+- project-os PR #9 is open for this registry update:
+  - `https://github.com/BohyungKim/project-os/pull/9`
 - `Job BOM Comparator Agent` is on branch `codex/source-of-truth-onboarding`.
 - Local onboarding commit exists:
   - `42f2ee7 docs: prepare source-of-truth onboarding`
@@ -43,6 +45,7 @@ Job BOM Comparator source-of-truth onboarding prepared locally; GitHub repo crea
 - Prepared `Job BOM Comparator Agent` local source-of-truth onboarding files.
 - Committed the onboarding setup locally in the app repo.
 - Updated project-os registry and status files to record that the repo is ready for GitHub creation/push.
+- Opened project-os PR #9 for John review.
 
 ## Still Incomplete
 
