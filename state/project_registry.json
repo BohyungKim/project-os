@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-08T19:56:00-04:00",
+  "updated_at": "2026-05-09T09:48:00-04:00",
   "timezone": "America/Toronto",
   "registry_owner_repo": "BohyungKim/project-os",
   "purpose": "Central control tower for Codex and ChatGPT continuity across project repositories.",
@@ -32,15 +32,23 @@
       "has_code": true,
       "code_paths": ["src/planner_analyzer"],
       "has_tests": true,
-      "validation": "python -m pytest passed 7 tests on 2026-05-08.",
+      "validation": "python -m pytest passed 7 tests on 2026-05-09.",
       "git_initialized": true,
       "current_branch": "main",
-      "latest_local_commit": "749ade2 docs: add source-of-truth onboarding files",
-      "github_remote": null,
+      "latest_local_commit": "7cdec35 docs: record baseline review branch",
+      "github_remote": "https://github.com/BohyungKim/planner-workload-analyzer.git",
       "target_github_remote": "https://github.com/BohyungKim/planner-workload-analyzer.git",
+      "remote_main": {
+        "exists": true,
+        "latest_commit": "596aa5f Delete README.md",
+        "has_common_history_with_local_main": false,
+        "normal_main_push_result": "rejected as non-fast-forward"
+      },
+      "remote_review_branch": "codex/source-of-truth-baseline",
+      "remote_review_branch_url": "https://github.com/BohyungKim/planner-workload-analyzer/tree/codex/source-of-truth-baseline",
       "recommended_repo_name": "planner-workload-analyzer",
-      "source_of_truth_status": "local baseline prepared; GitHub repo still needed",
-      "next_onboarding_action": "John creates empty private GitHub repo, then Codex adds origin and pushes main."
+      "source_of_truth_status": "repo connected and review branch pushed; origin/main is blocked by unrelated history",
+      "next_onboarding_action": "John chooses whether to delete/recreate the repo as empty or explicitly approve replacing remote main."
     },
     {
       "project_name": "heater-batch-selection",
@@ -93,8 +101,9 @@
   "recommended_first_project_to_onboard": "planner-workload-analyzer",
   "current_blocker": {
     "project_name": "planner-workload-analyzer",
-    "blocker": "Target GitHub repository was not found or is not accessible.",
+    "blocker": "Remote main has unrelated initialization history, so normal main push was rejected.",
     "target_repo_url": "https://github.com/BohyungKim/planner-workload-analyzer.git",
-    "john_action_required": "Create an empty private repo named planner-workload-analyzer under BohyungKim without README, .gitignore, or license."
+    "safe_review_branch": "codex/source-of-truth-baseline",
+    "john_action_required": "Choose clean recreate of the GitHub repo or explicitly approve replacing remote main with local main."
   }
 }

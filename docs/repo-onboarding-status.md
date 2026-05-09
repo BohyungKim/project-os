@@ -1,13 +1,13 @@
 # Repo Onboarding Status
 
-Updated: 2026-05-08 19:56 -04:00
+Updated: 2026-05-09 09:48 -04:00
 
 ## Summary
 
 | Priority | Project | Recommended GitHub Repo | Onboarding Status | Blocker | Next Action |
 | ---: | --- | --- | --- | --- | --- |
 | 0 | project-os | `BohyungKim/project-os` | Established | None for registry foundation; PR #3 is merged | Review draft PR #4: `https://github.com/BohyungKim/project-os/pull/4` |
-| 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Local baseline prepared | GitHub repo not found/connected | John creates empty private repo, then Codex adds origin and pushes `main` |
+| 1 | planner-workload-analyzer | `BohyungKim/planner-workload-analyzer` | Repo connected; review branch pushed | `origin/main` has unrelated history and rejected normal `main` push | John chooses clean recreate or explicitly approves replacing remote `main` |
 | 2 | heater-batch-selection | `BohyungKim/heater-batch-selection` | Ready after planner onboarding | GitHub repo not created/connected; browser automation safety review needed | Onboard after planner project |
 | 3 | prg-supply-readiness-checker | `BohyungKim/prg-supply-readiness-checker` | Docs-first candidate | No code/tests yet | Add source-of-truth files, then sample data and validation tests |
 | N/A | project-os legacy sync workspace | None | Do not onboard | Duplicate project-os workspace | Archive after John confirmation |
@@ -21,29 +21,36 @@ Reason:
 - It already has `src/`, `tests/`, config, README, and source-of-truth status files.
 - `python -m pytest` passed 7 tests.
 - Local baseline commit is `749ade2 docs: add source-of-truth onboarding files`.
+- Latest pushed review branch commit is `7cdec35 docs: record baseline review branch`.
+- Remote review branch: `codex/source-of-truth-baseline`.
 - It has lower operational risk than the browser-assisted heater batch project.
 
 Current blocker:
-- `git ls-remote https://github.com/BohyungKim/planner-workload-analyzer.git` returned repository not found.
-- No app code was pushed.
+- `origin/main` already contains unrelated commits `eb6783e Initial commit` and `596aa5f Delete README.md`.
+- Local `main` and `origin/main` have no common history.
+- Normal `git push -u origin main` was rejected as non-fast-forward.
+- No force push, overwrite, or unrelated-history merge was performed.
+- A safe review branch was pushed: `codex/source-of-truth-baseline`.
 
 John action required:
-- Create an empty private GitHub repo at `https://github.com/BohyungKim/planner-workload-analyzer`.
-- Use Owner `BohyungKim`.
-- Use Repository name `planner-workload-analyzer`.
-- Do not initialize with README, `.gitignore`, or license.
+- Choose how to resolve remote `main`.
+- Recommended clean path: delete/recreate the GitHub repo as truly empty, then Codex pushes local `main`.
+- Alternative path: explicitly approve replacing remote `main` with the local app baseline.
 
 Then ask Codex:
 
 ```text
-I created the GitHub repo:
+Resolve planner-workload-analyzer remote main.
+
+Use C:\Users\JohnKim\Documents\New project.
+Origin is already configured:
 https://github.com/BohyungKim/planner-workload-analyzer.git
 
-Continue from C:\Users\JohnKim\Documents\New project.
-Add this remote as origin, push main, and open a PR if applicable.
-Do not merge.
-After pushing, update the project-os registry files and open a separate project-os PR.
-Before finishing, update the state/report/task files so ChatGPT can understand the latest project status from GitHub without reading the entire codebase.
+Remote main has unrelated initialization history, and normal main push was rejected.
+I approve the following resolution: [delete/recreate empty repo OR replace remote main].
+
+After resolution, push local main, verify tests, update app state/report/task files, then update project-os registry.
+Do not merge anything automatically.
 ```
 
 ## Exact Next Prompt For First App Repo

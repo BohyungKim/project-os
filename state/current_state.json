@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-05-08T19:56:00-04:00",
+  "updated_at": "2026-05-09T09:48:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "First app repo onboarding, blocked on GitHub repo creation",
+  "current_phase": "First app repo connection partially complete; planner-workload-analyzer origin/main is blocked",
   "branch": "codex/planner-onboarding-status",
   "base_branch": "main",
   "remote": {
@@ -20,46 +20,50 @@
     "head": "codex/planner-onboarding-status"
   },
   "confirmed": [
-    "PR #3 for the central registry structure is merged into main.",
+    "PR #3 for the central registry structure is merged into project-os main.",
     "Current project-os branch is codex/planner-onboarding-status.",
     "Draft PR #4 is open for the planner onboarding status update.",
     "First app project folder is C:\\Users\\JohnKim\\Documents\\New project.",
     "First app target repo is BohyungKim/planner-workload-analyzer.",
-    "New project branch was renamed to main because it had no previous commits.",
-    "New project local onboarding baseline commit is 749ade2 docs: add source-of-truth onboarding files.",
-    "New project has no GitHub remote configured.",
-    "Target GitHub repo https://github.com/BohyungKim/planner-workload-analyzer.git was not found.",
-    "No app code was pushed to GitHub.",
-    ".env and local-only files were checked before commit and are excluded from git.",
+    "App origin is configured as https://github.com/BohyungKim/planner-workload-analyzer.git.",
+    "App local branch is main.",
+    "App latest local commit is 7cdec35 docs: record baseline review branch.",
+    "App remote origin/main has unrelated initialization history.",
+    "Normal app git push -u origin main was rejected as non-fast-forward.",
+    "No force push, overwrite, or unrelated-history merge was performed.",
+    "Safe app review branch codex/source-of-truth-baseline was pushed.",
+    ".env and local-only files were checked and are excluded from git.",
     "python -m pytest passed 7 tests in New project."
   ],
   "changed": [
-    "Added app source-of-truth files to New project.",
-    "Improved New project .gitignore for secret/local-only/generated file exclusions.",
-    "Updated New project README.md with onboarding clarity.",
-    "Committed local app baseline.",
-    "Updated project-os registry/status files to record the app onboarding result and GitHub repo blocker.",
-    "Pushed codex/planner-onboarding-status and opened draft PR #4."
+    "Updated app state/report/task/decision files to record the remote main history blocker.",
+    "Pushed app branch codex/source-of-truth-baseline without touching origin/main.",
+    "Updated project-os registry/status files to show the app repo exists but origin/main is blocked."
   ],
   "app_onboarding": {
     "project_name": "planner-workload-analyzer",
     "local_folder": "C:\\Users\\JohnKim\\Documents\\New project",
     "branch": "main",
-    "latest_local_commit": "749ade2 docs: add source-of-truth onboarding files",
+    "latest_local_commit": "7cdec35 docs: record baseline review branch",
     "target_remote_url": "https://github.com/BohyungKim/planner-workload-analyzer.git",
-    "remote_configured": false,
-    "github_repo_exists_or_accessible": false,
-    "repo_creation_needed_from_john": true,
-    "test_result": "python -m pytest: 7 passed"
+    "remote_configured": true,
+    "github_repo_exists_or_accessible": true,
+    "origin_main_latest_commit": "596aa5f Delete README.md",
+    "origin_main_has_common_history_with_local_main": false,
+    "normal_main_push_result": "rejected as non-fast-forward",
+    "safe_review_branch": "codex/source-of-truth-baseline",
+    "safe_review_branch_url": "https://github.com/BohyungKim/planner-workload-analyzer/tree/codex/source-of-truth-baseline",
+    "test_result": "python -m pytest: 7 passed",
+    "source_of_truth_status": "blocked: origin/main is not yet the app source of truth"
   },
   "still_incomplete": [
-    "John must create empty private GitHub repo BohyungKim/planner-workload-analyzer.",
-    "After repo creation, Codex must add origin, push main, and open a PR if applicable.",
+    "planner-workload-analyzer origin/main is not yet the stable source of truth.",
+    "John must choose whether to recreate the repo as truly empty or explicitly approve replacing remote main.",
     "heater-batch-selection and prg-supply-readiness-checker onboarding have not started yet."
   ],
   "uncertain": [
-    "Whether John wants the local folder name New project renamed after remote repo connection.",
-    "Whether GitHub repo creation should be done manually in the browser or through a future authenticated GitHub workflow."
+    "Whether John wants to preserve the remote initialization commits.",
+    "Whether the local folder name New project should be renamed after origin/main is established."
   ],
   "validation": {
     "commands_run": [
@@ -68,20 +72,16 @@
         "result": "7 passed"
       },
       {
-        "command": "secret tracked scan in C:\\Users\\JohnKim\\Documents\\New project",
-        "result": "0 tracked secret/local-only files found"
+        "command": "tracked secret/local-only scan in C:\\Users\\JohnKim\\Documents\\New project",
+        "result": "0 blocked tracked files found"
       },
       {
-        "command": "git check-ignore -v .env .env.local data/raw/file.json reports/workload_report.md .cache/token.bin",
-        "result": "Expected local-only paths are ignored"
+        "command": "git push -u origin main in app repo",
+        "result": "Rejected as non-fast-forward"
       },
       {
-        "command": "git ls-remote https://github.com/BohyungKim/planner-workload-analyzer.git",
-        "result": "Repository not found"
-      },
-      {
-        "command": "GitHub create pull request for project-os",
-        "result": "Draft PR #4 opened at https://github.com/BohyungKim/project-os/pull/4"
+        "command": "git push origin main:refs/heads/codex/source-of-truth-baseline in app repo",
+        "result": "Succeeded without overwriting origin/main"
       }
     ],
     "application_tests": "New project passed 7 tests."

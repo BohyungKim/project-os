@@ -104,3 +104,22 @@ Status:
 
 Risk:
 - Starting the second and third project onboarding before this repo is connected could create confusing partial status across multiple local folders.
+
+## 2026-05-09 - Do Not Treat Planner Remote Main As Source Of Truth Yet
+
+Decision:
+- Mark `planner-workload-analyzer` as connected but not yet established as a stable source-of-truth repo.
+- Do not overwrite or merge unrelated `origin/main` history without explicit John approval.
+
+Rationale:
+- `BohyungKim/planner-workload-analyzer` now exists and `origin` is configured.
+- Remote `main` already contains unrelated initialization history.
+- Normal app `git push -u origin main` was rejected as non-fast-forward.
+- Local app baseline was pushed safely to `codex/source-of-truth-baseline` for review without touching `origin/main`.
+
+Status:
+- Accepted.
+- `project-os` PR #4 is being updated with this status.
+
+Risk:
+- If John proceeds to the second project before resolving this first app's `origin/main`, the central registry will show partial onboarding rather than a stable source of truth.

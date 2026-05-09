@@ -2,29 +2,27 @@
 
 ## Objective
 
-Finish connecting `C:\Users\JohnKim\Documents\New project` to GitHub as `BohyungKim/planner-workload-analyzer`.
+Resolve `planner-workload-analyzer` remote `main` history so GitHub `main` can become the app source of truth.
 
 ## Scope
 
-- Wait until John creates the empty private GitHub repo:
-  - `https://github.com/BohyungKim/planner-workload-analyzer`
-- Review/merge `project-os` PR #4 if the registry status update is acceptable:
-  - `https://github.com/BohyungKim/project-os/pull/4`
-- In `C:\Users\JohnKim\Documents\New project`, add the GitHub remote as `origin`.
-- Push local `main` to `origin`.
-- Open a PR if applicable.
-- Re-run tests and secret checks before push if any files changed.
-- Update app state/report/task files after push.
-- Update `project-os` registry/status files after the app repo is connected.
-- Open a separate `project-os` registry update PR.
+- Use John's selected history policy:
+  - Preferred: delete/recreate `BohyungKim/planner-workload-analyzer` as a truly empty repo, then push local `main`.
+  - Alternative: explicitly approve replacing remote `main` with local `main`.
+- Reconfirm no secrets or local-only files are tracked.
+- Re-run tests.
+- Push local `main` only after the history policy is clear.
+- Update app state/report/task files after successful `origin/main` push.
+- Update `project-os` registry after app `origin/main` is established.
+- Keep PR #4 updated or open a follow-up `project-os` PR if needed.
 
 ## Out Of Scope
 
-- Creating the GitHub repo automatically unless John explicitly provides an authenticated workflow.
-- Onboarding `heater-batch-selection` before the first app repo is connected.
-- Onboarding `prg-supply-readiness-checker` before the first app repo is connected.
-- Changing application logic.
-- Merging any app or `project-os` PR automatically.
+- Changing app logic.
+- Force pushing without explicit John approval.
+- Merging unrelated histories without explicit John approval.
+- Onboarding `heater-batch-selection` before this first app has a stable `origin/main`.
+- Merging any PR automatically.
 
 ## Files To Inspect
 
@@ -38,8 +36,6 @@ In `C:\Users\JohnKim\Documents\New project`:
 - `reports/latest_execution_report.md`
 - `tasks/next_codex_task.md`
 - `decisions/decision_log.md`
-- `pyproject.toml`
-- `tests/*`
 
 In `project-os`:
 
@@ -50,33 +46,34 @@ In `project-os`:
 
 ## Files To Modify
 
-In `New project` only if needed after remote creation:
+In app repo:
 
 - `state/current_state.md`
 - `state/current_state.json`
 - `reports/latest_execution_report.md`
 - `tasks/next_codex_task.md`
-- `decisions/decision_log.md`
+- `decisions/decision_log.md` if the selected history policy is new
 
 In `project-os`:
 
 - `docs/project-registry.md`
 - `state/project_registry.json`
 - `docs/repo-onboarding-status.md`
+- `docs/realtime-repo-status.md`
 - `reports/latest_execution_report.md`
 - `state/current_state.md`
 - `state/current_state.json`
 - `tasks/next_codex_task.md`
-- `decisions/decision_log.md`
+- `decisions/decision_log.md` if needed
 
 ## Acceptance Criteria
 
-- `origin` in `New project` points to `https://github.com/BohyungKim/planner-workload-analyzer.git`.
-- Local `main` is pushed to GitHub.
-- No secrets or local-only files are tracked or pushed.
+- `origin/main` in `planner-workload-analyzer` contains the app baseline.
+- `origin/main` is the stable source of truth.
 - Tests pass.
-- App source-of-truth files reflect the pushed status.
-- `project-os` registry reflects the connected app repo.
+- No secrets or local-only files are tracked.
+- App source-of-truth files reflect the final pushed status.
+- `project-os` registry reflects the connected source-of-truth repo.
 - No automatic merge is performed.
 
 ## Validation Command
@@ -84,6 +81,8 @@ In `project-os`:
 ```powershell
 git status --short --branch
 git remote -v
+git log -1 --oneline
+git ls-remote origin main
 python -m pytest
 Get-Content state/current_state.json | ConvertFrom-Json
 git diff --check
@@ -91,12 +90,10 @@ git diff --check
 
 ## Report-Back Format
 
-- app project repo status
-- branch name
-- remote URL
+- planner-workload-analyzer GitHub repo URL
+- branch pushed
+- latest commit hash
 - test result
-- changed files
-- whether GitHub repo creation is still needed from John
-- app PR link if created
-- project-os registry update PR link if created
+- source-of-truth status
+- project-os PR link
 - next project to onboard
