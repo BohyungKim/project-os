@@ -1,6 +1,6 @@
 # Current State
 
-Updated at: 2026-05-09 10:56 America/Toronto
+Updated at: 2026-05-09 11:09 America/Toronto
 
 ## Project Case
 
@@ -8,7 +8,7 @@ Case 3 - Codex Continuation Sync.
 
 ## Current Phase
 
-Second app repo onboarding, blocked on GitHub repo creation.
+Second app source-of-truth established; ready to onboard the docs-first project.
 
 ## Confirmed
 
@@ -19,35 +19,28 @@ Second app repo onboarding, blocked on GitHub repo creation.
 - Draft PR #5 is open for this heater onboarding status update:
   - `https://github.com/BohyungKim/project-os/pull/5`
 - Second app project folder: `C:\Users\JohnKim\Documents\New project 2`.
-- Second app target repo: `BohyungKim/heater-batch-selection`.
-- `New project 2` branch was renamed from `master` to `main` because it had no commits yet.
-- `New project 2` now has a local onboarding baseline commit: `4f5eb1f docs: add heater source-of-truth setup`.
-- `New project 2` has no GitHub remote configured.
-- `git ls-remote https://github.com/BohyungKim/heater-batch-selection.git` returned repository not found.
-- No app code was pushed to GitHub.
-- No tracked `.env`, credentials, tokens, API keys, passwords, or local-only files were found.
-- `python -m pytest` passed 9 tests in `New project 2`.
-- Playwright/NepConnect automation remains manual-review / safe dry-run only.
+- Second app repo:
+  - `https://github.com/BohyungKim/heater-batch-selection.git`
+- App `origin/main` now points to `6e32db7 docs: confirm heater GitHub source of truth`.
+- App tests passed: 9 tests.
+- No tracked `.env`, credentials, tokens, API keys, passwords, browser session artifacts, or local-only files were found.
+- Browser automation remains manual-review / safe dry-run only.
 
 ## Changed
 
-- Added project-level source-of-truth files to `New project 2`.
-- Improved `New project 2/.gitignore` for secret, local-only, browser artifact, generated output, log, and temp exclusions.
-- Updated `New project 2/README.md` with browser automation safety rules.
-- Committed the local heater app baseline.
-- Updated `project-os` registry/status files to record the heater onboarding result and GitHub repo blocker.
-- Pushed `codex/heater-onboarding-status` and opened draft PR #5.
+- Updated app state/report/task/decision files and pushed them to app `main`.
+- Updated `project-os` registry/status files to show `heater-batch-selection` is established.
+- Updated next task to onboard `prg-supply-readiness-checker`.
 
 ## Still Incomplete
 
-- John must create the empty private GitHub repo `BohyungKim/heater-batch-selection`.
-- After the repo exists, Codex still needs to add it as `origin`, push `main`, and open a PR if applicable.
+- `project-os` PR #5 still needs John/ChatGPT review before merge.
 - `prg-supply-readiness-checker` onboarding has not started yet.
 
 ## Uncertain
 
 - Whether John wants the local folder `New project 2` renamed to `heater-batch-selection`.
-- Whether the first GitHub push should go directly to `main` or use a setup branch after the empty repo exists.
+- Whether the third project GitHub repo already exists.
 
 ## Validation Evidence
 
@@ -55,20 +48,18 @@ Commands run:
 
 ```powershell
 python -m pytest
+git push -u origin main
+git ls-remote origin refs/heads/main
 Get-Content state/current_state.json | ConvertFrom-Json
+Get-Content state/project_registry.json | ConvertFrom-Json
 git diff --check
-git check-ignore -v .env .env.local out/demo/results.json screenshots/a.png downloads/file.pdf storageState.json trace.har traces/run.trace.zip .auth/state.json logs/run.log tmp/a.txt temp/a.txt
 ```
 
 Results:
-- `New project 2`: 9 tests passed.
-- `New project 2`: tracked secret/local-only scan found 0 blocked files.
-- `New project 2`: ignore checks confirmed representative secret, browser artifact, output, log, and temp paths are ignored.
-- `New project 2`: `state/current_state.json` parsed successfully.
-- `New project 2`: `git diff --check` passed.
-- `project-os`: `state/current_state.json` and `state/project_registry.json` parsed successfully.
-- Target GitHub repo is not available yet.
+- App tests passed: 9 tests.
+- App remote `main` now points to `6e32db7`.
+- `project-os` JSON state files parse successfully.
 
 ## Current Risk
 
-The second app project is locally prepared, but it is not a GitHub source of truth until John creates `BohyungKim/heater-batch-selection` and Codex pushes the baseline. Browser automation remains the main safety risk and must not automate login, purchasing, submission, or production-impacting actions without explicit approval.
+Low for heater repo setup. Future browser automation changes remain the primary safety risk and must stay manual-review / safe dry-run unless John explicitly approves otherwise.

@@ -1,8 +1,8 @@
 {
-  "updated_at": "2026-05-09T10:56:00-04:00",
+  "updated_at": "2026-05-09T11:09:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "Second app repo onboarding, blocked on GitHub repo creation",
+  "current_phase": "Second app source-of-truth established; ready to onboard the docs-first project",
   "branch": "codex/heater-onboarding-status",
   "base_branch": "main",
   "remote": {
@@ -24,40 +24,32 @@
     "project-os main reflects planner-workload-analyzer as established.",
     "Current project-os branch is codex/heater-onboarding-status.",
     "Draft PR #5 is open for the heater onboarding status update.",
-    "Second app project folder is C:\\Users\\JohnKim\\Documents\\New project 2.",
-    "Second app target repo is BohyungKim/heater-batch-selection.",
-    "New project 2 branch was renamed from master to main because it had no commits yet.",
-    "New project 2 local onboarding baseline commit is 4f5eb1f docs: add heater source-of-truth setup.",
-    "New project 2 has no GitHub remote configured.",
-    "Target GitHub repo https://github.com/BohyungKim/heater-batch-selection.git was not found.",
-    "No app code was pushed to GitHub.",
-    "No tracked .env, credentials, tokens, API keys, passwords, or local-only files were found.",
-    "python -m pytest passed 9 tests in New project 2.",
-    "Playwright/NepConnect automation remains manual-review / safe dry-run only."
+    "heater-batch-selection repo is https://github.com/BohyungKim/heater-batch-selection.git.",
+    "App origin/main now points to 6e32db7 docs: confirm heater GitHub source of truth.",
+    "App tests passed: 9 tests.",
+    "No tracked .env, credentials, tokens, API keys, passwords, browser session artifacts, or local-only files were found.",
+    "Browser automation remains manual-review / safe dry-run only."
   ],
   "changed": [
-    "Added app source-of-truth files to New project 2.",
-    "Improved New project 2 .gitignore for secret/local-only/browser artifact exclusions.",
-    "Updated New project 2 README.md with browser automation safety rules.",
-    "Committed local heater app baseline.",
-    "Updated project-os registry/status files to record the heater onboarding result and GitHub repo blocker.",
-    "Pushed codex/heater-onboarding-status and opened draft PR #5."
+    "Updated app state/report/task/decision files and pushed them to app main.",
+    "Updated project-os registry/status files to show heater-batch-selection is established.",
+    "Updated next task to onboard prg-supply-readiness-checker."
   ],
   "app_onboarding": {
     "project_name": "heater-batch-selection",
     "local_folder": "C:\\Users\\JohnKim\\Documents\\New project 2",
     "branch": "main",
-    "latest_local_commit": "4f5eb1f docs: add heater source-of-truth setup",
+    "latest_remote_main_commit": "6e32db7 docs: confirm heater GitHub source of truth",
     "target_remote_url": "https://github.com/BohyungKim/heater-batch-selection.git",
-    "remote_configured": false,
-    "github_repo_exists_or_accessible": false,
-    "repo_creation_needed_from_john": true,
+    "remote_configured": true,
+    "github_repo_exists_or_accessible": true,
+    "origin_main_is_source_of_truth": true,
     "test_result": "python -m pytest: 9 passed",
+    "source_of_truth_status": "established",
     "browser_automation_safety": "manual-review / safe dry-run only"
   },
   "still_incomplete": [
-    "John must create empty private GitHub repo BohyungKim/heater-batch-selection.",
-    "After repo creation, Codex must add origin, push main, and open a PR if applicable.",
+    "project-os PR #5 still needs John/ChatGPT review before merge.",
     "prg-supply-readiness-checker onboarding has not started yet."
   ],
   "validation": {
@@ -67,23 +59,15 @@
         "result": "9 passed"
       },
       {
-        "command": "tracked secret/local-only scan in C:\\Users\\JohnKim\\Documents\\New project 2",
-        "result": "0 blocked tracked files found"
+        "command": "git push -u origin main and later git push origin main in app repo",
+        "result": "Succeeded"
       },
       {
-        "command": "git check-ignore representative secret/browser/output paths",
-        "result": "Expected local-only paths are ignored"
-      },
-      {
-        "command": "git ls-remote https://github.com/BohyungKim/heater-batch-selection.git",
-        "result": "Repository not found"
-      },
-      {
-        "command": "GitHub create pull request for project-os",
-        "result": "Draft PR #5 opened at https://github.com/BohyungKim/project-os/pull/5"
+        "command": "git ls-remote origin refs/heads/main in app repo",
+        "result": "main points to 6e32db7"
       }
     ],
-    "application_tests": "New project 2 passed 9 tests."
+    "application_tests": "heater-batch-selection passed 9 tests."
   },
   "john_review_required": true
 }

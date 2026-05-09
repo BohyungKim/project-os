@@ -163,3 +163,22 @@ Status:
 
 Risk:
 - Starting the third project before this repo is connected could create confusing partial status across multiple local folders.
+
+## 2026-05-09 - heater-batch-selection Main Is Established
+
+Decision:
+- Mark `BohyungKim/heater-batch-selection` `main` as the source of truth.
+
+Rationale:
+- John created the empty private GitHub repo.
+- Codex added `origin` and pushed local `main`.
+- App `origin/main` now points to `6e32db7 docs: confirm heater GitHub source of truth`.
+- Tests pass and no blocked secret/local-only/browser artifact files are tracked.
+- Browser automation safety rules are documented in the app repo.
+
+Status:
+- Accepted and completed.
+- `project-os` PR #5 is updated with the established status.
+
+Risk:
+- Low for heater onboarding. Future browser automation changes still require explicit safety review.
