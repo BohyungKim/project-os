@@ -318,7 +318,24 @@ Rationale:
 - No separate `main` base exists yet, and existing app/product changes still need review before stable baseline promotion.
 
 Status:
-- Accepted and recorded in project-os PR #9.
+- Superseded by the later decision to establish `main` from the clean onboarding baseline.
 
 Risk:
 - ChatGPT can now inspect the GitHub branch, but John should not treat app `main` as stable until the promotion path is reviewed.
+
+## 2026-05-09 - job-bom-comparator Main Established
+
+Decision:
+- Mark `BohyungKim/job-bom-comparator` `main` as established from the clean onboarding baseline.
+
+Rationale:
+- The pushed onboarding commit was tested in a clean worktree with 48 passing tests.
+- The dirty local working tree also passed 87 tests, but those dirty app/product changes were intentionally kept out of `main`.
+- This gives ChatGPT and Codex a stable GitHub branch to use as source of truth while preserving feature work for later review.
+
+Status:
+- Accepted and recorded in project-os PR #9.
+- `main` and `codex/source-of-truth-onboarding` both point to `ba2ea947f04d56bc8ca5f9a8ffe9879d8ec6234c`.
+
+Risk:
+- GitHub default branch still reports `codex/source-of-truth-onboarding`; John may need to switch it to `main` in GitHub settings.

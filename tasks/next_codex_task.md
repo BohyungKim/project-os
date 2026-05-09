@@ -2,7 +2,7 @@
 
 ## Objective
 
-Review or promote the pushed Job BOM Comparator source-of-truth branch.
+Review existing Job BOM Comparator app/product changes for the first feature PR.
 
 ## Scope
 
@@ -14,16 +14,15 @@ Review or promote the pushed Job BOM Comparator source-of-truth branch.
   - `codex/source-of-truth-onboarding`
 - Confirm `origin` points to:
   - `https://github.com/BohyungKim/job-bom-comparator.git`
-- Confirm remote branch:
-  - `codex/source-of-truth-onboarding`
-- Decide whether to promote the pushed branch to `main` or create a separate `main` base.
+- Confirm `main` exists and use it as the stable base.
+- Confirm whether GitHub default branch has been switched to `main`.
 - Review existing modified/untracked app/product files before stable baseline promotion.
 
 ## Out Of Scope
 
 - Reading `.env` contents.
 - Discarding local changes.
-- Promoting to `main` without John approval.
+- Changing GitHub default branch without John review if the tooling is not explicit.
 - Rewriting history without explicit approval.
 - Changing application logic.
 - Merging any PR automatically.
@@ -50,8 +49,8 @@ Review or promote the pushed Job BOM Comparator source-of-truth branch.
 ## Acceptance Criteria
 
 - `origin` points to `https://github.com/BohyungKim/job-bom-comparator.git`.
-- Prepared Job BOM Comparator branch is confirmed on GitHub.
-- Stable `main` path is selected by John.
+- Job BOM Comparator `main` is confirmed on GitHub.
+- Dirty app/product changes are classified into safe feature scope.
 - Project-os registry files are updated in a PR.
 - No PR is merged automatically.
 
