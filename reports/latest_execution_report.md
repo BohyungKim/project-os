@@ -2,7 +2,7 @@
 
 Date: 2026-05-09
 Branch: `codex/correct-local-folder-mapping`
-Project-os PR: pending
+Project-os PR: `https://github.com/BohyungKim/project-os/pull/7`
 
 ## What Changed
 
@@ -23,6 +23,7 @@ Project-os PR: pending
 - Recorded the preferred future planner local path:
   - `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`
 - Updated registry/status/map/report/task/decision files only.
+- Opened draft `project-os` PR #7 for John/ChatGPT review.
 
 ## What Did Not Change
 
