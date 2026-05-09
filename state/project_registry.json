@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-09T11:09:00-04:00",
+  "updated_at": "2026-05-09T11:35:00-04:00",
   "timezone": "America/Toronto",
   "registry_owner_repo": "BohyungKim/project-os",
   "purpose": "Central control tower for Codex and ChatGPT continuity across project repositories.",
@@ -16,13 +16,13 @@
       "probable_purpose": "Central control tower and source-of-truth registry for Codex/ChatGPT project continuity.",
       "has_code": false,
       "has_tests": false,
-      "validation": "git diff --check and JSON state parse checks.",
+      "validation": "JSON state parse checks, git diff --check, and scripts/update-project-status.ps1.",
       "git_initialized": true,
-      "current_branch": "codex/heater-onboarding-status",
+      "current_branch": "codex/prg-contracts-onboarding-status",
       "github_remote": "https://github.com/BohyungKim/project-os.git",
       "recommended_repo_name": "project-os",
       "source_of_truth_status": "established",
-      "next_onboarding_action": "Review heater onboarding status PR after validation."
+      "next_onboarding_action": "Review the prg-contracts registry update PR after validation."
     },
     {
       "project_name": "planner-workload-analyzer",
@@ -30,27 +30,18 @@
       "classification": "real app/code project",
       "probable_purpose": "Read-only Microsoft Planner workload analyzer using Microsoft Graph, local normalization, and workload reports.",
       "has_code": true,
-      "code_paths": ["src/planner_analyzer"],
+      "code_paths": [
+        "src/planner_analyzer"
+      ],
       "has_tests": true,
       "validation": "python -m pytest passed 7 tests on 2026-05-09.",
       "git_initialized": true,
       "current_branch": "main",
-      "latest_local_commit": "7427048 docs: confirm GitHub source of truth",
+      "latest_remote_main_commit": "7427048 docs: confirm GitHub source of truth",
       "github_remote": "https://github.com/BohyungKim/planner-workload-analyzer.git",
-      "target_github_remote": "https://github.com/BohyungKim/planner-workload-analyzer.git",
-      "remote_main": {
-        "exists": true,
-        "latest_commit": "7427048 docs: confirm GitHub source of truth",
-        "is_source_of_truth": true,
-        "history_resolution": "John approved replacing accidental remote main using git push --force-with-lease origin main"
-      },
-      "temporary_review_branch": {
-        "name": "codex/source-of-truth-baseline",
-        "deleted": true
-      },
       "recommended_repo_name": "planner-workload-analyzer",
       "source_of_truth_status": "established",
-      "next_onboarding_action": "Use GitHub main as the app source of truth; onboard heater-batch-selection next."
+      "next_onboarding_action": "Use GitHub main as the app source of truth."
     },
     {
       "project_name": "heater-batch-selection",
@@ -58,39 +49,52 @@
       "classification": "real app/code project",
       "probable_purpose": "Internal heater batch selection MVP with CSV/Excel loading, SPP deterministic routing, and NepConnect Playwright-assisted manual-review flow.",
       "has_code": true,
-      "code_paths": ["src/heater_batch"],
+      "code_paths": [
+        "src/heater_batch"
+      ],
       "has_tests": true,
       "validation": "python -m pytest passed 9 tests on 2026-05-09.",
       "git_initialized": true,
       "current_branch": "main",
-      "latest_local_commit": "6e32db7 docs: confirm heater GitHub source of truth",
+      "latest_remote_main_commit": "6e32db7 docs: confirm heater GitHub source of truth",
       "github_remote": "https://github.com/BohyungKim/heater-batch-selection.git",
-      "target_github_remote": "https://github.com/BohyungKim/heater-batch-selection.git",
-      "remote_main": {
-        "exists": true,
-        "latest_commit": "6e32db7 docs: confirm heater GitHub source of truth",
-        "is_source_of_truth": true
-      },
       "recommended_repo_name": "heater-batch-selection",
       "source_of_truth_status": "established",
       "browser_automation_safety": "manual-review / safe dry-run only; no automated login, purchasing, submission, or production-impacting actions",
-      "next_onboarding_action": "Use GitHub main as the app source of truth; onboard prg-supply-readiness-checker next."
+      "next_onboarding_action": "Use GitHub main as the app source of truth."
     },
     {
-      "project_name": "prg-supply-readiness-checker",
+      "project_name": "prg-contracts",
       "local_folder": "C:\\Users\\JohnKim\\Documents\\New project 3",
-      "classification": "documentation/design project",
-      "probable_purpose": "PRG Supply Readiness Checker planning repo for material readiness, inventory, PO, receipt, BTO, and long-lead checks.",
-      "has_code": false,
-      "code_paths": [],
-      "has_tests": false,
-      "validation": "No tests yet; README and system plan inspected.",
+      "classification": "shared contract repo",
+      "probable_purpose": "PRG / Manufacturing Copilot shared contract source of truth for PRGCase, evidence, actions, taxonomies, owner mapping, examples, schema change process, and validation tooling.",
+      "has_code": true,
+      "code_paths": [
+        "tools/validate_prg_case.py"
+      ],
+      "implementation_status": "Contract validation tooling only; no dashboard, no POBTO checker, no Epicor write-back, and no feeder-specific detection logic.",
+      "has_tests": true,
+      "validation": "python tools/validate_prg_case.py examples/*.json passed for 4 sample PRGCase files on 2026-05-09.",
       "git_initialized": true,
-      "current_branch": "master",
-      "github_remote": null,
-      "recommended_repo_name": "prg-supply-readiness-checker",
-      "source_of_truth_status": "not yet established",
-      "next_onboarding_action": "Publish as docs-first repo after adding AGENTS/state/report/task files; next build step is sample data and validation tests."
+      "current_branch": "main",
+      "latest_remote_main_commit": "3455eaddc9413acf12f195cd58ad04deaef9a4d0",
+      "github_remote": "https://github.com/BohyungKim/prg-contracts.git",
+      "recommended_repo_name": "prg-contracts",
+      "source_of_truth_status": "established",
+      "contract_scope": [
+        "PRGCase schema",
+        "evidence item schema",
+        "action item schema",
+        "field registry",
+        "severity taxonomy",
+        "readiness area taxonomy",
+        "owner mapping",
+        "schema change request process",
+        "Codex prompt guardrails",
+        "sample feeder payloads",
+        "basic validation tool"
+      ],
+      "next_onboarding_action": "Integrate the first feeder repo with PRGCase-compatible output."
     },
     {
       "project_name": "project-os legacy sync workspace",
@@ -108,6 +112,11 @@
       "next_onboarding_action": "Do not onboard separately; archive after John confirms it is no longer needed."
     }
   ],
-  "recommended_first_project_to_onboard": "prg-supply-readiness-checker",
+  "established_source_of_truth_repos": [
+    "planner-workload-analyzer",
+    "heater-batch-selection",
+    "prg-contracts"
+  ],
+  "next_recommended_repo_to_integrate_with_prg_contracts": "job-bom-comparator",
   "current_blocker": null
 }

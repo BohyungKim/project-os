@@ -1,6 +1,6 @@
 # Codex Project Map
 
-Updated: 2026-05-08 19:56 -04:00
+Updated: 2026-05-09 11:35 -04:00
 
 ## Control Tower Layout
 
@@ -13,18 +13,21 @@ BohyungKim/project-os
   status/report/task conventions
 
 BohyungKim/planner-workload-analyzer
-  first real app repo target
+  real app repo
   current local folder: C:\Users\JohnKim\Documents\New project
-  local baseline commit: 749ade2
-  GitHub repo status: not found / needs John creation
+  GitHub main status: established
 
 BohyungKim/heater-batch-selection
-  future real app repo
+  real app repo
   current local folder: C:\Users\JohnKim\Documents\New project 2
+  GitHub main status: established
+  safety note: browser automation stays dry-run/manual-review unless John explicitly approves otherwise
 
-BohyungKim/prg-supply-readiness-checker
-  future docs-first or app repo
+BohyungKim/prg-contracts
+  shared PRG / Manufacturing Copilot contract repo
   current local folder: C:\Users\JohnKim\Documents\New project 3
+  GitHub main status: established
+  defines PRGCase-compatible contract output for feeder modules
 ```
 
 ## Project Relationships
@@ -45,47 +48,64 @@ ChatGPT entry point:
 ### planner-workload-analyzer
 
 Role:
-- First real project repo currently being onboarded.
 - Read-only Microsoft Planner workload analyzer.
+- First real app repo onboarded into GitHub source-of-truth flow.
 
 Current status:
-- Clear Python package.
-- Existing README.
-- Existing `.gitignore`.
-- Source-of-truth files added locally.
-- Tests pass: 7 passed.
-- Local commit created: `749ade2 docs: add source-of-truth onboarding files`.
-- Target GitHub repo is not available yet.
+- GitHub `main` is established.
+- Tests passed during onboarding: 7 passed.
 
-Why first:
-- Lower operational risk than browser-assisted workflows.
-
-Expected repo:
+Repo:
 - `BohyungKim/planner-workload-analyzer`
 
 ### heater-batch-selection
 
 Role:
-- Real Python app candidate for internal heater batch selection.
+- Internal heater batch selection MVP.
+- Second real app repo onboarded into GitHub source-of-truth flow.
 
-Why second:
-- Tests pass and structure is clear.
-- Includes browser automation through Playwright/NepConnect, so review risk is higher.
+Current status:
+- GitHub `main` is established.
+- Tests passed during onboarding: 9 passed.
+- Browser automation safety rules are documented.
 
-Expected future repo:
+Repo:
 - `BohyungKim/heater-batch-selection`
 
-### prg-supply-readiness-checker
+### prg-contracts
 
 Role:
-- PRG sub-system design/planning repo.
+- Shared PRG / Manufacturing Copilot contract source of truth.
+- Defines the common output contract that feeder modules should emit.
 
-Why later:
-- No implementation code or tests yet.
-- Best next step is sample data and validation tests.
+Current status:
+- GitHub `main` is established.
+- Latest known remote main commit: `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
+- Validation command passed:
+  - `python tools/validate_prg_case.py examples/*.json`
 
-Expected future repo:
-- `BohyungKim/prg-supply-readiness-checker`
+Repo:
+- `BohyungKim/prg-contracts`
+
+Contains:
+- `schemas/prg_case.schema.json`
+- `schemas/evidence_item.schema.json`
+- `schemas/action_item.schema.json`
+- `docs/field_registry.md`
+- `docs/severity_taxonomy.md`
+- `docs/readiness_area_taxonomy.md`
+- `docs/owner_mapping.md`
+- `docs/schema_change_request_process.md`
+- `docs/codex_prompt_guardrails.md`
+- `examples/*_prg_case_sample.json`
+- `tools/validate_prg_case.py`
+
+Guardrail:
+- This is not a dashboard repo.
+- This is not the POBTO checker repo.
+- This is not an Epicor write-back repo.
+- This is not a production automation repo.
+- This is not where feeder-specific detection logic belongs.
 
 ### project-os legacy sync workspace
 
@@ -96,12 +116,27 @@ Action:
 - Do not turn this into a separate repo.
 - Keep only until John confirms it is safe to archive.
 
+## First PRG Contract Integration Candidate
+
+Recommended next repo:
+- `job-bom-comparator`
+
+Reason:
+- Comparator output is a natural first feeder for PRGCase.
+- `prg-contracts` already includes `examples/comparator_prg_case_sample.json`.
+
+Expected pattern:
+- Feeder repo owns detection logic.
+- Feeder repo emits PRGCase-compatible output.
+- `prg-contracts` owns shared schema and taxonomy.
+- `project-os` tracks overall status.
+
 ## How John Should Ask ChatGPT Later
 
 ```text
 Use project-os as the central registry.
-Then use planner-workload-analyzer current_state.md as the project source of truth.
-Tell me the current status and next best action.
+Then use prg-contracts current_state.md as the PRG contract source of truth.
+Tell me which feeder repo should integrate next and what files ChatGPT should review.
 ```
 
 ## Required Per-Project Source-Of-Truth Files

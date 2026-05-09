@@ -182,3 +182,37 @@ Status:
 
 Risk:
 - Low for heater onboarding. Future browser automation changes still require explicit safety review.
+
+## 2026-05-09 - Reclassify Third Repo As prg-contracts
+
+Decision:
+- Do not onboard `New project 3` as `prg-supply-readiness-checker`.
+- Reclassify it as `prg-contracts`, the PRG / Manufacturing Copilot shared contract source-of-truth repo.
+
+Rationale:
+- John renamed the target repo to `https://github.com/BohyungKim/prg-contracts.git`.
+- The repo should define shared contracts and validation tooling used by feeder modules.
+- POBTO readiness, dashboard work, Epicor write-back, and feeder detection logic belong in separate repos/modules.
+
+Status:
+- Accepted and implemented.
+- `prg-contracts` GitHub `main` is established at `3455eaddc9413acf12f195cd58ad04deaef9a4d0`.
+
+Risk:
+- Future prompts may refer to the old supply readiness app name. Codex must follow the contract-only guardrails and avoid building app logic inside `prg-contracts`.
+
+## 2026-05-09 - job-bom-comparator Recommended As First PRG Contract Feeder
+
+Decision:
+- Recommend `job-bom-comparator` as the first repo to integrate with `prg-contracts`.
+
+Rationale:
+- Comparator output is a natural first feeder for PRGCase.
+- `prg-contracts` already contains `examples/comparator_prg_case_sample.json`.
+- This allows one small integration to test whether the PRGCase contract is usable before broader Manufacturing Copilot rollout.
+
+Status:
+- Recommended next action; not implemented yet.
+
+Risk:
+- The exact local/GitHub repo path for `job-bom-comparator` still needs confirmation before implementation.
