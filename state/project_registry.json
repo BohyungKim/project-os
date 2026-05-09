@@ -1,181 +1,111 @@
 {
-  "updated_at": "2026-05-09T11:52:00-04:00",
+  "updated_at": "2026-05-09T12:12:00-04:00",
   "timezone": "America/Toronto",
   "registry_owner_repo": "BohyungKim/project-os",
+  "canonical_project_root": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects",
   "purpose": "Central control tower for Codex and ChatGPT continuity across project repositories.",
   "source_of_truth_model": {
     "project_os": "Central registry, status dashboard, operating rules, and templates.",
     "actual_project_repos": "Each real project owns its code, AGENTS.md, README, state files, reports, tasks, and decisions.",
     "sync_rule": "Before finishing, Codex must update registry/report/task files so ChatGPT can understand the latest project status from GitHub."
   },
-  "local_folder_mapping_audit": {
-    "branch": "codex/local-folder-mapping-audit",
-    "pull_request": "https://github.com/BohyungKim/project-os/pull/8",
-    "source_previous_branch": "codex/correct-local-folder-mapping",
-    "uncommitted_changes_at_start": false,
-    "preserved": true,
-    "usefulness": "Useful. The audit prevents unsafe remapping of PRG into prg-contracts and defines a safer canonical-folder cleanup plan."
+  "path_policy": {
+    "canonical_root": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects",
+    "documents_paths_are_non_canonical": true,
+    "rule": "Do not default future project mappings to Documents\\New project* or Documents\\Codex workspaces. Use the canonical root under Desktop\\Bins\\Projects."
   },
   "projects": [
     {
       "project_name": "project-os",
-      "current_local_folder": "C:\\Users\\JohnKim\\Documents\\Codex\\2026-05-08\\repo-github-codex-chatgpt-source-of",
-      "preferred_canonical_local_folder": "C:\\Users\\JohnKim\\Documents\\Codex\\2026-05-08\\repo-github-codex-chatgpt-source-of",
+      "canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Project-OS",
+      "current_task_workspace": "C:\\Users\\JohnKim\\Documents\\Codex\\2026-05-08\\repo-github-codex-chatgpt-source-of",
       "classification": "operating/status repo",
-      "has_code": false,
-      "has_tests": false,
       "git_initialized": true,
-      "current_branch": "codex/local-folder-mapping-audit",
+      "current_branch": "main",
       "github_remote": "https://github.com/BohyungKim/project-os.git",
-      "source_of_truth_status": "established",
-      "relocation_status": "No relocation needed now.",
-      "archive_candidate": false,
-      "next_action": "Review PR #8: https://github.com/BohyungKim/project-os/pull/8"
-    },
-    {
-      "project_name": "planner-workload-analyzer",
-      "current_local_folder": "C:\\Users\\JohnKim\\Documents\\New project",
-      "preferred_canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\planner-workload-analyzer",
-      "classification": "real app/code project",
-      "probable_purpose": "Read-only Microsoft Planner workload analyzer using Microsoft Graph, local normalization, and workload reports.",
-      "has_code": true,
-      "code_paths": [
-        "src/planner_analyzer"
-      ],
-      "has_tests": true,
-      "validation": "python -m pytest previously passed 7 tests; current audit confirmed clean git state.",
-      "git_initialized": true,
-      "current_branch": "main",
-      "github_remote": "https://github.com/BohyungKim/planner-workload-analyzer.git",
-      "remote_main": {
-        "latest_commit": "7427048 docs: confirm GitHub source of truth",
-        "is_source_of_truth": true,
-        "local_head_matches_origin_main": true,
-        "ahead_behind_origin_main": "0/0"
-      },
-      "local_secret_status": {
-        ".env_exists": true,
-        ".env_is_ignored": true,
-        ".env_example_is_tracked": true,
-        ".env_contents_read": false
-      },
-      "preferred_folder_exists": false,
-      "source_of_truth_status": "established",
-      "relocation_status": "Safe candidate for later relocation by clean clone from GitHub; do not manually move yet.",
-      "archive_candidate": "Current placeholder folder becomes an archive candidate only after canonical clone, test pass, and local-only .env review.",
-      "next_action": "Clone to canonical path in a separate cleanup task after John approval."
-    },
-    {
-      "project_name": "heater-batch-selection",
-      "current_local_folder": "C:\\Users\\JohnKim\\Documents\\New project 2",
-      "preferred_canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\heater-batch-selection",
-      "classification": "real app/code project",
-      "probable_purpose": "Internal heater batch selection MVP with CSV/Excel loading, SPP deterministic routing, and NepConnect Playwright-assisted manual-review flow.",
-      "has_code": true,
-      "code_paths": [
-        "src/heater_batch"
-      ],
-      "has_tests": true,
-      "validation": "python -m pytest previously passed 9 tests.",
-      "git_initialized": true,
-      "current_branch": "main",
-      "latest_local_commit": "6e32db7 docs: confirm heater GitHub source of truth",
-      "github_remote": "https://github.com/BohyungKim/heater-batch-selection.git",
-      "source_of_truth_status": "established",
-      "browser_automation_safety": "manual-review / safe dry-run only; no automated login, purchasing, submission, or production-impacting actions",
-      "relocation_status": "Not audited for relocation in this task; current path remains authoritative.",
-      "archive_candidate": "Future candidate after clean clone and browser safety/state file review.",
-      "next_action": "Keep as established; future browser automation changes require explicit safety review."
+      "latest_local_commit": "d4740a2 Initial commit",
+      "source_of_truth_status": "GitHub source of truth established, but canonical local Project-OS clone is dirty/old and needs sync review.",
+      "working_tree_status": "modified/untracked files present",
+      "next_action": "Audit canonical Project-OS clone before using it as the active Codex workspace."
     },
     {
       "project_name": "prg-contracts",
-      "current_local_folder": "C:\\Users\\JohnKim\\Documents\\New project 3",
-      "preferred_canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts",
-      "requested_remap_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\PRG",
+      "canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts",
+      "legacy_noncanonical_folder": "C:\\Users\\JohnKim\\Documents\\New project 3",
       "classification": "contract/schema repo",
-      "probable_purpose": "Contract-only PRG / Manufacturing Copilot schema, field registry, taxonomy, examples, and validation tool.",
-      "has_code": false,
-      "code_paths": [],
-      "has_tests": true,
-      "validation": "python tools/validate_prg_case.py examples/*.json previously passed for four sample files.",
       "git_initialized": true,
       "current_branch": "main",
-      "latest_local_commit": "3455ead docs: mark prg contracts source of truth established",
       "github_remote": "https://github.com/BohyungKim/prg-contracts.git",
-      "remote_main": {
-        "latest_commit": "3455ead docs: mark prg contracts source of truth established",
-        "is_source_of_truth": true,
-        "local_head_matches_origin_main": true
-      },
+      "latest_local_commit": "3455ead docs: mark prg contracts source of truth established",
       "source_of_truth_status": "established",
-      "relocation_status": "Do not replace with PRG as-is. Prefer a future clean clone into the canonical prg-contracts folder after PRG split review.",
-      "archive_candidate": "Current placeholder folder becomes an archive candidate only after canonical clone and PRG split review.",
-      "remap_audit_result": "PRG contains app/orchestrator/dashboard logic, tests, scripts, templates, and a local .env, and it is not a Git repo.",
-      "next_action": "Review PRG split decision before changing the prg-contracts local working-folder mapping."
+      "working_tree_status": "clean; main tracks origin/main",
+      "next_action": "Use canonical clone for future prg-contracts work."
     },
     {
-      "project_name": "PRG folder audit",
-      "current_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\PRG",
-      "preferred_canonical_local_folder": "Split required: contract/schema material to prg-contracts; app/orchestrator/dashboard logic to a separate PRG application repo.",
+      "project_name": "job-bom-comparator",
+      "canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent",
+      "recommended_github_repo": "BohyungKim/job-bom-comparator",
+      "classification": "real app/code project candidate",
+      "git_initialized": true,
+      "current_branch": "master",
+      "github_remote": null,
+      "latest_local_commit": "b520f4a Surface sibling and owner signals",
+      "source_of_truth_status": "not established; local git repo has no GitHub remote",
+      "working_tree_status": "many modified/untracked files; .env exists",
+      "next_action": "Audit secrets and working tree before adding GitHub remote or pushing."
+    },
+    {
+      "project_name": "planner-workload-analyzer",
+      "canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\planner-workload-analyzer",
+      "legacy_noncanonical_folder": "C:\\Users\\JohnKim\\Documents\\New project",
+      "classification": "real app/code project",
+      "git_initialized": false,
+      "github_remote": "https://github.com/BohyungKim/planner-workload-analyzer.git",
+      "source_of_truth_status": "GitHub main established; canonical local clone missing",
+      "working_tree_status": "missing canonical folder",
+      "next_action": "Clone into canonical root before future local work."
+    },
+    {
+      "project_name": "heater-batch-selection",
+      "canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\heater-batch-selection",
+      "legacy_noncanonical_folder": "C:\\Users\\JohnKim\\Documents\\New project 2",
+      "classification": "real app/code project",
+      "git_initialized": false,
+      "github_remote": "https://github.com/BohyungKim/heater-batch-selection.git",
+      "source_of_truth_status": "GitHub main established; canonical local clone missing",
+      "working_tree_status": "missing canonical folder",
+      "browser_automation_safety": "manual-review / safe dry-run only; no automated login, purchasing, submission, or production-impacting actions",
+      "next_action": "Clone into canonical root before future local work."
+    },
+    {
+      "project_name": "PRG",
+      "canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\PRG",
       "classification": "mixed app/orchestrator plus contract docs",
-      "probable_purpose": "PRG supply readiness/checker workspace with Epicor-facing app logic, factor scoring, templates, docs, sample data, and tests.",
-      "has_code": true,
-      "code_paths": [
-        "src/prg",
-        "scripts"
-      ],
-      "has_contract_docs": true,
-      "contract_doc_paths": [
-        "docs/PRG_DATA_CONTRACT.md",
-        "docs/epicor_schema_notes.md",
-        "docs/factors.md",
-        "docs/architecture.md",
-        "docs/decisions/001-factor-plugin-pattern.md"
-      ],
-      "has_dashboard_or_app_logic": true,
-      "app_logic_evidence": [
-        "src/prg/api.py",
-        "src/prg/epicor/client.py",
-        "src/prg/templates/index.html",
-        "scripts/daily_scan.py",
-        "scripts/run_against_job.py"
-      ],
-      "has_tests": true,
-      "test_paths": [
-        "tests/unit",
-        "tests/integration"
-      ],
       "git_initialized": false,
       "github_remote": null,
-      "env_or_secret_files_found": [
-        "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\PRG\\.env"
-      ],
-      "env_contents_read": false,
       "source_of_truth_status": "not established; audit-only",
-      "relocation_status": "Blocked until split decision. Do not force into prg-contracts as-is.",
-      "archive_candidate": false,
-      "next_action": "Prepare a split plan with exact files and validation steps."
+      "working_tree_status": ".env exists; app/orchestrator/dashboard code, docs, and tests are mixed",
+      "next_action": "Prepare split plan before assigning to prg-contracts or separate PRG app repo."
     },
     {
-      "project_name": "project-os legacy sync workspace",
-      "current_local_folder": "C:\\Users\\JohnKim\\Documents\\Codex\\2026-05-08\\agents-md-role-you-are-working",
-      "preferred_canonical_local_folder": null,
-      "classification": "operating/status repo",
+      "project_name": "BOM_Release_Console",
+      "canonical_local_folder": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\BOM_Release_Console",
+      "classification": "real app/code project candidate",
       "git_initialized": true,
-      "current_branch": "docs/agents-guidelines-sync-mainbase",
-      "github_remote": "https://github.com/BohyungKim/project-os.git",
-      "source_of_truth_status": "legacy workspace; not a separate source of truth",
-      "relocation_status": "Do not relocate; archive only after John confirms it is no longer needed.",
-      "archive_candidate": true,
-      "next_action": "Keep untouched until John approves archive."
+      "current_branch": "master",
+      "github_remote": null,
+      "latest_local_commit": "dd38668 Establish project baseline",
+      "source_of_truth_status": "not established; local git repo has no GitHub remote",
+      "working_tree_status": "modified/untracked files present",
+      "next_action": "Audit before onboarding."
     }
   ],
-  "recommended_local_folder_cleanup_plan": [
-    "First, review/merge the local folder mapping audit PR.",
-    "Second, clone planner-workload-analyzer into C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\planner-workload-analyzer and run tests.",
-    "Third, review local-only .env needs before archiving C:\\Users\\JohnKim\\Documents\\New project.",
-    "Fourth, prepare a PRG split plan before changing prg-contracts mapping.",
-    "Fifth, archive the project-os legacy sync workspace only after John confirms it is no longer needed."
+  "recommended_next_actions": [
+    "Treat C:\\Users\\JohnKim\\Desktop\\Bins\\Projects as the only canonical local project root.",
+    "Use C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts for future prg-contracts work.",
+    "Audit Job BOM Comparator Agent before adding remote or pushing.",
+    "Clone planner-workload-analyzer and heater-batch-selection into canonical root before future local work.",
+    "Audit canonical Project-OS clone because it is dirty/old compared with current GitHub main work."
   ],
-  "current_blocker": "PRG cannot safely become prg-contracts as-is because it is a mixed app/contracts folder, contains .env, and is not a Git repo."
+  "current_blocker": "Some established GitHub repos still have only legacy/non-canonical working folders, and Job BOM Comparator Agent has no GitHub remote yet."
 }

@@ -1,10 +1,11 @@
 {
-  "updated_at": "2026-05-09T11:52:00-04:00",
+  "updated_at": "2026-05-09T12:12:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "Local folder mapping audit preserved on a clean branch; PR pending",
+  "current_phase": "Canonical project root correction in progress on PR #8",
   "branch": "codex/local-folder-mapping-audit",
   "base_branch": "main",
+  "canonical_project_root": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects",
   "remote": {
     "origin_configured": true,
     "url": "https://github.com/BohyungKim/project-os.git",
@@ -20,57 +21,45 @@
     "head": "codex/local-folder-mapping-audit"
   },
   "confirmed": [
-    "project-os main includes PR #6.",
-    "Current project-os branch is codex/local-folder-mapping-audit.",
-    "Project-os PR #8 is open for the local folder mapping audit.",
-    "At the start of this task, the active worktree had no uncommitted changes.",
-    "The useful local folder mapping audit changes were already preserved on codex/correct-local-folder-mapping.",
-    "Those changes were carried forward onto a clean branch based on current origin/main.",
-    "planner-workload-analyzer current local path is C:\\Users\\JohnKim\\Documents\\New project.",
-    "Preferred canonical planner path is C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\planner-workload-analyzer.",
-    "PRG folder is not a Git repo and contains mixed app/orchestrator/dashboard logic plus contract docs.",
-    "PRG has a root .env; contents were not read.",
-    "Existing prg-contracts contract-only local path remains C:\\Users\\JohnKim\\Documents\\New project 3."
+    "Canonical local project root is C:\\Users\\JohnKim\\Desktop\\Bins\\Projects.",
+    "Documents\\New project* paths are non-canonical legacy paths.",
+    "Documents\\Codex paths are Codex execution workspaces, not the default project directory.",
+    "prg-contracts canonical clone now exists at C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts.",
+    "Job BOM Comparator Agent exists at C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent.",
+    "Job BOM Comparator Agent is a local git repo but has no remote.",
+    "Job BOM Comparator Agent has many modified/untracked files and a local .env.",
+    "Project-OS canonical folder exists at C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Project-OS.",
+    "Project-OS canonical folder has a GitHub remote but is dirty/old and needs sync review."
   ],
   "changed": [
-    "Updated project registry/status/map files to clearly mark current local path, preferred canonical local path, relocation status, and archive candidates.",
-    "Recorded that PRG should not replace prg-contracts as-is.",
-    "Recorded a safe planner cleanup plan using clean clone from GitHub.",
-    "Updated next task to canonicalize planner-workload-analyzer folder safely."
+    "Updated project registry and map to use C:\\Users\\JohnKim\\Desktop\\Bins\\Projects as canonical root.",
+    "Updated scripts/update-project-status.ps1 default scan paths to inspect canonical project folders.",
+    "Created canonical prg-contracts clone.",
+    "Updated latest report and next task to focus on Job BOM Comparator Agent onboarding."
   ],
-  "local_folder_mapping": {
-    "uncommitted_changes_existed_at_start": false,
-    "changes_preserved": true,
-    "source_previous_branch": "codex/correct-local-folder-mapping",
-    "clean_branch": "codex/local-folder-mapping-audit",
-    "usefulness_assessment": "Useful local folder mapping corrections. They prevent unsafe PRG/prg-contracts remapping and define safer canonical clone cleanup."
-  },
   "still_incomplete": [
-    "project-os PR #8 still needs John/ChatGPT review before merge.",
-    "No folders have been moved, renamed, deleted, or cloned yet.",
-    "PRG split decision has not been made."
+    "planner-workload-analyzer canonical clone is still missing.",
+    "heater-batch-selection canonical clone is still missing.",
+    "Job BOM Comparator Agent has not been onboarded to GitHub.",
+    "Canonical Project-OS folder has not been reconciled with current GitHub main work."
   ],
   "validation": {
     "commands_run": [
       {
-        "command": "git status --short --branch",
-        "result": "Initial active worktree had no uncommitted changes."
+        "command": "git clone https://github.com/BohyungKim/prg-contracts.git C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts",
+        "result": "succeeded"
       },
       {
-        "command": "git -C C:\\Users\\JohnKim\\Documents\\New project rev-list --left-right --count origin/main...HEAD",
-        "result": "0/0"
+        "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\prg-contracts status --short --branch",
+        "result": "clean on main...origin/main"
       },
       {
-        "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\PRG rev-parse --show-toplevel",
-        "result": "failed as expected because PRG is not a Git repo"
+        "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent status --short --branch",
+        "result": "local git repo on master with many modified/untracked files"
       },
       {
-        "command": "Get-Content state/project_registry.json | ConvertFrom-Json",
-        "result": "parsed successfully"
-      },
-      {
-        "command": "git diff --check",
-        "result": "passed"
+        "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Project-OS status --short --branch",
+        "result": "main...origin/main with modified/untracked files"
       }
     ]
   },

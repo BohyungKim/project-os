@@ -1,155 +1,106 @@
 # Codex Project Map
 
-Updated: 2026-05-09 11:52 -04:00
+Updated: 2026-05-09 12:12 -04:00
+
+## Canonical Project Root
+
+```text
+C:\Users\JohnKim\Desktop\Bins\Projects
+```
+
+All active project paths should be mapped under this root. `Documents\New project*` and `Documents\Codex\...` paths are non-canonical legacy/execution paths.
 
 ## Control Tower Layout
 
 ```text
-BohyungKim/project-os
-  central control tower
-  current local path: C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of
-  preferred canonical path: same as current for now
-  relocation status: no relocation needed now
+C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS
+  canonical local folder for BohyungKim/project-os
+  status: exists, git repo, but dirty/old and needs sync review
 
-BohyungKim/planner-workload-analyzer
-  established app repo
-  current local path: C:\Users\JohnKim\Documents\New project
-  preferred canonical path: C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer
-  relocation status: clone from GitHub later; do not manually move yet
+C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts
+  canonical local folder for BohyungKim/prg-contracts
+  status: clean clone, main tracks origin/main
 
-BohyungKim/heater-batch-selection
-  established app repo
-  current local path: C:\Users\JohnKim\Documents\New project 2
-  preferred canonical path: C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection
-  relocation status: not audited for relocation yet
-  safety note: browser automation stays dry-run/manual-review unless John explicitly approves otherwise
+C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent
+  canonical local folder for job-bom-comparator candidate
+  status: local git repo, no remote, dirty working tree
 
-BohyungKim/prg-contracts
-  established contract/schema repo
-  current verified local path: C:\Users\JohnKim\Documents\New project 3
-  preferred canonical path: C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts
-  requested PRG remap candidate: C:\Users\JohnKim\Desktop\Bins\Projects\PRG
-  remap status: blocked until PRG is split, because PRG is mixed app/contracts and has no git repo
-
-PRG folder audit
-  current local path: C:\Users\JohnKim\Desktop\Bins\Projects\PRG
-  preferred canonical ownership: split contract material and app/orchestrator material
-  relocation status: split decision required before repo assignment
+C:\Users\JohnKim\Desktop\Bins\Projects\PRG
+  canonical PRG workspace
+  status: mixed app/contracts folder, not git, .env exists
 ```
 
-## Project Relationships
+## Active Repo Facts
 
 ### project-os
 
-Role:
-- Central registry and operating layer.
-- Does not own application code.
-- Tracks which project repo is the source of truth for each initiative.
+Canonical local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS`
 
-ChatGPT entry point:
-- `docs/project-registry.md`
-- `state/project_registry.json`
-- `docs/repo-onboarding-status.md`
-- `reports/latest_execution_report.md`
+Remote:
+- `https://github.com/BohyungKim/project-os.git`
 
-### planner-workload-analyzer
-
-Role:
-- Real project repo for a read-only Microsoft Planner workload analyzer.
-
-Current status:
-- GitHub `main` is established.
-- Current local folder is still `C:\Users\JohnKim\Documents\New project`.
-- Current branch is `main`.
-- Local `HEAD` equals `origin/main` at `7427048`.
-- Working tree is clean.
-- `.env` exists locally but is ignored.
-
-Preferred canonical local path:
-- `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`
-
-Cleanup rule:
-- Prefer a clean clone from GitHub into the preferred path.
-- Do not manually move the current folder until John confirms the clone and any local-only `.env` needs.
-
-### heater-batch-selection
-
-Role:
-- Real Python app repo for internal heater batch selection.
-
-Current status:
-- GitHub `main` is established.
-- Current local folder is `C:\Users\JohnKim\Documents\New project 2`.
-- Browser automation must remain manual-review / safe dry-run only unless John explicitly approves a narrower production-safe change.
-
-Preferred canonical local path:
-- `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection`
-
-Cleanup rule:
-- Relocation was not audited in this task.
-- Keep the current local folder authoritative until a separate cleanup task verifies clone, tests, and browser safety files.
+Important:
+- The current Codex execution workspace for this PR is still under `Documents\Codex\...`.
+- That is not the canonical project directory.
+- The canonical `Project-OS` folder exists but is dirty/old and should be audited before becoming the active working copy.
 
 ### prg-contracts
 
-Role:
-- Contract-only PRG / Manufacturing Copilot schema repo.
-- Owns schemas, field registry, taxonomies, examples, and validator tooling.
-
-Current status:
-- GitHub `main` is established.
-- Current verified local folder is `C:\Users\JohnKim\Documents\New project 3`.
-- Local `HEAD` equals `origin/main` at `3455ead`.
-
-Preferred canonical local path:
+Canonical local path:
 - `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts`
 
-Important correction:
-- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` was audited as a requested remap candidate.
-- It contains contract docs, but also app/orchestrator/dashboard logic, scripts, templates, tests, and a root `.env`.
-- It is not a Git repo and has no remote URL.
-- Therefore it should not replace the current `prg-contracts` local folder as-is.
+Remote:
+- `https://github.com/BohyungKim/prg-contracts.git`
 
-### PRG Folder Audit
+Status:
+- Branch `main`.
+- Latest commit `3455ead`.
+- Clean working tree.
 
-Role:
-- Mixed PRG workspace with contract docs plus Python app/orchestrator/dashboard code.
+### Job BOM Comparator Agent
 
-Current local path:
+Canonical local path:
+- `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`
+
+Status:
+- Git repo exists.
+- Branch `master`.
+- No `origin` remote.
+- Latest commit `b520f4a`.
+- Many modified/untracked files.
+- `.env` exists.
+
+This should be treated as the next onboarding candidate, but it is not yet a GitHub source-of-truth repo.
+
+### PRG
+
+Canonical local path:
 - `C:\Users\JohnKim\Desktop\Bins\Projects\PRG`
 
-Relocation status:
-- Split before repo assignment.
-- Contract/schema material can be proposed for `prg-contracts` through a reviewed PR.
-- App/orchestrator/dashboard logic should be mapped to a separate PRG application repo if John wants it under source control.
-- Do not read or push `.env`.
+Status:
+- Not a Git repo.
+- Mixed app/orchestrator/dashboard and contract docs.
+- `.env` exists.
 
-### project-os legacy sync workspace
+Do not map this directly to `prg-contracts` without a split plan.
 
-Role:
-- Historical setup workspace for project-os operating rules.
+## Missing Canonical Clones
 
-Current local path:
-- `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working`
+These GitHub repos are established, but canonical local clones under `Desktop\Bins\Projects` are currently missing:
 
-Archive status:
-- Archive candidate after John confirms it is no longer needed.
-- Do not turn this into a separate repo.
+- `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`
+- `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection`
+
+Clone them into the canonical root before future local work.
 
 ## Archive Candidates
 
-- `C:\Users\JohnKim\Documents\New project`: archive candidate only after planner canonical clone is verified and `.env` needs are handled.
-- `C:\Users\JohnKim\Documents\New project 2`: future archive candidate only after heater canonical clone and browser safety review.
-- `C:\Users\JohnKim\Documents\New project 3`: future archive candidate only after `prg-contracts` canonical clone and PRG split review.
-- `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working`: archive candidate after John confirms the legacy sync workspace is no longer needed.
+Non-canonical legacy paths that should eventually be retired only after review:
 
-## Required Per-Project Source-Of-Truth Files
+- `C:\Users\JohnKim\Documents\New project`
+- `C:\Users\JohnKim\Documents\New project 2`
+- `C:\Users\JohnKim\Documents\New project 3`
+- `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of`
 
-Every real project repo should contain:
-
-- `AGENTS.md`
-- `README.md`
-- `state/current_state.md`
-- `state/current_state.json`
-- `reports/latest_execution_report.md`
-- `tasks/next_codex_task.md`
-- `decisions/decision_log.md`
+Do not delete these until John explicitly approves after canonical clones are verified.

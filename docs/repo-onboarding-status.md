@@ -1,112 +1,104 @@
 # Repo Onboarding Status
 
-Updated: 2026-05-09 11:52 -04:00
+Updated: 2026-05-09 12:12 -04:00
+
+Canonical project root:
+
+```text
+C:\Users\JohnKim\Desktop\Bins\Projects
+```
 
 ## Summary
 
-| Priority | Project | Current Local Path | Preferred Canonical Local Path | Onboarding Status | Relocation Status | Archive Candidate | Next Action |
-| ---: | --- | --- | --- | --- | --- | --- | --- |
-| 0 | project-os | `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of` | Same as current | Established | No relocation needed now | No | Review PR #8: `https://github.com/BohyungKim/project-os/pull/8` |
-| 1 | planner-workload-analyzer | `C:\Users\JohnKim\Documents\New project` | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | Established | Relocate later by clean clone from GitHub | Yes, after clone/tests/.env review | Clone canonical folder in separate cleanup task |
-| 2 | heater-batch-selection | `C:\Users\JohnKim\Documents\New project 2` | `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection` | Established | Not audited for relocation yet | Future candidate after clean clone/safety review | Keep manual-review / safe dry-run guardrails |
-| 3 | prg-contracts | `C:\Users\JohnKim\Documents\New project 3` | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` after PRG split review | Established as contract-only | Do not replace with `PRG` as-is | Yes, only after canonical clone and split review | Decide PRG split before remapping |
-| Audit | PRG folder | `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` | Split between `prg-contracts` and a separate PRG app/orchestrator repo | Not established as a repo | Split required | No | Prepare split plan; do not push or read `.env` |
-| N/A | project-os legacy sync workspace | `C:\Users\JohnKim\Documents\Codex\2026-05-08\agents-md-role-you-are-working` | None | Do not onboard | Do not relocate | Yes, after John confirmation | Archive later only with explicit approval |
+| Priority | Project | Canonical Local Path | GitHub Status | Local Status | Next Action |
+| ---: | --- | --- | --- | --- | --- |
+| 0 | project-os | `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS` | `BohyungKim/project-os` exists | Canonical clone exists but is dirty/old | Audit/sync before making it active workspace |
+| 1 | prg-contracts | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` | Established | Clean clone created, `main...origin/main` | Use this path going forward |
+| 2 | Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | No remote yet | Local git repo, dirty, `.env` exists | Secrets/working-tree audit before onboarding |
+| 3 | planner-workload-analyzer | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | Established | Canonical clone missing | Clone here before future work |
+| 4 | heater-batch-selection | `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection` | Established | Canonical clone missing | Clone here before future work |
+| 5 | PRG | `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` | No repo yet | Mixed workspace, not git, `.env` exists | Split plan before repo assignment |
 
-## Current Git Status Summary
+## Correction
 
-At the start of this task:
+The correct project directory is:
 
-- Active branch was `codex/correct-local-folder-mapping`.
-- Working tree had no uncommitted changes.
-- The useful mapping audit changes were already committed on that branch.
+```text
+C:\Users\JohnKim\Desktop\Bins\Projects
+```
 
-Action taken:
-
-- Updated local `main` to current `origin/main`, which includes PR #6.
-- Created clean branch `codex/local-folder-mapping-audit`.
-- Preserved the useful mapping audit content on the clean branch.
-
-## PRG / prg-contracts Mapping Audit
-
-Current established `prg-contracts` local folder:
-
-- `C:\Users\JohnKim\Documents\New project 3`
-
-Preferred future canonical contract folder:
-
-- `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts`
-
-Requested audit folder:
-
-- `C:\Users\JohnKim\Desktop\Bins\Projects\PRG`
-
-PRG audit result:
-
-- Contract/schema docs exist.
-- App/orchestrator/dashboard logic also exists under `src/prg`, `src/prg\templates`, and `scripts`.
-- Tests exist under `tests`.
-- `.env` exists at the root. Contents were not read.
-- No `.git` repo was found, so no remote URL is configured in that folder.
-
-Decision:
-
-- Do not force `PRG` into `prg-contracts` as-is.
-- Treat `PRG` as a mixed workspace that needs a split decision.
-- Keep the existing contract-only `prg-contracts` mapping until John confirms a split/relocation plan.
-
-## Planner Local Mapping
-
-Current verified folder:
+Do not default future project mappings to:
 
 - `C:\Users\JohnKim\Documents\New project`
+- `C:\Users\JohnKim\Documents\New project 2`
+- `C:\Users\JohnKim\Documents\New project 3`
+- `C:\Users\JohnKim\Documents\Codex\...`
 
-GitHub source of truth:
+Those are non-canonical legacy or execution workspaces.
 
-- `https://github.com/BohyungKim/planner-workload-analyzer.git`
+## Job BOM Comparator Status
 
-Preferred canonical folder:
+Current local repo:
 
-- `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`
+```text
+C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent
+```
 
-Confirmed on 2026-05-09:
+Confirmed:
 
+- Git repo exists.
+- Branch: `master`.
+- Remote: none.
+- Latest commit: `b520f4a Surface sibling and owner signals`.
+- Working tree has many modified/untracked files.
+- `.env` exists.
+
+Status:
+- Not a GitHub source-of-truth repo yet.
+- Do not push until secrets and working-tree scope are audited.
+
+## prg-contracts Status
+
+Canonical local repo:
+
+```text
+C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts
+```
+
+Confirmed:
+
+- Git repo exists.
 - Branch: `main`.
-- Local `HEAD`: `7427048 docs: confirm GitHub source of truth`.
-- Ahead/behind relative to `origin/main`: `0/0`.
-- Working tree: clean.
-- `.env` exists locally but is ignored; `.env.example` is tracked.
-- Preferred canonical folder does not exist yet.
+- Remote: `https://github.com/BohyungKim/prg-contracts.git`.
+- Latest commit: `3455ead docs: mark prg contracts source of truth established`.
+- Working tree is clean.
 
-Recommended cleanup:
+Legacy/non-canonical folder:
 
-- Prefer `git clone https://github.com/BohyungKim/planner-workload-analyzer.git C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer`.
-- Do not manually move the current folder unless John explicitly approves after confirming there are no needed local-only files.
+```text
+C:\Users\JohnKim\Documents\New project 3
+```
+
+Do not use the legacy folder as the default path going forward.
 
 ## Exact Next Prompt
 
 ```text
 Use project-os main as the central registry.
 
+Canonical project root:
+C:\Users\JohnKim\Desktop\Bins\Projects
+
 Task:
-Prepare a safe local folder cleanup for planner-workload-analyzer.
+Audit and prepare Job BOM Comparator Agent for GitHub source-of-truth onboarding.
 
-Current folder:
-C:\Users\JohnKim\Documents\New project
-
-Canonical folder:
-C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer
+Local folder:
+C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent
 
 Rules:
-- Do not delete or move the old folder yet.
-- Clone from GitHub into the canonical folder.
-- Run tests from the clone.
-- Confirm .env is still local-only and not committed.
-- Report whether the old placeholder folder can be archived later.
+- Do not push secrets.
+- Do not read .env contents.
+- Do not discard local changes.
+- Do not add a remote until the working tree and .gitignore are audited.
+- Report which files are modified/untracked and which should be included in the first onboarding commit.
 ```
-
-## Notes
-
-- Do not create GitHub repos automatically until John confirms names and ownership.
-- Do not push app code until `.env`/secret safety has been verified.
-- Do not merge any onboarding or mapping PR without John/ChatGPT review.

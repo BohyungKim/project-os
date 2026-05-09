@@ -267,3 +267,21 @@ Status:
 
 Risk:
 - If the old folder is removed before the clone is verified, John may lose local-only configuration such as `.env`.
+
+## 2026-05-09 - Canonical Project Root Is Desktop Bins Projects
+
+Decision:
+- Treat `C:\Users\JohnKim\Desktop\Bins\Projects` as the only canonical local project root.
+- Do not default future project mappings to `Documents\New project*` or `Documents\Codex\...`.
+
+Rationale:
+- John clarified that all active project directories are under `C:\Users\JohnKim\Desktop\Bins\Projects`.
+- The previous registry over-weighted temporary/legacy `Documents` paths and could cause Codex to inspect or update the wrong folder.
+
+Status:
+- Accepted and applied to the registry, project map, onboarding status, latest report, next task, and realtime status script.
+- Canonical `prg-contracts` clone was created at `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts`.
+
+Risk:
+- Some established GitHub repos still need canonical clones under the project root.
+- `Project-OS` canonical folder exists but is dirty/old and needs sync review before becoming the active Codex workspace.
