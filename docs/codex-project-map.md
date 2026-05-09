@@ -70,15 +70,16 @@ Status:
 - Pushed branch `codex/source-of-truth-onboarding`.
 - Remote HEAD branch `codex/source-of-truth-onboarding`.
 - GitHub `main` branch exists.
-- `main` and `codex/source-of-truth-onboarding` both point to `ba2ea94`.
-- Latest pushed commit `ba2ea94`.
+- `main` points to `ba2ea94`.
+- PR #1 branch `codex/source-of-truth-onboarding` points to `f619f49`.
+- Latest pushed feature commit `f619f49`.
 - Initial onboarding commit `42f2ee7`.
 - Tests pass: 87 passed with local venv pytest.
 - Source-of-truth files are committed locally.
 - Existing app/product changes remain modified/untracked and were not committed by this onboarding step.
 - `.env` exists locally but is not tracked.
 
-Stable `main` is established. GitHub default branch still reports `codex/source-of-truth-onboarding`, so future work should explicitly target `main` until the default branch is switched.
+Stable `main` is established. App/product changes are isolated in PR #1 for review. GitHub default branch still reports `codex/source-of-truth-onboarding`, so future work should explicitly target `main` until the default branch is switched.
 
 ### PRG
 

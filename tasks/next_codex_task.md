@@ -2,7 +2,7 @@
 
 ## Objective
 
-Review existing Job BOM Comparator app/product changes for the first feature PR.
+Review Job BOM Comparator PR #1 before merge.
 
 ## Scope
 
@@ -16,6 +16,8 @@ Review existing Job BOM Comparator app/product changes for the first feature PR.
   - `https://github.com/BohyungKim/job-bom-comparator.git`
 - Confirm `main` exists and use it as the stable base.
 - Confirm whether GitHub default branch has been switched to `main`.
+- Review PR #1:
+  - `https://github.com/BohyungKim/job-bom-comparator/pull/1`
 - Review existing modified/untracked app/product files before stable baseline promotion.
 
 ## Out Of Scope
@@ -49,8 +51,8 @@ Review existing Job BOM Comparator app/product changes for the first feature PR.
 ## Acceptance Criteria
 
 - `origin` points to `https://github.com/BohyungKim/job-bom-comparator.git`.
-- Job BOM Comparator `main` is confirmed on GitHub.
-- Dirty app/product changes are classified into safe feature scope.
+- Job BOM Comparator PR #1 risks are summarized.
+- John has a clear merge / revise / split recommendation.
 - Project-os registry files are updated in a PR.
 - No PR is merged automatically.
 

@@ -34,7 +34,7 @@ Every real project repo should eventually contain:
 | --- | --- | --- | --- | --- | --- | --- |
 | project-os | `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS` | Yes, branch `main` | `https://github.com/BohyungKim/project-os.git` | GitHub repo exists, but this local clone is dirty/old and needs sync review | Modified/untracked files present | Do not use as clean working copy until audited |
 | prg-contracts | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` | Yes, branch `main` | `https://github.com/BohyungKim/prg-contracts.git` | Established; canonical clone created | Clean, `main...origin/main`, latest `3455ead` | Use this path going forward |
-| Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | Yes, branch `codex/source-of-truth-onboarding` | `https://github.com/BohyungKim/job-bom-comparator.git` | Established on `main`; GitHub default branch still reports `codex/source-of-truth-onboarding` | `main` and onboarding branch both at `ba2ea94`; tests pass; existing app/product changes remain uncommitted; `.env` exists but is not tracked | Switch GitHub default branch to `main` if available, then review dirty app/product changes as feature work |
+| Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | Yes, branch `codex/source-of-truth-onboarding` | `https://github.com/BohyungKim/job-bom-comparator.git` | Established on `main`; app/product changes are isolated in PR #1 | `main` at `ba2ea94`; PR branch at `f619f49`; tests pass; `.env` exists but is not tracked | Review PR #1 and switch GitHub default branch to `main` if available |
 | BOM_Release_Console | `C:\Users\JohnKim\Desktop\Bins\Projects\BOM_Release_Console` | Yes, branch `master` | None | Local project only; GitHub source of truth not established | Modified/untracked files present | Audit before onboarding |
 | PRG | `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` | No | None | Not established; mixed app/contracts workspace | `.env`, app/orchestrator/dashboard code, docs, tests | Split before repo assignment |
 | planner-workload-analyzer | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | Missing path | `https://github.com/BohyungKim/planner-workload-analyzer.git` | GitHub source of truth established, but canonical local clone missing | Missing canonical clone | Clone here before future local work |
@@ -99,7 +99,9 @@ Status:
 - Origin remote: `https://github.com/BohyungKim/job-bom-comparator.git`
 - Pushed branch: `codex/source-of-truth-onboarding`
 - Remote HEAD branch: `codex/source-of-truth-onboarding`
-- Latest pushed commit: `ba2ea94 docs: establish job bom main baseline status`
+- Stable main commit: `ba2ea94 docs: establish job bom main baseline status`
+- Feature PR: `https://github.com/BohyungKim/job-bom-comparator/pull/1`
+- Feature branch commit: `f619f49 docs: link job bom feature review PR`
 - Initial onboarding commit: `42f2ee7 docs: prepare source-of-truth onboarding`
 - Previous app baseline commit: `b520f4a Surface sibling and owner signals`
 - Validation: dirty local tree `.\.venv\Scripts\python.exe -B -m pytest` -> 87 passed; clean pushed baseline worktree -> 48 passed
@@ -108,7 +110,7 @@ Status:
 - Tracked secret-like filename scan only found `.env.example`
 - Existing app/product changes remain modified or untracked and were preserved
 
-Stable `main` now exists and points to the same commit as `codex/source-of-truth-onboarding`. GitHub default branch still reports `codex/source-of-truth-onboarding`, so John may need to switch the default branch to `main` in GitHub settings.
+Stable `main` exists at `ba2ea94`. The app/product changes are isolated in PR #1 from `codex/source-of-truth-onboarding` to `main`; this PR must be reviewed before merge. GitHub default branch still reports `codex/source-of-truth-onboarding`, so John may need to switch the default branch to `main` in GitHub settings.
 
 ## Cleanup Plan
 
@@ -117,5 +119,5 @@ Stable `main` now exists and points to the same commit as `codex/source-of-truth
 3. Clone missing established repos into canonical paths:
    - `planner-workload-analyzer`
    - `heater-batch-selection`
-4. Switch `job-bom-comparator` default branch to `main` if GitHub still shows the onboarding branch as default.
+4. Review `job-bom-comparator` PR #1 before merge and switch the default branch to `main` if needed.
 5. Audit/split `PRG` before assigning it to `prg-contracts` or a PRG app repo.

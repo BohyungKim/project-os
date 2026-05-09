@@ -14,7 +14,7 @@ C:\Users\JohnKim\Desktop\Bins\Projects
 | ---: | --- | --- | --- | --- | --- |
 | 0 | project-os | `C:\Users\JohnKim\Desktop\Bins\Projects\Project-OS` | `BohyungKim/project-os` exists | Canonical clone exists but is dirty/old | Audit/sync before making it active workspace |
 | 1 | prg-contracts | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` | Established | Clean clone created, `main...origin/main` | Use this path going forward |
-| 2 | Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | `main` established in `BohyungKim/job-bom-comparator` | `main` and onboarding branch both at `ba2ea94`; default branch still reports onboarding branch; app changes preserved | Switch default branch to `main`, then review dirty app/product changes |
+| 2 | Job BOM Comparator Agent | `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent` | `main` established in `BohyungKim/job-bom-comparator` | `main` at `ba2ea94`; PR #1 branch at `f619f49`; default branch still reports onboarding branch | Review PR #1, then switch default branch to `main` if needed |
 | 3 | planner-workload-analyzer | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | Established | Canonical clone missing | Clone here before future work |
 | 4 | heater-batch-selection | `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection` | Established | Canonical clone missing | Clone here before future work |
 | 5 | PRG | `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` | No repo yet | Mixed workspace, not git, `.env` exists | Split plan before repo assignment |
@@ -52,7 +52,9 @@ Confirmed:
 - Origin remote: `https://github.com/BohyungKim/job-bom-comparator.git`.
 - Pushed branch: `codex/source-of-truth-onboarding`.
 - Remote HEAD branch: `codex/source-of-truth-onboarding`.
-- Latest pushed commit: `ba2ea94 docs: establish job bom main baseline status`.
+- Stable main commit: `ba2ea94 docs: establish job bom main baseline status`.
+- Feature PR: `https://github.com/BohyungKim/job-bom-comparator/pull/1`.
+- Feature branch commit: `f619f49 docs: link job bom feature review PR`.
 - Initial onboarding commit: `42f2ee7 docs: prepare source-of-truth onboarding`.
 - Previous app baseline commit: `b520f4a Surface sibling and owner signals`.
 - `AGENTS.md`, `.gitignore`, and source-of-truth state/report/task/decision files were committed locally.
@@ -63,12 +65,13 @@ Confirmed:
 - Existing app/product changes remain modified or untracked and were preserved.
 
 Status:
-- Stable `main` branch exists and points to the same commit as the onboarding branch.
+- Stable `main` branch exists.
+- App/product changes are isolated in PR #1.
 - GitHub default branch still reports `codex/source-of-truth-onboarding`.
 
 John action required:
 - Switch the GitHub default branch to `main` if the GitHub UI still shows `codex/source-of-truth-onboarding`.
-- Review existing modified/untracked app/product files as the next feature scope.
+- Review PR #1 before merge.
 
 ## prg-contracts Status
 
@@ -103,7 +106,7 @@ Canonical project root:
 C:\Users\JohnKim\Desktop\Bins\Projects
 
 Task:
-Review dirty Job BOM Comparator app/product changes for the first feature PR.
+Review Job BOM Comparator PR #1 before merge.
 
 Local folder:
 C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent

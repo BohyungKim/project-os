@@ -11,7 +11,9 @@ Project-os PR: `https://github.com/BohyungKim/project-os/pull/9`
 - Added/committed local app onboarding files in `C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent`.
 - Added `origin` and pushed `codex/source-of-truth-onboarding` to `https://github.com/BohyungKim/job-bom-comparator.git`.
 - Created stable `main` for `https://github.com/BohyungKim/job-bom-comparator.git`.
-- Updated project-os registry/status files to show the current blocker: GitHub default branch still reports the onboarding branch.
+- Opened app PR #1 for app/product review:
+  - `https://github.com/BohyungKim/job-bom-comparator/pull/1`
+- Updated project-os registry/status files to show the current blocker: PR #1 needs review and GitHub default branch still reports the onboarding branch.
 - Opened project-os PR #9 for review.
 
 ## What Did Not Change
@@ -78,13 +80,16 @@ Results:
 - `Job BOM Comparator Agent` branch `codex/source-of-truth-onboarding` is pushed.
 - `Job BOM Comparator Agent` branch `codex/source-of-truth-onboarding` is pushed.
 - `Job BOM Comparator Agent` branch `main` is pushed.
-- Latest remote commit is `ba2ea947f04d56bc8ca5f9a8ffe9879d8ec6234c`.
+- Stable main commit is `ba2ea947f04d56bc8ca5f9a8ffe9879d8ec6234c`.
+- PR #1 branch commit is `f619f49743a4be8c607236aa3aff32bc9866db1f`.
+- PR #1 is open and mergeable.
 - Job BOM Comparator tests pass: 87 passed.
 - `Project-OS` canonical clone exists but is dirty/old.
 - Realtime status now scans canonical Projects paths.
 
 ## Risks
 
+- PR #1 is large and needs review before merge.
 - GitHub default branch still reports `codex/source-of-truth-onboarding`.
 - Existing modified/untracked app/product files were preserved and need separate review before deciding what belongs in the first GitHub baseline.
 - `Project-OS` canonical clone is not clean; do not switch Codex work there until it is reconciled.
@@ -93,4 +98,5 @@ Results:
 ## What ChatGPT Should Review Next
 
 - Whether this project-os update accurately records the Job BOM Comparator blocker.
+- Whether PR #1 is safe to merge.
 - Whether John wants to switch the GitHub default branch to `main` in repo settings.

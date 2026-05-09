@@ -339,3 +339,20 @@ Status:
 
 Risk:
 - GitHub default branch still reports `codex/source-of-truth-onboarding`; John may need to switch it to `main` in GitHub settings.
+
+## 2026-05-09 - Review job-bom-comparator App Changes In PR #1
+
+Decision:
+- Keep `main` stable and review the app/product change set through PR #1 instead of merging automatically.
+
+Rationale:
+- The app/product change set is large and includes docs, UI, correction planning, writer scaffolding, and tests.
+- It needs specific review around Epicor write-back and production-impacting boundaries.
+- Tests pass, but passing tests are not enough to approve production-impacting behavior.
+
+Status:
+- PR #1 opened: `https://github.com/BohyungKim/job-bom-comparator/pull/1`.
+- PR #1 is open and mergeable.
+
+Risk:
+- Merging PR #1 without review could introduce write-path behavior before John explicitly approves it.

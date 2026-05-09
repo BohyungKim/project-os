@@ -2,7 +2,7 @@
   "updated_at": "2026-05-09T16:50:00-04:00",
   "timezone": "America/Toronto",
   "project_case": "Case 3 - Codex Continuation Sync",
-  "current_phase": "Job BOM Comparator main baseline established; GitHub default branch still needs review",
+  "current_phase": "Job BOM Comparator main baseline established; PR #1 is open for app/product review",
   "branch": "codex/job-bom-comparator-onboarding-status",
   "base_branch": "main",
   "canonical_project_root": "C:\\Users\\JohnKim\\Desktop\\Bins\\Projects",
@@ -35,10 +35,12 @@
     "Job BOM Comparator Agent canonical local folder is C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent.",
     "Job BOM Comparator Agent is on branch codex/source-of-truth-onboarding.",
     "Job BOM Comparator Agent local onboarding commit is 42f2ee7 docs: prepare source-of-truth onboarding.",
-    "Job BOM Comparator Agent latest pushed commit is ba2ea94 docs: establish job bom main baseline status.",
+    "Job BOM Comparator Agent stable main commit is ba2ea94 docs: establish job bom main baseline status.",
+    "Job BOM Comparator Agent feature branch latest commit is f619f49 docs: link job bom feature review PR.",
     "Origin remote is configured as https://github.com/BohyungKim/job-bom-comparator.git.",
     "Remote HEAD branch still reports codex/source-of-truth-onboarding.",
-    "Stable main branch exists and points to the same commit as codex/source-of-truth-onboarding.",
+    "Stable main branch exists.",
+    "App/product changes are isolated in PR #1: https://github.com/BohyungKim/job-bom-comparator/pull/1.",
     ".env exists locally, was not read, and is not tracked.",
     "Tracked secret-like filename scan found only .env.example.",
     "Job BOM Comparator Agent tests passed: 87 passed."
@@ -46,13 +48,14 @@
   "changed": [
     "Prepared Job BOM Comparator Agent local source-of-truth onboarding files.",
     "Committed the onboarding setup locally in the app repo.",
-    "Updated project-os registry and status files to record that main exists.",
+    "Updated project-os registry and status files to record that main exists and PR #1 is open.",
     "Opened project-os PR #9 for John review."
   ],
   "still_incomplete": [
     "planner-workload-analyzer canonical clone is still missing.",
     "heater-batch-selection canonical clone is still missing.",
     "GitHub default branch may still need to be switched to main.",
+    "App PR #1 needs John review before merge.",
     "Canonical Project-OS folder has not been reconciled with current GitHub main work."
   ],
   "validation": {
@@ -71,7 +74,7 @@
       },
       {
         "command": "git -C C:\\Users\\JohnKim\\Desktop\\Bins\\Projects\\Job BOM Comparator Agent push -u origin codex/source-of-truth-onboarding",
-        "result": "pushed branch to origin and created main"
+        "result": "created main and confirmed PR #1 branch"
       },
       {
         "command": ".\\.venv\\Scripts\\python.exe -B -m pytest",

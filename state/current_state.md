@@ -8,7 +8,7 @@ Case 3 - Codex Continuation Sync.
 
 ## Current Phase
 
-Job BOM Comparator `main` baseline established; GitHub default branch still needs review.
+Job BOM Comparator `main` baseline established; PR #1 is open for app/product review.
 
 ## Confirmed
 
@@ -37,8 +37,10 @@ Job BOM Comparator `main` baseline established; GitHub default branch still need
   - `https://github.com/BohyungKim/job-bom-comparator.git`
 - Origin is configured and the prepared branch has been pushed.
 - Remote HEAD branch is `codex/source-of-truth-onboarding`.
-- Latest remote commit is `ba2ea947f04d56bc8ca5f9a8ffe9879d8ec6234c`.
-- Stable `main` exists and points to the same commit as `codex/source-of-truth-onboarding`.
+- Stable `main` exists at `ba2ea947f04d56bc8ca5f9a8ffe9879d8ec6234c`.
+- App/product feature branch exists at `f619f49743a4be8c607236aa3aff32bc9866db1f`.
+- App PR #1 is open and mergeable:
+  - `https://github.com/BohyungKim/job-bom-comparator/pull/1`
 - GitHub default branch still reports as `codex/source-of-truth-onboarding`.
 - `.env` exists locally, was not read, and is not tracked.
 - Tracked secret-like filename scan found only `.env.example`.
@@ -48,7 +50,7 @@ Job BOM Comparator `main` baseline established; GitHub default branch still need
 
 - Prepared `Job BOM Comparator Agent` local source-of-truth onboarding files.
 - Committed the onboarding setup locally in the app repo.
-- Updated project-os registry and status files to record that `main` exists.
+- Updated project-os registry and status files to record that `main` exists and PR #1 is open.
 - Opened project-os PR #9 for John review.
 
 ## Still Incomplete
@@ -56,6 +58,7 @@ Job BOM Comparator `main` baseline established; GitHub default branch still need
 - `planner-workload-analyzer` canonical clone is still missing.
 - `heater-batch-selection` canonical clone is still missing.
 - GitHub default branch may still need to be switched to `main`.
+- App PR #1 needs John review before merge.
 - Canonical `Project-OS` folder has not been reconciled with current GitHub main work.
 
 ## Uncertain
@@ -82,10 +85,11 @@ git -C "C:\Users\JohnKim\Desktop\Bins\Projects\Job BOM Comparator Agent" ls-file
 
 Results:
 - `prg-contracts` canonical clone is clean on `main...origin/main`.
-- `Job BOM Comparator Agent` `main` and `codex/source-of-truth-onboarding` both point to `ba2ea947f04d56bc8ca5f9a8ffe9879d8ec6234c`.
+- `Job BOM Comparator Agent` `main` points to `ba2ea947f04d56bc8ca5f9a8ffe9879d8ec6234c`.
+- `Job BOM Comparator Agent` PR #1 branch points to `f619f49743a4be8c607236aa3aff32bc9866db1f`.
 - `Job BOM Comparator Agent` test result: 87 passed.
 - `Project-OS` canonical folder is dirty/old and needs review.
 
 ## Current Risk
 
-Medium-low. Stable `main` exists, but GitHub default branch still reports `codex/source-of-truth-onboarding`; future work should explicitly target `main` until default branch is switched.
+Medium. Stable `main` exists, but PR #1 contains a large app/product change set and must be reviewed carefully, especially around Epicor write-back boundaries. GitHub default branch still reports `codex/source-of-truth-onboarding`.
