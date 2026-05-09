@@ -6,7 +6,7 @@ Updated: 2026-05-09 11:52 -04:00
 
 | Priority | Project | Current Local Path | Preferred Canonical Local Path | Onboarding Status | Relocation Status | Archive Candidate | Next Action |
 | ---: | --- | --- | --- | --- | --- | --- | --- |
-| 0 | project-os | `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of` | Same as current | Established | No relocation needed now | No | Review this mapping audit PR |
+| 0 | project-os | `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of` | Same as current | Established | No relocation needed now | No | Review PR #8: `https://github.com/BohyungKim/project-os/pull/8` |
 | 1 | planner-workload-analyzer | `C:\Users\JohnKim\Documents\New project` | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | Established | Relocate later by clean clone from GitHub | Yes, after clone/tests/.env review | Clone canonical folder in separate cleanup task |
 | 2 | heater-batch-selection | `C:\Users\JohnKim\Documents\New project 2` | `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection` | Established | Not audited for relocation yet | Future candidate after clean clone/safety review | Keep manual-review / safe dry-run guardrails |
 | 3 | prg-contracts | `C:\Users\JohnKim\Documents\New project 3` | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` after PRG split review | Established as contract-only | Do not replace with `PRG` as-is | Yes, only after canonical clone and split review | Decide PRG split before remapping |

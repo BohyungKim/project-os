@@ -15,6 +15,8 @@ Local folder mapping audit preserved on a clean branch; PR pending.
 - `project-os/main` includes PR #6.
 - Current `project-os` branch: `codex/local-folder-mapping-audit`.
 - `project-os` remote: `https://github.com/BohyungKim/project-os.git`.
+- Project-os PR #8 is open:
+  - `https://github.com/BohyungKim/project-os/pull/8`
 - At the start of this task, the active worktree had no uncommitted changes.
 - The useful local folder mapping audit changes were already preserved on `codex/correct-local-folder-mapping`.
 - Those changes were carried forward onto a clean branch based on current `origin/main`.
@@ -33,7 +35,7 @@ Local folder mapping audit preserved on a clean branch; PR pending.
 
 ## Still Incomplete
 
-- This mapping audit branch still needs to be pushed and opened as a PR.
+- `project-os` PR #8 still needs John/ChatGPT review before merge.
 - No folders have been moved, renamed, deleted, or cloned yet.
 - PRG split decision has not been made.
 

@@ -10,6 +10,7 @@
   },
   "local_folder_mapping_audit": {
     "branch": "codex/local-folder-mapping-audit",
+    "pull_request": "https://github.com/BohyungKim/project-os/pull/8",
     "source_previous_branch": "codex/correct-local-folder-mapping",
     "uncommitted_changes_at_start": false,
     "preserved": true,
@@ -29,7 +30,7 @@
       "source_of_truth_status": "established",
       "relocation_status": "No relocation needed now.",
       "archive_candidate": false,
-      "next_action": "Review this local folder mapping audit PR."
+      "next_action": "Review PR #8: https://github.com/BohyungKim/project-os/pull/8"
     },
     {
       "project_name": "planner-workload-analyzer",

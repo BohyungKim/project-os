@@ -22,7 +22,7 @@ Each real project should eventually have its own GitHub repository with:
 
 | Project | Current Local Path | Preferred Canonical Local Path | Classification | GitHub Remote | Source-of-Truth Status | Relocation Status | Archive Candidate | Next Action |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| project-os | `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of` | Same as current for now | operating/status repo | `https://github.com/BohyungKim/project-os.git` | Established; `main` is central registry truth | No relocation needed now | No | Review this local folder mapping audit PR |
+| project-os | `C:\Users\JohnKim\Documents\Codex\2026-05-08\repo-github-codex-chatgpt-source-of` | Same as current for now | operating/status repo | `https://github.com/BohyungKim/project-os.git` | Established; `main` is central registry truth | No relocation needed now | No | Review PR #8: `https://github.com/BohyungKim/project-os/pull/8` |
 | planner-workload-analyzer | `C:\Users\JohnKim\Documents\New project` | `C:\Users\JohnKim\Desktop\Bins\Projects\planner-workload-analyzer` | real app/code project | `https://github.com/BohyungKim/planner-workload-analyzer.git` | Established; local `HEAD` equals `origin/main` at `7427048` | Safe to relocate later by clean clone from GitHub; do not manually move yet | Current placeholder folder becomes archive candidate only after clone/tests/.env review | Clone to canonical path in a separate explicit cleanup task |
 | heater-batch-selection | `C:\Users\JohnKim\Documents\New project 2` | `C:\Users\JohnKim\Desktop\Bins\Projects\heater-batch-selection` | real app/code project | `https://github.com/BohyungKim/heater-batch-selection.git` | Established; GitHub `main` is source of truth at `6e32db7` | Relocation not audited yet; current path remains authoritative for now | Future archive candidate after clean clone and safety check | Keep browser automation manual-review / safe dry-run |
 | prg-contracts | `C:\Users\JohnKim\Documents\New project 3` | `C:\Users\JohnKim\Desktop\Bins\Projects\prg-contracts` after PRG split review | contract/schema repo | `https://github.com/BohyungKim/prg-contracts.git` | Established as contract-only; local `HEAD` equals `origin/main` at `3455ead` | Do not replace with `C:\Users\JohnKim\Desktop\Bins\Projects\PRG` as-is | Current placeholder folder becomes archive candidate only after clean clone and PRG split review | Decide PRG split before changing mapping |
@@ -34,6 +34,7 @@ Each real project should eventually have its own GitHub repository with:
 The useful local folder mapping corrections were preserved and moved onto a clean branch from current `project-os/main`:
 
 - Branch: `codex/local-folder-mapping-audit`
+- PR: `https://github.com/BohyungKim/project-os/pull/8`
 - Source of previous useful work: `codex/correct-local-folder-mapping`
 - Main base: `origin/main` after PR #6 merge
 

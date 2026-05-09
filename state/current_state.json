@@ -11,17 +11,18 @@
     "push_possible": true
   },
   "pull_request": {
-    "created": false,
-    "number": null,
-    "url": null,
-    "state": null,
-    "draft": null,
+    "created": true,
+    "number": 8,
+    "url": "https://github.com/BohyungKim/project-os/pull/8",
+    "state": "open",
+    "draft": false,
     "base": "main",
     "head": "codex/local-folder-mapping-audit"
   },
   "confirmed": [
     "project-os main includes PR #6.",
     "Current project-os branch is codex/local-folder-mapping-audit.",
+    "Project-os PR #8 is open for the local folder mapping audit.",
     "At the start of this task, the active worktree had no uncommitted changes.",
     "The useful local folder mapping audit changes were already preserved on codex/correct-local-folder-mapping.",
     "Those changes were carried forward onto a clean branch based on current origin/main.",
@@ -45,7 +46,7 @@
     "usefulness_assessment": "Useful local folder mapping corrections. They prevent unsafe PRG/prg-contracts remapping and define safer canonical clone cleanup."
   },
   "still_incomplete": [
-    "This mapping audit branch still needs to be pushed and opened as a PR.",
+    "project-os PR #8 still needs John/ChatGPT review before merge.",
     "No folders have been moved, renamed, deleted, or cloned yet.",
     "PRG split decision has not been made."
   ],

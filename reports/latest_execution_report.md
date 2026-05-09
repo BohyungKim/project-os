@@ -2,7 +2,7 @@
 
 Date: 2026-05-09
 Branch: `codex/local-folder-mapping-audit`
-Project-os PR: pending creation
+Project-os PR: `https://github.com/BohyungKim/project-os/pull/8`
 
 ## What Changed
 
@@ -11,6 +11,8 @@ Project-os PR: pending creation
 - Confirmed the useful audit work had already been preserved as commits on `codex/correct-local-folder-mapping`.
 - Updated local `main` to current `origin/main`, which includes PR #6.
 - Created clean branch `codex/local-folder-mapping-audit`.
+- Opened project-os PR #8:
+  - `https://github.com/BohyungKim/project-os/pull/8`
 - Preserved the useful mapping corrections on the clean branch.
 - Updated registry/status/map/report/task/decision files only.
 
